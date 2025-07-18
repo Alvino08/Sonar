@@ -1,0 +1,106 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+@source "../views";
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+/* Tambahkan animasi custom di bawah sini */
+@layer utilities {
+  /* === Generalized Fade-In with Direction === */
+  @keyframes fadeInX {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes SlideX {
+    0% {
+      transform: translateX(var(--tw-translate-start));
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes MorphX {
+    0%{
+        transform: scale(1);
+    }
+    100%{
+        transform: scale(1.56);
+    }
+  }
+
+   .animate-slide-1{
+    --tw-translate-start: -200px;
+    transform: translateX(var(--tw-translate-start));
+    animation: 
+        fadeInX 1s 0.3s ease-in-out forwards, 
+        SlideX 2.7s cubic-bezier(0.7, 0, 0.2, 1) forwards,
+        MorphX 1s 3.5s forwards;
+  }
+
+  .animate-slide-2{
+    --tw-translate-start: 200px;
+    transform: translateX(var(--tw-translate-start));
+    animation:
+        fadeInX 1s 0.4s ease-in-out forwards, 
+        SlideX 3s cubic-bezier(0.7, 0, 0.2, 1) forwards,
+        MorphX 1s 3.5s forwards;
+  }
+
+  .animate-slide-3{
+    --tw-translate-start: 150px;
+    transform: translateX(var(--tw-translate-start));
+    animation: 
+        fadeInX 1s 0.4s ease-in-out forwards, 
+        SlideX 2.5s cubic-bezier(0.7, 0, 0.2, 1) forwards,
+        MorphX 1s 3.5s forwards;
+  }
+
+  .animate-slide-4{
+    --tw-translate-start: -200px;
+    transform: translateX(var(--tw-translate-start));
+    animation: 
+        fadeInX 1s 0.7s ease-in-out forwards, 
+        SlideX 3s cubic-bezier(0.7, 0, 0.2, 1) forwards,
+        MorphX 1s 3.5s forwards;
+  }
+
+  .animate-slide-5{
+    --tw-translate-start: 100px;
+    transform: translateX(var(--tw-translate-start));
+    animation: 
+        fadeInX 1s 0.3s ease-in-out forwards, 
+        SlideX 2s cubic-bezier(0.7, 0, 0.2, 1) forwards,
+        MorphX 1s 3.5s forwards;
+  }
+
+  .animate-slide-6{
+    --tw-translate-start: -80px;
+    transform: translateX(var(--tw-translate-start));
+    animation: 
+        fadeInX 1s 0.9s ease-in-out forwards, 
+        SlideX 3.5s cubic-bezier(0.7, 0, 0.2, 1) forwards,
+        MorphX 1s 3.5s forwards;
+  } 
+
+
+  /* === Delay Utilities === */
+  /* .delay-0    { animation-delay: 0ms; }
+  .delay-200  { animation-delay: 200ms; }
+  .delay-400  { animation-delay: 400ms; }
+  .delay-600  { animation-delay: 600ms; }
+  .delay-800  { animation-delay: 800ms; }
+  .delay-1000 { animation-delay: 1000ms; } */
+}
