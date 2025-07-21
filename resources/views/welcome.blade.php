@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Full Masked Video</title>
+    <title>Sonar Inc.</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     
     <style>
@@ -186,7 +186,7 @@
           </div>
 
           <!-- Card 3: AUDIOPOST -->
-          <div class="group card relative overflow-hidden shadow-lg over:scale-105 ">
+          <a class="group card relative overflow-hidden shadow-lg over:scale-105" href="{{ route('audiopost') }}">
             <div class="line absolute top-0 left-0 h-[2px] bg-white w-full" style="width: 0%; visibility: hidden;"></div>
             <img src="/images/photo3.jpg" alt="Card 1" class="w-full h-full object-cover card-image" />
             <div class="absolute inset-0 pointer-events-none z-10">
@@ -196,7 +196,7 @@
               <p class="card-text font-bebas text-[8vw] leading-[0.75] tracking-tight">AUDIO</p>
               <p class="card-text font-bebas text-[8vw] leading-[0.75] tracking-tight translate-x-[10%]">POST</p>
             </div>
-          </div>
+          </a>
 
           <!-- Card 4: UI/UX -->
           <div class="group card relative overflow-hidden shadow-lg over:scale-105 ">
@@ -248,7 +248,7 @@
 
 
       const HOVER_ANIMATION_DURATION = 400;
-      const TRANSITION_IN_DURATION = 2500;
+      const TRANSITION_IN_DURATION = 10000;
       const TRANSITION_OUT_DURATION = 1500;
 
       const logoHoverArea = document.getElementById('logoHoverArea');
@@ -306,7 +306,7 @@
           page2Container.classList.add('fade-in');
           window.initScrollAnimations();
           window.cardScrollAnimations();
-        }, TRANSITION_IN_DURATION);
+        }, 2500);
       }
 
       // function backToPage1() {

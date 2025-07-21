@@ -20,3 +20,17 @@
     </div>
 </body>
 </html>
+
+{{-- <div class="w-[435px] h-[435px]">
+      <img src="/Audiopost/Jelita.png" class="transform rotate-[20deg]">
+    </div>
+
+    <div class="h-[515px] w-[375px] flex-col items-center justify-center text-center">
+      <p class="text-[100px] font-bold text-white mb-[-100px] tracking-tighter">SONAR</p>
+      <p class="text-[190px] font-bold text-white tracking-tighter">AUDIO</p>
+      <p class="text-[100px] font-bold text-white mt-[-90px] tracking-tighter">POST</p>
+    </div>
+
+    <div class="w-[435px] h-[435px]">
+      <img src="/Audiopost/Jelita.png"  class="transform rotate-[-10deg]">
+    </div> --}}
