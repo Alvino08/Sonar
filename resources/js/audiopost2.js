@@ -3,20 +3,21 @@ import Alpine from 'alpinejs';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/SplitText";
 
-gsap.registerPlugin(ScrollTrigger, SplitText);
+
+gsap.registerPlugin(ScrollTrigger);
 
 window.onload = () => {
-  window.Alpine = Alpine
+    window.Alpine = Alpine
+    
+    Alpine.start()
+    document.body.classList.remove("invisible");
 
-  Alpine.start()
-  document.body.classList.remove("invisible");
+    const firstSection = document.getElementById("first-section");
+    const img1 = document.getElementById("img-1");
+    const img2 = document.getElementById("img-2");
+    const img3 = document.getElementById("img-3");
 
-  const firstSection = document.getElementById("first-section");
-  const img1 = document.getElementById("img-1");
-  const img2 = document.getElementById("img-2");
-  const img3 = document.getElementById("img-3");
-
-  const tl = gsap.timeline();
+    const tl = gsap.timeline();
 
   tl.fromTo(img2, { scale: 5, opacity: 0 }, { scale: 1, opacity: 1, duration: 1 })
     .fromTo(img1, { x: 150, opacity: 0 }, { x: 0, opacity: 1, duration: 1 }, 1.2)
@@ -31,15 +32,23 @@ window.onload = () => {
       opacity: 0,
       duration: 0.5,
       onComplete: () => {
-        // Ganti isi first-section dengan isi template second-section
-        const template = document.getElementById("second-section");
-        firstSection.innerHTML = template.innerHTML;
-        firstSection.classList.remove("bg-black");
-        // firstSection.classList.add("relative"); // agar panel bisa diposisikan
-        firstSection.id = "container"; // ubah ID agar trigger tetap bekerja
-        setupScrollTrigger(); // Aktifkan scroll
-      }
-    }, "<");
+        // Sembunyikan first-section
+        gsap.to(firstSection, {
+            opacity: 0,
+            duration: 0.5,
+            onComplete: () => {
+            firstSection.style.display = "none";
+            // Tampilkan second-section
+            const secondSection = document.getElementById("second-section");
+            secondSection.classList.remove("hidden");
+
+            // Mulai ScrollTrigger setelah second-section aktif
+            setupScrollTrigger();
+            }
+        });
+        }
+    }, "<");    
+    
 };
 
 function setupScrollTrigger() {
@@ -60,8 +69,8 @@ function setupScrollTrigger() {
     }
   });
 
-  const leftImg = document.getElementById("left-photo");
-  const rightImg = document.getElementById("right-photo");
+  const leftImg = document.getElementById("left-img");
+  const rightImg = document.getElementById("right-img");
 
   const splitTargets = [ "#sonar", "#audio", "#post" ];
   const splitLines = [];

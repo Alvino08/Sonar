@@ -1,36 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  @vite(['resources/css/app.css', 'resources/js/loading.js'])
+  <title>Layered Scroll</title>
+  <style>
+    #container {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .panel {
+      width: 100%;
+      height: 100vh;
+      position: absolute;
+      will-change: transform;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 30px;
+      font-weight: 900;
+    }
+
+    .panel.red {
+      background: red;
+    }
+
+    .panel.purple {
+      background: purple;
+    }
+
+    .panel.tomato {
+      background: tomato;
+    }
+
+    section.content {
+      position: relative;
+      height:300vh;
+      background-color:teal;
+      color:#fff;
+      display: flex; 
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+    }
+
+    h1{
+      color: white;
+      font-size: 30px;
+      font-weight: 900;
+    }
+  </style>
 </head>
 <body>
-    <div id="preloader" class="fixed inset-0 bg-black flex items-center justify-center z-[9999] transition-opacity duration-500 h-screen w-screen">
-        <div class="flex items-center">
-            <img src="/sonar/Sonar Logo Sep 1.png" alt="Card 1" class="w-96 h-96 object-contain mr-[-380px] z-10 animate-slide-6 "/> <!--6-->
-            <img src="/sonar/Sonar Logo Sep 2.png" alt="Card 2" class="w-96 h-96 object-contain mr-[-380px] z-10 animate-slide-4" /> <!--4-->
-            <img src="/sonar/Sonar Logo Sep 3.png" alt="Card 3" class="w-96 h-96 object-contain mr-[-380px] z-30 animate-slide-5 "/> <!--5-->
-            <img src="/sonar/Sonar Logo Sep 5.png" alt="Card 4" class="w-96 h-96 object-contain mr-[-380px] z-10 animate-slide-1 "/> <!--1-->
-            <img src="/sonar/Sonar Logo Sep 4.png" alt="Card 5" class="w-96 h-96 object-contain mr-[-380px] z-10 animate-slide-3 "/> <!--3-->
-            <img src="/sonar/Sonar Logo Sep 6.png" alt="Card 6" class="w-96 h-96 object-contain animate-slide-2 "/> <!--2-->
+  <div data-scroll-container> 
+    <section id="container"> 
+      <div class="panel red">
+        <div>
+          ONE
         </div>
-    </div>
+      </div>
+      <div class="panel purple">
+        <div>
+          TWO
+        </div>
+      </div>
+      <div class="panel tomato">
+        <div>
+          THREE
+        </div>
+      </div>
+    </section>
+    <section class="content">
+      <h1>Content outside of layered pinning</h1>
+      <h1>Content outside of layered pinning</h1>
+      <h1>Content outside of layered pinning</h1>
+    </section>
+  </div>
+
+
 </body>
 </html>
-
-{{-- <div class="w-[435px] h-[435px]">
-      <img src="/Audiopost/Jelita.png" class="transform rotate-[20deg]">
-    </div>
-
-    <div class="h-[515px] w-[375px] flex-col items-center justify-center text-center">
-      <p class="text-[100px] font-bold text-white mb-[-100px] tracking-tighter">SONAR</p>
-      <p class="text-[190px] font-bold text-white tracking-tighter">AUDIO</p>
-      <p class="text-[100px] font-bold text-white mt-[-90px] tracking-tighter">POST</p>
-    </div>
-
-    <div class="w-[435px] h-[435px]">
-      <img src="/Audiopost/Jelita.png"  class="transform rotate-[-10deg]">
-    </div> --}}
