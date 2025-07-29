@@ -36,14 +36,53 @@
     .collapsible.is-open {
       opacity: 1;
     }
+
+    .stock-ticker {
+        font-size: 64px;
+        padding-block: 8px;
+        overflow: hidden;
+        user-select: none;
+
+        --gap: 20px;
+        display: flex;
+        gap: var(--gap);
+        }
+
+    .stock-ticker ul {
+    list-style: none;
+    flex-shrink: 0;
+    min-width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--gap);
+
+
+    animation: scroll 20s linear infinite;
+    }
+
+    .stock-ticker:hover ul {
+    animation-play-state: paused;
+    }
+
+    @keyframes scroll {
+    to {
+        transform: translateX(calc(-100% - var(--gap)));
+    }
+    }
+    
+    .stock-ticker .company,
+    .stock-ticker .price {
+    font-weight: bold;
+    }
   </style>
 </head>
-<body class="overflow-x-hidden invisible">
+<body class="overflow-x-hidden invisible bg-[#121212]">
   <x-navbar />
 
 
 
-    <div id="first-section overflow-hidden">
+    <div id="first-section" class="overflow-hidden">
         <div id="first-section" class="h-screen w-full bg-[#121212] flex items-center justify-center">
             <div class="h-[440px] w-[970px] flex items-center">
                 <img src="/Audiopost/Jelita.png" id="img-1" class="w-[345px] h-[345px] z-10 mr-[-80px]">
@@ -53,7 +92,7 @@
         </div>
     </div>
 
-    <div id="second-section" class="hidden"> 
+    <div id="second-section" class="bg-[#121212] hidden"> 
         <section id="container"> 
             <div class="panel">
                 <div id="halaman-pertama" class="halaman-pertama h-screen w-full bg-[#121212] items-center justify-between overflow-x-hidden flex">
@@ -72,7 +111,7 @@
             </div>
 
             <div class="panel">
-                <div id="halaman-kedua" class="halaman-kedua h-screen w-full bg-[#202020] items-center overflow-x-hidden flex justify-center">
+                <div id="halaman-kedua" class="halaman-kedua h-screen w-full bg-[#202020] items-center overflow-x-hidden flex flex-col justify-center">
                     <div class="h-[600px] w-[475px] text-center flex flex-col justify-center">
                     <p id="line1" class="text-[#727070] font-semibold text-[100px] tracking-tighter leading-none">We strive</p>
                     <div class="flex items-center justify-center">
@@ -90,7 +129,116 @@
         </section>
 
         <section class="content">
-            <div id="halaman-keempat" class="min-h-screen w-full bg-[#d0d0d0] overflow-x-hidden p-5 pb-30">
+            <div id="halaman-keempat" class="min-h-screen w-full bg-[#d0d0d0] overflow-x-hidden p-5 pb-30 flex justify-between">
+                <div class="bg-red-500 min-h-[300px] w-[700px]">
+                    <div class="stock-ticker">
+                    <ul>
+                        <li>
+                        <span class="company">OUR</span>
+                        <span class="company">©</span>
+                        <span class="company">SERVICES</span>
+                        <span class="company">©</span>
+                        </li>
+                        <li>
+                        <span class="company">OUR</span>
+                        <span class="company">©</span>
+                        <span class="company">SERVICES</span>
+                        <span class="company">©</span>
+                        </li>
+                        <li>
+                        <span class="company">OUR</span>
+                        <span class="company">©</span>
+                        <span class="company">SERVICES</span>
+                        <span class="company">©</span>
+                        </li>
+                        <li>
+                        <span class="company">OUR</span>
+                        <span class="company">©</span>
+                        <span class="company">SERVICES</span>
+                        <span class="company">©</span>
+                        </li>
+                        <li>
+                        <span class="company">OUR</span>
+                        <span class="company">©</span>
+                        <span class="company">SERVICES</span>
+                        <span class="company">©</span>
+                        </li>
+                        <li>
+                        <span class="company">OUR</span>
+                        <span class="company">©</span>
+                        <span class="company">SERVICES</span>
+                        <span class="company">©</span>
+                        </li>
+                        <li>
+                        <span class="company">OUR</span>
+                        <span class="company">©</span>
+                        <span class="company">SERVICES</span>
+                        <span class="company">©</span>
+                        </li>
+                        <li>
+                        <span class="company">OUR</span>
+                        <span class="company">©</span>
+                        <span class="company">SERVICES</span>
+                        <span class="company">©</span>
+                        </li>
+                    </ul>
+
+                    <ul aria-hidden="true">
+                        <li>
+                        <span class="company">OUR</span>
+                        <span class="company">©</span>
+                        <span class="company">SERVICES</span>
+                        <span class="company">©</span>
+                        </li>
+                        <li>
+                        <span class="company">OUR</span>
+                        <span class="company">©</span>
+                        <span class="company">SERVICES</span>
+                        <span class="company">©</span>
+                        </li>
+                        <li>
+                        <span class="company">OUR</span>
+                        <span class="company">©</span>
+                        <span class="company">SERVICES</span>
+                        <span class="company">©</span>
+                        </li>
+                        <li>
+                        <span class="company">OUR</span>
+                        <span class="company">©</span>
+                        <span class="company">SERVICES</span>
+                        <span class="company">©</span>
+                        </li>
+                        <li>
+                        <span class="company">OUR</span>
+                        <span class="company">©</span>
+                        <span class="company">SERVICES</span>
+                        <span class="company">©</span>
+                        </li>
+                        <li>
+                        <span class="company">OUR</span>
+                        <span class="company">©</span>
+                        <span class="company">SERVICES</span>
+                        <span class="company">©</span>
+                        </li>
+                        <li>
+                        <span class="company">OUR</span>
+                        <span class="company">©</span>
+                        <span class="company">SERVICES</span>
+                        <span class="company">©</span>
+                        </li>
+                        <li>
+                        <span class="company">OUR</span>
+                        <span class="company">©</span>
+                        <span class="company">SERVICES</span>
+                        <span class="company">©</span>
+                        </li>
+                    </ul>
+                    </div>
+
+                    <div id="logo-sonar">
+
+                    </div>
+                </div>
                 <div id="container-3" class="flex justify-end pt-30 pr-[200px]">
                     <div class="min-h-[300px] w-[700px] flex flex-col space-y-4"
                     x-data="{

@@ -17,3 +17,7 @@ Route::get('/audiopost2', function () {
 Route::get('/loading', function () {
     return view('loading');
 })->name("loading");
+
+Route::get('/logo', function () {
+    return view('logo-sonar');
+})->name("logo");

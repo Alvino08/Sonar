@@ -3,11 +3,35 @@ import Alpine from 'alpinejs';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/SplitText";
 
-
 gsap.registerPlugin(ScrollTrigger);
 
 window.onload = () => {
     window.Alpine = Alpine
+
+    // const wrapper = document.getElementById("marquee-wrapper");
+    // const content = document.getElementById("marquee-content");
+
+    // if (wrapper && content) {
+    // // Clone konten
+    // const clone = content.cloneNode(true);
+    // wrapper.appendChild(clone);
+
+    // let x = 0;
+
+    // function scrollMarquee() {
+    //     x -= 1;
+
+    //     content.style.transform = `translateX(${x}px)`;
+    //     clone.style.transform = `translateX(${x + content.offsetWidth}px)`;
+
+    //     // Reset jika scroll selesai 1 putaran
+    //     requestAnimationFrame(scrollMarquee);
+    // }
+
+    // scrollMarquee();
+    // }
+
+
     
     Alpine.start()
     document.body.classList.remove("invisible");
