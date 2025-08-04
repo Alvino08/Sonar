@@ -69,6 +69,7 @@ window.onload = () => {
             // Mulai ScrollTrigger setelah second-section aktif
             setupScrollTrigger();
             fadeInOnScroll('.fade-section');
+            fadeInServiceItems("#container-3");
             // setupScrollTrigger2();
             }
         });
@@ -196,13 +197,35 @@ gsap.timeline()
     gsap.from(items, {
       scrollTrigger: {
         trigger: section,
-        start: 'top 20%',
+        start: 'top 30%',
         toggleActions: 'play none none none',
       },
       yPercent: 50,       // masuk dari bawah
       opacity: 0,
       duration: 1.2,
       ease: 'power3.out',
+    });
+  });
+}
+
+function fadeInServiceItems(selector) {
+  const sections = document.querySelectorAll(selector);
+
+  sections.forEach(section => {
+    const items = section.querySelectorAll('.fade-item-service');
+
+    items.forEach(item => {
+      gsap.from(item, {
+        scrollTrigger: {
+          trigger: item,
+          start: 'top 95%',
+          toggleActions: 'play none none reverse', // hanya main saat masuk
+        },
+        opacity: 0,
+        y: 50,
+        duration: 0.8,
+        ease: 'back.out',
+      });
     });
   });
 }

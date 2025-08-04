@@ -21,3 +21,7 @@ Route::get('/loading', function () {
 Route::get('/logo', function () {
     return view('logo-sonar');
 })->name("logo");
+
+Route::get('/admin', function () {
+    return view('admin');
+})->name("admin");

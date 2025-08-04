@@ -227,23 +227,52 @@
     <script>
 
       // loading
+      // window.addEventListener('load', () => {
+      //   const preloader = document.getElementById('preloader');
+      //   const landing = document.getElementById('landingSection');
+      //   const main = document.getElementById('mainContent');
+
+      //   // Tambahkan delay loading selama 3 detik (3000 ms)
+      //   setTimeout(() => {
+      //     preloader.classList.add('opacity-0', 'pointer-events-none');
+
+      //     // Setelah animasi selesai (misalnya 500ms), baru hilangkan preloader
+      //     setTimeout(() => {
+      //       preloader.style.display = 'none';
+      //       landing.classList.remove('hidden');
+      //       // main.classList.remove('hidden');
+      //       document.body.classList.remove('overflow-hidden');
+      //     }, 500); // durasi transisi fade out
+      //   }, 4000); // delay waktu loading
+      // });
+
       window.addEventListener('load', () => {
+        const hasVisited = sessionStorage.getItem('hasVisitedMain');
         const preloader = document.getElementById('preloader');
         const landing = document.getElementById('landingSection');
         const main = document.getElementById('mainContent');
 
-        // Tambahkan delay loading selama 3 detik (3000 ms)
+        if (hasVisited === 'true') {
+          preloader.style.display = 'none';
+          landing.classList.add('hidden');
+          main.classList.remove('hidden');
+          document.body.classList.remove('overflow-hidden');
+          maskLayer.classList.remove('mask-logo');
+          maskLayer.classList.add('mask-fullscreen');
+          overlay.classList.remove('full-black');
+          window.initScrollAnimations();
+          window.cardScrollAnimations();
+          return;
+        }
+
         setTimeout(() => {
           preloader.classList.add('opacity-0', 'pointer-events-none');
-
-          // Setelah animasi selesai (misalnya 500ms), baru hilangkan preloader
           setTimeout(() => {
             preloader.style.display = 'none';
             landing.classList.remove('hidden');
-            // main.classList.remove('hidden');
             document.body.classList.remove('overflow-hidden');
-          }, 500); // durasi transisi fade out
-        }, 4000); // delay waktu loading
+          }, 500);
+        }, 4000);
       });
 
 
@@ -306,6 +335,7 @@
           page2Container.classList.add('fade-in');
           window.initScrollAnimations();
           window.cardScrollAnimations();
+          sessionStorage.setItem('hasVisitedMain', 'true');
         }, 2500);
       }
 
