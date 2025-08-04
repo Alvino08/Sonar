@@ -1,296 +1,125 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-full">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  @vite(['resources/css/app.css', 'resources/js/audiopost2.js'])
-  <title>Layered Scroll</title>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  @vite(['resources/css/app.css', 'resources/js/app.js'])
+  <title>Video Background Fullscreen</title>
   <style>
-    #container {
-      position: relative;
+    /* Reset & base styles */
+    * {
+      box-sizing: border-box;
+    }
+    html, body {
+      height: 100%;
       width: 100%;
-      height: 100vh;
+      margin: 0;
+      padding: 0;
       overflow: hidden;
     }
 
-    .panel {
-      width: 100%;
+    /* Video & fallback image styles */
+    .video-bg,
+    .video-fallback {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
       height: 100vh;
-      position: absolute;
-      will-change: transform;
+      object-fit: fill;
+      z-index: 0;
+      pointer-events: none;
+      background-size: fill;
+      background-position: center;
+    }
+
+    /* Optional dark overlay for contrast */
+    .video-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.35);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    /* Page content styling */
+    .content {
+      position: relative;
+      z-index: 2;
       display: flex;
       align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 1rem;
+      text-align: center;
+      color: white;
     }
 
-    section.content {
-      position: relative;
-    }
-
-    .collapsible {
-      height: 0;
-      overflow: hidden;
-      opacity: 0;
-      transition: height 0.4s ease, opacity 0.3s ease;
-    }
-
-    .collapsible.is-open {
-      opacity: 1;
-    }
-
-    .stock-ticker {
-        font-size: 64px;
-        padding-block: 8px;
-        overflow: hidden;
-        user-select: none;
-
-        --gap: 20px;
-        display: flex;
-        gap: var(--gap);
-        }
-
-    .stock-ticker ul {
-    list-style: none;
-    flex-shrink: 0;
-    min-width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: var(--gap);
-
-
-    animation: scroll 20s linear infinite;
-    }
-
-    .stock-ticker:hover ul {
-    animation-play-state: paused;
-    }
-
-    @keyframes scroll {
-    to {
-        transform: translateX(calc(-100% - var(--gap)));
-    }
-    }
-    
-    .stock-ticker .company,
-    .stock-ticker .price {
-    font-weight: bold;
+    /* Hide video if user prefers reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      .video-bg {
+        display: none;
+      }
     }
   </style>
 </head>
-<body class="overflow-x-hidden invisible bg-[#121212]">
-  <x-navbar />
+<body class="bg-black">
 
+  <!-- Fallback image (shown if video cannot play) -->
+  <div class="video-fallback" aria-hidden="true"
+       style="background-image: url('{{ asset('video/SONAR-poster.jpg') }}');">
+  </div>
 
+  <!-- Video background -->
+  <video
+    id="bg-video"
+    class="video-bg"
+    autoplay
+    muted
+    loop
+    playsinline
+    preload="auto"
+    poster="{{ asset('video/SONAR-poster.jpg') }}"
+    aria-hidden="true"
+  >
+    <source src="{{ asset('video/SONAR.mp4') }}" type="video/mp4" />
+    <p>Your browser does not support HTML5 video. Background image is shown instead.</p>
+  </video>
 
-    <div id="first-section" class="overflow-hidden">
-        <div id="first-section" class="h-screen w-full bg-[#121212] flex items-center justify-center">
-            <div class="h-[440px] w-[970px] flex items-center">
-                <img src="/Audiopost/Jelita.png" id="img-1" class="w-[345px] h-[345px] z-10 mr-[-80px]">
-                <img src="/Audiopost/Jelita.png" id="img-2" class="w-[440px] h-[440px] z-20">
-                <img src="/Audiopost/Jelita.png" id="img-3" class="w-[345px] h-[345px] z-10 ml-[-80px]">
-            </div>
-        </div>
+  <!-- Optional overlay -->
+  <div class="video-overlay" aria-hidden="true"></div>
+
+  <!-- Foreground content -->
+  <div class="content">
+    <div class="max-w-2xl">
+      <h1 class="text-4xl font-bold mb-4">Selamat Datang</h1>
+      <p class="text-lg">Ini adalah contoh video background fullscreen yang responsif.</p>
     </div>
+  </div>
 
-    <div id="second-section" class="bg-[#121212] hidden"> 
-        <section id="container"> 
-            <div class="panel">
-                <div id="halaman-pertama" class="halaman-pertama h-screen w-full bg-[#121212] items-center justify-between overflow-x-hidden flex">
-                    <div id="left-img" class="rotate-[25deg] w-[435px] h-[435px] -left-20 -top-20 relative opacity-0">
-                        <img src="/Audiopost/Jelita.png" alt="">
-                    </div>
-                    <div class=" flex flex-col items-center justify-center text-center">
-                        <p id="sonar" class="split text-[100px] font-bold text-white tracking-tighter mb-[-100px]">SONAR</p>
-                        <p id="audio" class="split text-[190px] font-bold text-white tracking-tighter">AUDIO</p>
-                        <p id="post" class="split text-[100px] font-bold text-white tracking-tighter mt-[-90px]">POST</p>
-                    </div>
-                    <div id="right-img" class="rotate-[-20deg] w-[435px] h-[435px] -right-20 -bottom-20 relative opacity-0">
-                        <img src="/Audiopost/Jelita.png" alt="">
-                    </div>
-                </div>
-            </div>
+  <script>
+    // Pause video if user prefers reduced motion
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const video = document.getElementById('bg-video');
+      if (video) {
+        video.pause();
+      }
+    }
 
-            <div class="panel">
-                <div id="halaman-kedua" class="halaman-kedua h-screen w-full bg-[#202020] items-center overflow-x-hidden flex flex-col justify-center">
-                    <div class="h-[600px] w-[475px] text-center flex flex-col justify-center">
-                    <p id="line1" class="text-[#727070] font-semibold text-[100px] tracking-tighter leading-none">We strive</p>
-                    <div class="flex items-center justify-center">
-                        <p id="line2a" class="text-[#727070] font-semibold text-[100px] tracking-tighter leading-none mr-5">to</p>
-                        <p id="line2b" class="text-white font-semibold text-[100px] tracking-tighter leading-none">create</p>
-                    </div>
-                    <div class="flex items-center justify-center">
-                        <p id="line3a" class="text-[#727070] font-semibold text-[100px] tracking-tighter leading-none mr-5">sounds</p>
-                        <p id="line3b" class="text-white font-semibold text-[100px] tracking-tighter leading-none">with</p>
-                    </div>
-                    <p id="line4" class="text-white font-semibold text-[100px] tracking-tighter leading-none">a purpose.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+    // Try to play video (in case autoplay fails on mobile)
+    function tryPlayVideo() {
+      const video = document.getElementById('bg-video');
+      if (!video) return;
+      video.play().catch(() => {
+        // Autoplay might be blocked, fallback to poster image
+      });
+    }
 
-        <section class="content">
-            <div id="halaman-keempat" class="min-h-screen w-full bg-[#d0d0d0] overflow-x-hidden p-5 pb-30 flex justify-between">
-                <div class="bg-red-500 min-h-[300px] w-[700px]">
-                    <div class="stock-ticker">
-                    <ul>
-                        <li>
-                        <span class="company">OUR</span>
-                        <span class="company">©</span>
-                        <span class="company">SERVICES</span>
-                        <span class="company">©</span>
-                        </li>
-                        <li>
-                        <span class="company">OUR</span>
-                        <span class="company">©</span>
-                        <span class="company">SERVICES</span>
-                        <span class="company">©</span>
-                        </li>
-                        <li>
-                        <span class="company">OUR</span>
-                        <span class="company">©</span>
-                        <span class="company">SERVICES</span>
-                        <span class="company">©</span>
-                        </li>
-                        <li>
-                        <span class="company">OUR</span>
-                        <span class="company">©</span>
-                        <span class="company">SERVICES</span>
-                        <span class="company">©</span>
-                        </li>
-                        <li>
-                        <span class="company">OUR</span>
-                        <span class="company">©</span>
-                        <span class="company">SERVICES</span>
-                        <span class="company">©</span>
-                        </li>
-                        <li>
-                        <span class="company">OUR</span>
-                        <span class="company">©</span>
-                        <span class="company">SERVICES</span>
-                        <span class="company">©</span>
-                        </li>
-                        <li>
-                        <span class="company">OUR</span>
-                        <span class="company">©</span>
-                        <span class="company">SERVICES</span>
-                        <span class="company">©</span>
-                        </li>
-                        <li>
-                        <span class="company">OUR</span>
-                        <span class="company">©</span>
-                        <span class="company">SERVICES</span>
-                        <span class="company">©</span>
-                        </li>
-                    </ul>
-
-                    <ul aria-hidden="true">
-                        <li>
-                        <span class="company">OUR</span>
-                        <span class="company">©</span>
-                        <span class="company">SERVICES</span>
-                        <span class="company">©</span>
-                        </li>
-                        <li>
-                        <span class="company">OUR</span>
-                        <span class="company">©</span>
-                        <span class="company">SERVICES</span>
-                        <span class="company">©</span>
-                        </li>
-                        <li>
-                        <span class="company">OUR</span>
-                        <span class="company">©</span>
-                        <span class="company">SERVICES</span>
-                        <span class="company">©</span>
-                        </li>
-                        <li>
-                        <span class="company">OUR</span>
-                        <span class="company">©</span>
-                        <span class="company">SERVICES</span>
-                        <span class="company">©</span>
-                        </li>
-                        <li>
-                        <span class="company">OUR</span>
-                        <span class="company">©</span>
-                        <span class="company">SERVICES</span>
-                        <span class="company">©</span>
-                        </li>
-                        <li>
-                        <span class="company">OUR</span>
-                        <span class="company">©</span>
-                        <span class="company">SERVICES</span>
-                        <span class="company">©</span>
-                        </li>
-                        <li>
-                        <span class="company">OUR</span>
-                        <span class="company">©</span>
-                        <span class="company">SERVICES</span>
-                        <span class="company">©</span>
-                        </li>
-                        <li>
-                        <span class="company">OUR</span>
-                        <span class="company">©</span>
-                        <span class="company">SERVICES</span>
-                        <span class="company">©</span>
-                        </li>
-                    </ul>
-                    </div>
-
-                    <div id="logo-sonar">
-
-                    </div>
-                </div>
-                <div id="container-3" class="flex justify-end pt-30 pr-[200px]">
-                    <div class="min-h-[300px] w-[700px] flex flex-col space-y-4"
-                    x-data="{
-                        items: [
-                        { id: 1, title: 'Jingle Production', desc: 'Jingle Production adalah proses pembuatan musik pendek yang digunakan untuk branding, iklan, atau identitas audio perusahaan.', open: false },
-                        { id: 2, title: 'Audio Branding', desc: 'Audio Branding adalah strategi menggunakan suara untuk memperkuat identitas merek secara konsisten di berbagai media.', open: false },
-                        { id: 3, title: 'Automated Dialog Replacement', desc: 'Penyesuaian suara ulang untuk sinkronisasi dengan gambar.' , open: false },
-                        { id: 4, title: 'Foley / SFX (Digital & Film)', desc: 'Efek suara yang dibuat untuk film atau media digital.', open: false },
-                        { id: 5, title: 'Mixing', desc: 'Menggabungkan elemen audio untuk menciptakan hasil akhir yang harmonis.', open: false },
-                        { id: 6, title: 'Scoring (Digital & Film)', desc: 'Pembuatan musik latar untuk memperkuat narasi visual.', open: false },
-                        { id: 7, title: 'Voice Over (VO)', desc: 'Rekaman narasi untuk video atau media audio visual.', open: false },
-                        { id: 8, title: 'Offline Video Editing Suite', desc: 'Fasilitas editing video sebelum proses finalisasi.', open: false }
-                        ],
-                        toggleOpen(index) {
-                        this.items[index].open = !this.items[index].open;
-                        }
-                    }"
-                    >
-                        <template x-for="(item, index) in items" :key="item.id">
-                            <div>
-                            <!-- Trigger -->
-                                <div 
-                                    @click="toggleOpen(index)"
-                                    class="h-[60px] border-b-2 border-[#121212] flex items-center cursor-pointer"
-                                >
-                                    <p class="text-[40px] text-[#727070] font-semibold mr-10 tracking-tighter" 
-                                    x-text="String(index + 1).padStart(2, '0')"></p>
-                                    <p class="text-[40px] text-[#121212] font-semibold tracking-tighter mr-auto" 
-                                    x-text="item.title"></p>
-                                    <p class="text-[30px] text-[#121212] font-semibold" 
-                                    x-text="item.open ? '×' : '+'"></p>
-                                </div>
-
-                                <!-- Collapsible Content -->
-                                <div
-                                        class="collapsible px-4 text-[#333]"
-                                        :class="item.open && 'is-open'"
-                                        :style="item.open && { height: $el.scrollHeight + 'px' }"
-                                        @transitionend="if (!item.open) $el.style.height = null"
-                                        >
-                                    <p class="py-3" x-text="item.desc"></p>
-                                </div>
-                            </div>
-                        </template>
-                    </div>
-                </div>
-            </div>
-
-
-        </section>
-    </div>
-
-
+    // Attempt to play again after first user interaction
+    ['click', 'touchstart'].forEach(evt =>
+      document.addEventListener(evt, tryPlayVideo, { once: true })
+    );
+  </script>
 </body>
 </html>

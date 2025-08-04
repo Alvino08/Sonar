@@ -48,6 +48,7 @@
     </style>
 </head>
 <body>
+  <x-navbar/>
     <div class="stock-ticker">
                     <ul>
                         <li>

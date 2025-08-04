@@ -1,5 +1,6 @@
 import './bootstrap';
 import './sidebar';
+import 'preline'
 
 import Alpine from 'alpinejs';
 import gsap from "gsap";
@@ -11,36 +12,65 @@ Alpine.start()
 
 gsap.registerPlugin(ScrollTrigger);
 
+// function initScrollAnimations() {
+//   // Animasi teks heading `.c`
+//   gsap.to(".c", {
+//     scrollTrigger: {
+//       trigger: ".c",
+//       start: "center 40%",
+//       toggleActions: "restart pause reverse pause",
+//       scrub: true,
+//       // markers: true, // aktifkan jika ingin debugging
+//     },
+//     opacity: 0,
+//     x: 500,
+//     duration: 5
+//   });
+
+//   // Animasi paragraf `.d`
+//   gsap.to(".d", {
+//     scrollTrigger: {
+//       trigger: ".c",
+//       start: "center 40%",
+//       toggleActions: "restart pause reverse pause",
+//       scrub: true,
+//       // markers: true,
+//     },
+//     opacity: 0,
+//     x: -500,
+//     duration: 5
+//   });
+
+// }
+
 function initScrollAnimations() {
-  // Animasi teks heading `.c`
+  // Heading animasi
   gsap.to(".c", {
     scrollTrigger: {
       trigger: ".c",
       start: "center 40%",
       toggleActions: "restart pause reverse pause",
       scrub: true,
-      // markers: true, // aktifkan jika ingin debugging
     },
     opacity: 0,
-    x: 500,
-    duration: 5
+    xPercent: 10,
+    duration: 2
   });
 
-  // Animasi paragraf `.d`
+  // Paragraf animasi
   gsap.to(".d", {
     scrollTrigger: {
       trigger: ".c",
       start: "center 40%",
       toggleActions: "restart pause reverse pause",
       scrub: true,
-      // markers: true,
     },
     opacity: 0,
-    x: -500,
-    duration: 5
+    xPercent: -10,
+    duration: 2
   });
-
 }
+
 
 function cardScrollAnimations() {
 // Ambil semua kartu
@@ -84,7 +114,8 @@ function cardScrollAnimations() {
     duration: 0.8,
     ease: "power2.out",
     stagger: 0.2, // jeda antar card
-    clearProps: "transform,opacity"
+    clearProps: "transform,opacity",
+    scale: 0.95
   }, "-=0.4"); // mulai setelah animasi garis dimulai
 
 }

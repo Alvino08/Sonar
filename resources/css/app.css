@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
 @import 'tailwindcss';
 
-
+/* Preline UI */
+@import "../../node_modules/preline/variants.css";
+@source "../../node_modules/preline/dist/*.js";
 /* @font-face {
   font-family: 'Anton';
   font-style: normal;
@@ -24,7 +26,6 @@
 
 /* Tambahkan animasi custom di bawah sini */
 @layer utilities {
-  /* === Generalized Fade-In with Direction === */
   @keyframes fadeInX {
     0% {
       opacity: 0;

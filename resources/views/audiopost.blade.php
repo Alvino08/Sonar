@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     @vite(['resources/css/app.css', 'resources/js/audiopost.js'])
+    <script src="./node_modules/preline/dist/preline.js"></script>
     <title>Layered Scroll</title>
     <style>
       #container {
@@ -118,7 +119,7 @@
                   <!-- Bungkus untuk masking -->
                   <div class="overflow-hidden ">
                     <!-- Trigger -->
-                    <div @click="toggleOpen(index)" class="h-[60px] flex items-center cursor-pointer fade-item-service border-b-2 border-[#121212]">
+                    <div @click="toggleOpen(index)" class="h-[60px] flex items-center cursor-pointer border-b-2 border-[#121212]">
                       <p class="text-[40px] text-[#727070] font-semibold mr-10 tracking-tighter"
                         x-text="String(index + 1).padStart(2, '0')"></p>
                       <p class="text-[40px] text-[#121212] font-semibold tracking-tighter mr-auto"
@@ -145,8 +146,54 @@
         </div>
 
         <!-- HALAMAN KEEMPAT -->
-        <div id="halaman-keempat" class="min-h-screen w-full bg-[#121212] overflow-x-hidden px-5 py-30 flex justify-between">
-          <!-- Content goes here -->
+        <div id="halaman-keempat" class="min-h-screen w-full bg-black overflow-hidden">
+          <!-- Slider -->
+          <div data-hs-carousel='{"loadingClasses": "opacity-0"}' class="relative">
+            <div class="hs-carousel relative overflow-hidden w-full h-screen bg-black rounded-none">
+              <!-- Slides -->
+              <div class="hs-carousel-body absolute top-0 bottom-0 start-0 flex flex-nowrap transition-transform duration-700 opacity-100">
+                <!-- Slide 1 -->
+                <div class="hs-carousel-slide w-screen h-screen flex items-center justify-center bg-black">
+                  <iframe
+                    class="w-full h-full object-cover"
+                    src="https://www.youtube.com/embed/wv9zWCm6Ui4"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                  ></iframe>
+                </div>
+                <!-- Slide 2 -->
+                <div class="hs-carousel-slide w-screen h-screen flex items-center justify-center bg-black">
+                  <video class="w-full h-full object-cover" controls preload="metadata">
+                    <source src="/video/SONAR.mp4" type="video/mp4" />
+                    Browser kamu tidak mendukung video.
+                  </video>
+                </div>
+                <!-- Slide 3 -->
+                <div class="hs-carousel-slide w-screen h-screen flex items-center justify-center bg-black">
+                  <video class="w-full h-full object-cover" controls preload="metadata">
+                    <source src="/video/SONAR.mp4" type="video/mp4" />
+                    Browser kamu tidak mendukung video.
+                  </video>
+                </div>
+              </div>
+
+              <!-- Pagination -->
+              <div id="container-4" class="hs-carousel-pagination absolute h-full gap-y-10 px-5 z-10 flex flex-col justify-center">
+                  <img src="/Audiopost/Background 2.png" class="hs-carousel-pagination-item w-30 h-18 object-cover rounded-md opacity-60 hover:opacity-100 cursor-pointer hs-carousel-active:opacity-100 border-2 border-white fade-item-service overflow-hidden transition-opacity" />
+                  <img src="/Audiopost/Background 2.png" class="hs-carousel-pagination-item w-30 h-18 object-cover rounded-md opacity-60 hover:opacity-100 cursor-pointer hs-carousel-active:opacity-100 border-2 border-white fade-item-service overflow-hidden transition-opacity" />
+                  <img src="/Audiopost/Background 2.png" class="hs-carousel-pagination-item w-30 h-18 object-cover rounded-md opacity-60 hover:opacity-100 cursor-pointer hs-carousel-active:opacity-100 border-2 border-white fade-item-service overflow-hidden transition-opacity" />
+                <a href="/project" class=" bg-white text-black rounded-md text-sm font-medium hover:bg-gray-200 shadow-lg w-30 h-18 flex justify-center items-center text-center opacity-30 hover:opacity-100 fade-item-service overflow-hidden transition-opacity">
+                  View More Projects
+                </a>
+              </div>
+
+            </div>
+          </div>
+          <!-- End Slider -->
+
+                    
         </div>
 
         <div id="halaman-kelima" class=" min-h-screen w-full bg-[#d0d0d0] overflow-x-hidden px-5 py-30 flex justify-center">
@@ -172,6 +219,7 @@
 </html>
 
 <script>
+
   const calendarDays = document.getElementById('calendarDays');
   const monthYear = document.getElementById('monthYear');
   const prevMonth = document.getElementById('prevMonth');
@@ -264,4 +312,34 @@
   });
 
   renderCalendar();
+
+  // Fungsi untuk pause semua video kecuali yang ada di slide aktif
+  function pauseInactiveVideos() {
+    const slides = document.querySelectorAll('.hs-carousel-slide');
+    slides.forEach(slide => {
+      const video = slide.querySelector('video');
+      if (!slide.classList.contains('hs-carousel-active')) {
+        video?.pause();
+      }
+    });
+  }
+
+  // Jalankan saat awal
+  document.addEventListener('DOMContentLoaded', () => {
+    pauseInactiveVideos();
+
+    // Observer untuk deteksi slide aktif berubah
+    const observer = new MutationObserver(() => {
+      pauseInactiveVideos();
+    });
+
+    // Observe semua slide
+    document.querySelectorAll('.hs-carousel-slide').forEach(slide => {
+      observer.observe(slide, {
+        attributes: true,
+        attributeFilter: ['class'],
+      });
+    });
+  });
+  
 </script>

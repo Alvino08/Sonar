@@ -2,6 +2,7 @@ import gsap from "gsap";
 import Alpine from 'alpinejs';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/SplitText";
+import 'preline'
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -69,7 +70,7 @@ window.onload = () => {
             // Mulai ScrollTrigger setelah second-section aktif
             setupScrollTrigger();
             fadeInOnScroll('.fade-section');
-            fadeInServiceItems("#container-3");
+            fadeInServiceItems("#container-4");
             // setupScrollTrigger2();
             }
         });
@@ -218,13 +219,13 @@ function fadeInServiceItems(selector) {
       gsap.from(item, {
         scrollTrigger: {
           trigger: item,
-          start: 'top 95%',
-          toggleActions: 'play none none reverse', // hanya main saat masuk
+          start: 'top 105%',
+          toggleActions: 'play none none reverse',
         },
-        opacity: 0,
-        y: 50,
-        duration: 0.8,
-        ease: 'back.out',
+        scale: 0,
+        y: 100,
+        duration: 1,
+        ease: 'power1.inOut'
       });
     });
   });

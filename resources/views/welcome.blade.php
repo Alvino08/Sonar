@@ -144,20 +144,20 @@
       <x-navbar />
 
       <!-- Tambahkan di dalam <section> Halaman 2 -->
-      <section class="min-h-screen flex items-center justify-center text-center">
+      <section class="min-h-screen flex items-center justify-center text-center overflow-hidden">
         <div id="page2Container">
-          <h1 class="font-extrabold text-[40px] c">Discover design, sound, and</h1>
-          <h1 class="font-extrabold text-[40px] c">vision — reimagined by Sonar.</h1>
-          <p class="font-semibold text-[20px] pt-2 d">We shape emotion through sound, design, and vision.</p>
-          <p class="font-semibold text-[20px] d">Your story resonates beyond the screen.</p>
+          <h1 class="font-extrabold text-2xl md:text-4xl lg:text-5xl c">Discover design, sound, and</h1>
+          <h1 class="font-extrabold text-2xl md:text-4xl lg:text-5xl c">vision — reimagined by Sonar.</h1>
+          <p class="font-semibold text-base md:text-xl pt-2 d">We shape emotion through sound, design, and vision.</p>
+          <p class="font-semibold text-base md:text-xl d">Your story resonates beyond the screen.</p>
           {{-- <button id="backButton" class="mt-6 px-6 py-2 bg-white text-black rounded hover:bg-gray-200 transition">
             Kembali
           </button> --}}
         </div>
       </section>
       
-      <section class="h-screen text-white bg-black flex items-center justify-center b">
-        <div class="w-full h-full grid grid-cols-4 grid-rows-1 gap-1 rounded-xl p-2 card1">
+      <section class="h-screen text-white bg-black flex items-center justify-center overflow-hidden b">
+        <div class="w-full h-full grid grid-cols-1 grid-rows-4 lg:grid-cols-4 lg:grid-rows-1 gap-1 rounded-xl p-2 card1">
 
           <!-- Card 1: CREATIVE (split into CREA & TIVE) -->
           <div class="group card relative overflow-hidden shadow-lg over:scale-105 shadow-black-800 box-shadow-css">

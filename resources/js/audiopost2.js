@@ -2,6 +2,7 @@ import gsap from "gsap";
 import Alpine from 'alpinejs';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/SplitText";
+import 'preline'
 
 gsap.registerPlugin(ScrollTrigger);
 
