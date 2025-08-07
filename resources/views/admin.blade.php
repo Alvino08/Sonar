@@ -25,52 +25,45 @@
 
   <!-- Main content -->
   <main class="flex-1 p-6 overflow-y-auto">
-    <!-- Header -->
-    <header class="mb-6">
-      <h1 class="text-2xl font-bold text-gray-800">Dashboard</h1>
-    </header>
+    <!-- Form Tambah Jadwal -->
+<section class="bg-white rounded shadow p-6 mt-6">
+  <h2 class="text-lg font-bold mb-4 text-gray-800">Tambah Jadwal</h2>
+  <form method="POST" action="{{ route('jadwal.store') }}" class="space-y-4">
+    @csrf
 
-    <!-- Stats Cards -->
-    <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
-      <div class="bg-white p-4 rounded shadow">
-        <h2 class="text-gray-600">Users</h2>
-        <p class="text-2xl font-bold">1,245</p>
-      </div>
-      <div class="bg-white p-4 rounded shadow">
-        <h2 class="text-gray-600">Sales</h2>
-        <p class="text-2xl font-bold">$12,340</p>
-      </div>
-      <div class="bg-white p-4 rounded shadow">
-        <h2 class="text-gray-600">Visitors</h2>
-        <p class="text-2xl font-bold">3,580</p>
-      </div>
-    </section>
+    <div>
+      <label class="block text-gray-700">Nama</label>
+      <input type="text" name="nama" class="w-full border rounded px-3 py-2" required>
+    </div>
 
-    <!-- Table -->
-    <section class="bg-white rounded shadow p-4">
-      <h2 class="text-lg font-bold mb-4">Recent Users</h2>
-      <table class="w-full table-auto text-left">
-        <thead>
-          <tr class="text-gray-600 border-b">
-            <th class="pb-2">Name</th>
-            <th class="pb-2">Email</th>
-            <th class="pb-2">Role</th>
-          </tr>
-        </thead>
-        <tbody class="text-gray-700">
-          <tr class="border-b">
-            <td class="py-2">John Doe</td>
-            <td class="py-2">john@example.com</td>
-            <td class="py-2">Admin</td>
-          </tr>
-          <tr class="border-b">
-            <td class="py-2">Jane Smith</td>
-            <td class="py-2">jane@example.com</td>
-            <td class="py-2">Editor</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
+    <div>
+      <label class="block text-gray-700">Tanggal</label>
+      <input type="date" name="tanggal" class="w-full border rounded px-3 py-2" required>
+    </div>
+
+    <div class="grid grid-cols-2 gap-4">
+      <div>
+        <label class="block text-gray-700">Jam Mulai</label>
+        <input type="time" name="jam_mulai" class="w-full border rounded px-3 py-2" required>
+      </div>
+      <div>
+        <label class="block text-gray-700">Jam Selesai</label>
+        <input type="time" name="jam_selesai" class="w-full border rounded px-3 py-2" required>
+      </div>
+    </div>
+
+    <div>
+      <label class="block text-gray-700">Catatan</label>
+      <textarea name="note" rows="3" class="w-full border rounded px-3 py-2"></textarea>
+    </div>
+
+    <div>
+      <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+        Simpan Jadwal
+      </button>
+    </div>
+  </form>
+</section>
   </main>
 
 </body>

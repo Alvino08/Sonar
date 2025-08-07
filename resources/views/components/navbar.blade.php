@@ -17,9 +17,9 @@
 </script>
 
 
-<header x-data="{ open: false }" class="fixed w-full z-50 px-6 py-0 lg:py-5 flex items-center justify-center">
+<header x-data="{ open: false }" class="fixed w-full z-50 px-6 py-0 lg:py-6 flex items-center justify-center">
   <!-- Logo -->
-  <div class="absolute left-6 top-2 lg:top-5 z-50">
+  <div class="absolute left-10 top-2 lg:top-5 z-50">
     <a href="/" class="text-white text-2xl lg:text-3xl font-extrabold tracking-wide">LOGO</a>
   </div>
 

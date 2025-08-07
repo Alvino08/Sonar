@@ -81,7 +81,7 @@ function cardScrollAnimations() {
     scrollTrigger: {
       trigger: ".card1", // wrapper container semua card
       start: "top 90%",
-      toggleActions: "restart reset restart reset",
+      toggleActions: "play none none reset",
       markers: false
     }
   });

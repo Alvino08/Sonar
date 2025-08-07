@@ -71,6 +71,22 @@
         }
       }
 
+    .card-image {
+      /* Default untuk mobile: tanpa efek abu-abu dan langsung dalam bentuk akhir */
+      filter: grayscale(0%) brightness(1) blur(5px);
+      transform: scale(1.1);
+    }
+
+    .card-text {
+      /* Langsung versi akhir juga */
+      opacity: 1;
+      filter: grayscale(0%) brightness(1) blur(0);
+      transform: scale(1);
+      letter-spacing: 0.1vw;
+    }
+
+    /* Aktifkan transisi dan efek hover hanya di layar besar */
+    @media (min-width: 1024px) {
       .card-image {
         filter: grayscale(100%) brightness(0.7) blur(0);
         transform: scale(1);
@@ -83,18 +99,19 @@
       }
 
       .card-text {
-        opacity: 1;
         filter: grayscale(100%) brightness(0.7) blur(5px);
         transform: scale(0.9);
         transition: all 0.5s ease;
+        opacity: 1;
       }
 
       .group:hover .card-text {
-        opacity: 1;
         filter: grayscale(0%) brightness(1) blur(0);
         transform: scale(1);
-        letter-spacing: 0.1vw
+        letter-spacing: 0.1vw;
       }
+    }
+
 
       #logoHoverArea {
         cursor: none;
@@ -102,10 +119,6 @@
 
       #customCursor {
         transition: transform 0.1s ease;
-      }
-
-      .box-shadow-css {
-        box-shadow: inset 0 0 10px #f8a100;
       }
 
     </style>
@@ -156,7 +169,8 @@
         </div>
       </section>
       
-      <section class="h-screen text-white bg-black flex items-center justify-center overflow-hidden b">
+      <section class="h-screen text-white bg-black flex flex-col items-center justify-center overflow-hidden b">
+
         <div class="w-full h-full grid grid-cols-1 grid-rows-4 lg:grid-cols-4 lg:grid-rows-1 gap-1 rounded-xl p-2 card1">
 
           <!-- Card 1: CREATIVE (split into CREA & TIVE) -->
@@ -164,7 +178,7 @@
             <div class="line absolute top-0 left-0 h-[2px] bg-white w-full" style="width: 0%; visibility: hidden;"></div>
             <img src="/images/photo1.jpg" alt="Card 1" class="w-full h-full object-cover card-image" />
             <div class="absolute inset-0 pointer-events-none z-10">
-              <div class="absolute right-0 top-0 h-full w-10 bg-gradient-to-l from-black/40 to-transparent group-hover:from-transparent group-hover:to-transparent transition-all duration-300"></div>
+              <div class="absolute right-0 top-0 h-full w-10 bg-gradient-to-l  group-hover:from-transparent group-hover:to-transparent transition-all duration-300"></div>
             </div>
             <div class="absolute inset-0 flex flex-col justify-center items-center">
               <p class="card-text font-bebas text-[8vw] leading-[0.75] tracking-tight">CREA</p>
@@ -175,9 +189,9 @@
           <!-- Card 2: UI/UX -->
           <div class="group card relative overflow-hidden shadow-lg over:scale-105">
             <div class="line absolute top-0 left-0 h-[2px] bg-white w-full" style="width: 0%; visibility: hidden;"></div>
-            <img src="/images/photo2.jpg" alt="Card 1" class="w-full h-full object-cover card-image box-shadow-css" />
+            <img src="/images/photo2.jpg" alt="Card 1" class="w-full h-full object-cover card-image " />
             <div class="absolute inset-0 pointer-events-none z-10">
-              <div class="absolute right-0 top-0 h-full w-10 bg-gradient-to-l from-black/40 to-transparent group-hover:from-transparent group-hover:to-transparent transition-all duration-300"></div>
+              <div class="absolute right-0 top-0 h-full w-10 bg-gradient-to-l  group-hover:from-transparent group-hover:to-transparent transition-all duration-1000"></div>
             </div>
             <div class="absolute inset-0 flex flex-col justify-center items-center">
               <p class="card-text font-bebas text-[8vw] leading-[0.75] tracking-tight">UI?</p>
@@ -190,7 +204,7 @@
             <div class="line absolute top-0 left-0 h-[2px] bg-white w-full" style="width: 0%; visibility: hidden;"></div>
             <img src="/images/photo3.jpg" alt="Card 1" class="w-full h-full object-cover card-image" />
             <div class="absolute inset-0 pointer-events-none z-10">
-              <div class="absolute right-0 top-0 h-full w-10 bg-gradient-to-l from-black/40 to-transparent group-hover:from-transparent group-hover:to-transparent transition-all duration-1000"></div>
+              <div class="absolute right-0 top-0 h-full w-10 bg-gradient-to-l  group-hover:from-transparent group-hover:to-transparent transition-all duration-1000"></div>
             </div>
             <div class="absolute inset-0 flex flex-col justify-center items-center">
               <p class="card-text font-bebas text-[8vw] leading-[0.75] tracking-tight">AUDIO</p>
@@ -203,7 +217,7 @@
             <div class="line absolute top-0 left-0 h-[2px] bg-white w-full" style="width: 0%; visibility: hidden;"></div>
             <img src="/images/photo4.jpg" alt="Card 1" class="w-full h-full object-cover card-image" />
             <div class="absolute inset-0 pointer-events-none z-10">
-              <div class="absolute right-0 top-0 h-full w-10 bg-gradient-to-l from-black/40 to-transparent group-hover:from-transparent group-hover:to-transparent transition-all duration-300"></div>
+              <div class="absolute right-0 top-0 h-full w-10 bg-gradient-to-l  group-hover:from-transparent group-hover:to-transparent transition-all duration-300"></div>
             </div>
             <div class="absolute inset-0 flex flex-col justify-center items-center">
               <p class="card-text font-bebas text-[8vw] leading-[0.75] tracking-tight">UI/</p>
@@ -211,8 +225,62 @@
             </div>
           </div>
 
-        </div>
+        </div> 
+        
       </section>
+
+        <div class="w-full h-screen bg-[#727070] flex justify-center items-center">
+
+          <div class="w-[600px] h-[400px]  flex group overflow-hidden relative">
+            <div class="w-[400px] h-[400px] bg-white flex flex-col justify-end z-10">
+              <p class="font-anton text-red-600 text-[70px] mb-[-10px]">Hudi</p>
+              <p class="font-anton text-red-600 text-[70px] mb-[-10px]">Ardianto</p>
+            </div>
+            <div class="w-[200px] h-[400px] text-[20px] absolute duration-400 opacity-0 group-hover:opacity-100 transition-all z-0 right-[100%] group-hover:right-[0%] px-3 py-3">
+              <p>
+                An established Music Producer and
+                Musician in Jakarta electronic music
+                scene.
+              </p>
+              <br>
+              <p>
+                Life and wholeness of it becomes his
+                inspiration in creating a unique
+                sound. This view liberates his music
+                and enables him to see and hear
+                everything as instruments and
+                sounds.
+              </p>
+            </div>
+          </div>
+
+          <div class="w-[600px] h-[400px]  flex justify-end overflow-hidden relative group">
+            <div class="w-[400px] h-[400px] bg-white flex flex-col justify-end items-end">
+              <p class="font-anton text-red-600 text-[70px] mb-[-10px]">Ibam</p>
+              <p class="font-anton text-red-600 text-[70px] mb-[-10px]">Adam</p>
+            </div>
+            <div class="w-[200px] h-[400px] text-[20px] absolute duration-400 opacity-0 group-hover:opacity-100 transition-all z-0 left-[100%] group-hover:left-[0%] px-3 py-3 text-right">
+              <p>
+                As an electronic music industry
+                veteran, Ibam has set an industry
+                standard and helped to revolutionize
+                the electronic music scene in
+                Indonesia.
+              </p>
+              <br>
+              <p>
+                A Paranoia awards winner and part of
+                Tantra Music Group.
+              </p>
+            </div>
+
+          </div>
+
+
+
+
+        </div>
+
 
 
       <footer class="bg-gray-900 text-white text-center text-lg py-12">

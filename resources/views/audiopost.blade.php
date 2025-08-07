@@ -196,38 +196,48 @@
                     
         </div>
 
-        <div id="halaman-kelima" class=" min-h-screen w-full bg-[#d0d0d0] overflow-x-hidden px-5 py-30 flex justify-center">
-            <div class="bg-white rounded-lg shadow-md p-6 w-full max-w-2xl">
-              <div class="flex justify-between items-center mb-4">
-                <button id="prevMonth" class="text-blue-500 font-semibold">&larr;</button>
-                <h2 id="monthYear" class="text-xl font-bold text-gray-800"></h2>
-                <button id="nextMonth" class="text-blue-500 font-semibold">&rarr;</button>
-              </div>
-              <div class="grid grid-cols-7 gap-2 text-center font-medium text-gray-700 mb-2">
-                <div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
-              </div>
-              <div id="calendarDays" class="grid grid-cols-7 gap-2 text-center"></div>
-              <div class="mt-4 text-sm text-gray-600">
-                <div><span class="inline-block w-3 h-3 bg-green-400 mr-2 rounded-full"></span> Tersedia</div>
-                <div><span class="inline-block w-3 h-3 bg-red-400 mr-2 rounded-full"></span> Tidak Tersedia</div>
-              </div>
+        <div class="h-screen w-full bg-gradient-to-br from-[#d0d0d0] to-[#202020] px-5 py-20 flex justify-center items-start">
+          <div class="backdrop-blur-md  shadow-xl p-6 w-full max-w-5xl ">
+            
+            <!-- Header Navigasi -->
+            <div class="flex justify-between items-center mb-4">
+              <button id="prevMonth" class="text-white font-bold text-xl hover:scale-110 transition">&larr;</button>
+              <h2 id="monthYear" class="text-2xl font-extrabold text-white tracking-wide"></h2>
+              <button id="nextMonth" class="text-white font-bold text-xl hover:scale-110 transition">&rarr;</button>
             </div>
+
+            <!-- Header Hari -->
+            <div class="grid grid-cols-7 grid-rows-1 h-[100px] text-center font-semibold text-white border-b border-white/30 text-sm">
+              <div class=" flex items-center justify-center border border-white/10">Sun</div>
+              <div class=" flex items-center justify-center border border-white/10">Mon</div>
+              <div class=" flex items-center justify-center border border-white/10">Tue</div>
+              <div class=" flex items-center justify-center border border-white/10">Wed</div>
+              <div class=" flex items-center justify-center border border-white/10">Thu</div>
+              <div class=" flex items-center justify-center border border-white/10">Fri</div>
+              <div class=" flex items-center justify-center border border-white/10">Sat</div>
+            </div>
+
+
+            <!-- Grid Kalender -->
+            <div id="calendarDays" class="grid grid-cols-7 text-center text-white"></div>
+          </div>
         </div>
+
       </section>
     </div>
   </body>
 </html>
 
-<script>
 
+<script>
+  const tanggalTerisi = @json($tanggalTerisi);
   const calendarDays = document.getElementById('calendarDays');
   const monthYear = document.getElementById('monthYear');
   const prevMonth = document.getElementById('prevMonth');
   const nextMonth = document.getElementById('nextMonth');
 
   let currentDate = new Date();
-  const today = new Date(); // referensi hari ini
-  const availability = {};
+  const today = new Date();
 
   function renderCalendar() {
     const year = currentDate.getFullYear();
@@ -235,71 +245,70 @@
     const firstDay = new Date(year, month, 1).getDay();
     const lastDate = new Date(year, month + 1, 0).getDate();
 
-    // Tampilkan bulan dan tahun
+    // Set judul bulan & tahun
     monthYear.textContent = currentDate.toLocaleString('default', {
       month: 'long',
       year: 'numeric',
     });
+
     calendarDays.innerHTML = '';
 
-    // Cek apakah bulan saat ini adalah bulan sekarang atau lebih baru
-    const isCurrentMonthPast =
+    // Cek apakah bulan yang sedang dilihat adalah bulan lampau
+    const isPast =
       year < today.getFullYear() ||
       (year === today.getFullYear() && month < today.getMonth());
 
-    // Nonaktifkan tombol prev jika bulan sekarang atau sebelumnya
-    prevMonth.disabled = isCurrentMonthPast;
-    prevMonth.classList.toggle('opacity-50', isCurrentMonthPast);
-    prevMonth.classList.toggle('cursor-not-allowed', isCurrentMonthPast);
+    prevMonth.disabled = isPast;
+    prevMonth.classList.toggle('opacity-30', isPast);
+    prevMonth.classList.toggle('cursor-not-allowed', isPast);
 
-    // Kosongkan slot sebelum tanggal 1
+    // Slot kosong sebelum tanggal 1
     for (let i = 0; i < firstDay; i++) {
-      calendarDays.innerHTML += `<div></div>`;
+      const emptyCell = document.createElement('div');
+      emptyCell.className = 'border border-white/10 h-[100px]';
+      calendarDays.appendChild(emptyCell);
     }
 
     for (let day = 1; day <= lastDate; day++) {
       const date = new Date(year, month, day);
-      const dateKey = `${year}-${month + 1}-${day}`;
-      const isAvailable = availability[dateKey];
+      const dateString = date.getFullYear() + '-' +
+                   String(date.getMonth() + 1).padStart(2, '0') + '-' +
+                   String(date.getDate()).padStart(2, '0');
+
+
+      const isToday =
+        date.getFullYear() === today.getFullYear() &&
+        date.getMonth() === today.getMonth() &&
+        date.getDate() === today.getDate();
 
       const isPastDate = date < new Date(today.getFullYear(), today.getMonth(), today.getDate());
+
+      const isBooked = tanggalTerisi.includes(dateString);
 
       const dayBox = document.createElement('div');
       dayBox.textContent = day;
 
-      if (isPastDate) {
-        dayBox.className = 'bg-gray-100 text-gray-400 cursor-not-allowed py-2 rounded-md';
-      } else {
-        dayBox.className =
-          `cursor-pointer py-2 rounded-md font-semibold ` +
-          (isAvailable === undefined
-            ? 'bg-gray-200 hover:bg-gray-300 text-gray-700'
-            : isAvailable
-            ? 'bg-green-400 text-white'
-            : 'bg-red-400 text-white');
-
-        dayBox.addEventListener('click', () => {
-          if (availability[dateKey] === undefined) {
-            availability[dateKey] = true;
-          } else if (availability[dateKey] === true) {
-            availability[dateKey] = false;
-          } else {
-            delete availability[dateKey];
-          }
-          renderCalendar();
-        });
-      }
+      dayBox.className = `
+        flex items-center justify-center border border-white/10 h-[100px]
+        ${isToday ? 'bg-[#8a0606] text-white font-extrabold' : ''}
+        ${isPastDate && !isToday ? 'text-white/40' : ''}
+        ${!isToday && !isPastDate ? 'hover:bg-white/10 cursor-pointer transition' : ''}
+        ${isBooked ? 'bg-red-500 text-white' : ''}
+      `;
 
       calendarDays.appendChild(dayBox);
     }
+
   }
 
   prevMonth.addEventListener('click', () => {
     const tempDate = new Date(currentDate);
     tempDate.setMonth(tempDate.getMonth() - 1);
+
     if (
       tempDate.getFullYear() > today.getFullYear() ||
-      (tempDate.getFullYear() === today.getFullYear() && tempDate.getMonth() >= today.getMonth())
+      (tempDate.getFullYear() === today.getFullYear() &&
+        tempDate.getMonth() >= today.getMonth())
     ) {
       currentDate = tempDate;
       renderCalendar();
@@ -312,34 +321,7 @@
   });
 
   renderCalendar();
-
-  // Fungsi untuk pause semua video kecuali yang ada di slide aktif
-  function pauseInactiveVideos() {
-    const slides = document.querySelectorAll('.hs-carousel-slide');
-    slides.forEach(slide => {
-      const video = slide.querySelector('video');
-      if (!slide.classList.contains('hs-carousel-active')) {
-        video?.pause();
-      }
-    });
-  }
-
-  // Jalankan saat awal
-  document.addEventListener('DOMContentLoaded', () => {
-    pauseInactiveVideos();
-
-    // Observer untuk deteksi slide aktif berubah
-    const observer = new MutationObserver(() => {
-      pauseInactiveVideos();
-    });
-
-    // Observe semua slide
-    document.querySelectorAll('.hs-carousel-slide').forEach(slide => {
-      observer.observe(slide, {
-        attributes: true,
-        attributeFilter: ['class'],
-      });
-    });
-  });
-  
 </script>
+
+
+
