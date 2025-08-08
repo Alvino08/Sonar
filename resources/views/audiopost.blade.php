@@ -290,14 +290,14 @@
 
       dayBox.className = `
         flex items-center justify-center border border-white/10 h-[100px]
-        ${isToday ? 'bg-[#8a0606] text-white font-extrabold' : ''}
         ${isPastDate && !isToday ? 'text-white/40' : ''}
-        ${!isToday && !isPastDate ? 'hover:bg-white/10 cursor-pointer transition' : ''}
-        ${isBooked ? 'bg-red-500 text-white' : ''}
+        ${!isPastDate && !isBooked ? 'hover:bg-white/10 cursor-pointer transition' : ''}
+        ${isBooked ? 'bg-[#8a0606] text-white font-extrabold' : ''}
       `;
 
       calendarDays.appendChild(dayBox);
     }
+        // ${isToday ? 'bg-[#8a0606] text-white font-extrabold' : ''}
 
   }
 

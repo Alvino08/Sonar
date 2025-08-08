@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Models\Jadwal;
 use Carbon\Carbon;
+use App\Http\Controllers\JadwalController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -40,20 +41,6 @@ Route::get('/audiopost', function () {
     return view('audiopost', ['tanggalTerisi' => $tanggalTerisi]);
 })->name("audiopost");
 
-// use Laravel\Socialite\Facades\Socialite;
 
-// Route::get('/google/redirect', function () {
-//     return Socialite::driver('google')
-//         ->scopes(['https://www.googleapis.com/auth/calendar'])
-//         ->stateless()
-//         ->redirect();
-// });
+Route::delete('/jadwal/{id}', [JadwalController::class, 'destroy'])->name('jadwal.destroy');
 
-// Route::get('/google/callback', function () {
-//     $user = Socialite::driver('google')->stateless()->user();
-
-//     // Simpan token ke session (atau nanti bisa ke database)
-//     session(['google_token' => $user->token]);
-
-//     return redirect('/'); // Kembali ke dashboard atau halaman admin
-// });
