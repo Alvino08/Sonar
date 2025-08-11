@@ -151,7 +151,7 @@
           <div data-hs-carousel='{"loadingClasses": "opacity-0"}' class="relative">
             <div class="hs-carousel relative overflow-hidden w-full h-screen bg-black rounded-none">
               <!-- Slides -->
-              <div class="hs-carousel-body absolute top-0 bottom-0 start-0 flex flex-nowrap transition-transform duration-700 opacity-100">
+              {{-- <div class="hs-carousel-body absolute top-0 bottom-0 start-0 flex flex-nowrap transition-transform duration-700 opacity-100">
                 <!-- Slide 1 -->
                 <div class="hs-carousel-slide w-screen h-screen flex items-center justify-center bg-black">
                   <iframe
@@ -177,17 +177,74 @@
                     Browser kamu tidak mendukung video.
                   </video>
                 </div>
+              </div> --}}
+              <div class="hs-carousel-body absolute top-0 bottom-0 start-0 flex flex-nowrap transition-transform duration-700 opacity-100">
+                @forelse($audioposts as $post)
+                  <div class="hs-carousel-slide w-screen h-screen flex items-center justify-center bg-black">
+                    <iframe
+                      class="w-full h-full object-cover"
+                      src="{{ $post->link }}"
+                      title="{{ $post->nama_projek }}"
+                      frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowfullscreen
+                    ></iframe>
+                  </div>
+                @empty
+                  <div class="hs-carousel-slide w-screen h-screen flex items-center justify-center bg-black text-white text-2xl">
+                    Belum ada project yang tersedia.
+                  </div>
+                @endforelse
               </div>
 
+              
+
               <!-- Pagination -->
-              <div id="container-4" class="hs-carousel-pagination absolute h-full gap-y-10 px-5 z-10 flex flex-col justify-center">
+              {{-- <div id="container-4" class="hs-carousel-pagination absolute h-full gap-y-10 px-5 z-10 flex flex-col justify-center">
                   <img src="/Audiopost/Background 2.png" class="hs-carousel-pagination-item w-30 h-18 object-cover rounded-md opacity-60 hover:opacity-100 cursor-pointer hs-carousel-active:opacity-100 border-2 border-white fade-item-service overflow-hidden transition-opacity" />
                   <img src="/Audiopost/Background 2.png" class="hs-carousel-pagination-item w-30 h-18 object-cover rounded-md opacity-60 hover:opacity-100 cursor-pointer hs-carousel-active:opacity-100 border-2 border-white fade-item-service overflow-hidden transition-opacity" />
                   <img src="/Audiopost/Background 2.png" class="hs-carousel-pagination-item w-30 h-18 object-cover rounded-md opacity-60 hover:opacity-100 cursor-pointer hs-carousel-active:opacity-100 border-2 border-white fade-item-service overflow-hidden transition-opacity" />
                 <a href="/project" class=" bg-white text-black rounded-md text-sm font-medium hover:bg-gray-200 shadow-lg w-30 h-18 flex justify-center items-center text-center opacity-30 hover:opacity-100 fade-item-service overflow-hidden transition-opacity">
                   View More Projects
                 </a>
+              </div> --}}
+              <div id="container-4" class="hs-carousel-pagination absolute h-full gap-y-10 px-5 z-10 flex flex-col justify-center">
+                @forelse($audioposts as $post)
+                  <img
+                    src="{{ $post->thumbnail ?? '/default-thumbnail.jpg' }}"
+                    class="hs-carousel-pagination-item w-30 h-18 object-cover rounded-md opacity-60 hover:opacity-100 cursor-pointer hs-carousel-active:opacity-100 border-2 border-white transition-opacity"
+                  />
+                @empty
+                  <img
+                    src="/Audiopost/placeholder.png"
+                    class="w-30 h-18 object-cover rounded-md opacity-40 border-2 border-dashed border-gray-400"
+                    title="Tidak ada project"
+                  />
+                @endforelse
+
+                <a href="/project" class="bg-white text-black rounded-md text-sm font-medium hover:bg-gray-200 shadow-lg w-30 h-18 flex justify-center items-center text-center opacity-30 hover:opacity-100 transition-opacity">
+                  View More Projects
+                </a>
               </div>
+
+              
+
+              <button type="button" class="hs-carousel-prev hs-carousel-disabled:opacity-50 hs-carousel-disabled:pointer-events-none absolute inset-y-0 start-0 inline-flex justify-center items-center w-11.5 h-full text-gray-800 hover:bg-gray-800/10 focus:outline-hidden focus:bg-gray-800/10 rounded-s-lg dark:text-white dark:hover:bg-white/10 dark:focus:bg-white/10 md:hidden">
+                <span class="text-2xl" aria-hidden="true">
+                  <svg class="shrink-0 size-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m15 18-6-6 6-6"></path>
+                  </svg>
+                </span>
+                <span class="sr-only">Previous</span>
+              </button>
+              <button type="button" class="hs-carousel-next hs-carousel-disabled:opacity-50 hs-carousel-disabled:pointer-events-none absolute inset-y-0 end-0 inline-flex justify-center items-center w-11.5 h-full text-gray-800 hover:bg-gray-800/10 focus:outline-hidden focus:bg-gray-800/10 rounded-e-lg dark:text-white dark:hover:bg-white/10 dark:focus:bg-white/10 lg:hidden">
+                <span class="sr-only">Next</span>
+                <span class="text-2xl" aria-hidden="true">
+                  <svg class="shrink-0 size-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m9 18 6-6-6-6"></path>
+                  </svg>
+                </span>
+              </button>
 
             </div>
           </div>
