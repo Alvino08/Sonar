@@ -5,12 +5,16 @@ import 'preline'
 import Alpine from 'alpinejs';
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { SplitText } from 'gsap/all';
 
 window.Alpine = Alpine
 
 Alpine.start()
 
 gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(SplitText);
+
+
 
 // function initScrollAnimations() {
 //   // Animasi teks heading `.c`
@@ -150,6 +154,80 @@ document.addEventListener("DOMContentLoaded", () => {
   navbarScrollEffect();
 });
 
+  function fadeInOnScroll() {
+  const elements = document.querySelectorAll('.fade-section');
+
+  elements.forEach(section => {
+    const items = section.querySelectorAll('.fade-item');
+
+    gsap.from(items, {
+      scrollTrigger: {
+        trigger: section,
+        start: 'bottom 100%',
+        toggleActions: 'restart none none reverse',
+      },
+      yPercent: 100,       // masuk dari bawah
+      opacity: 0,
+      duration: 1.5,
+      ease: 'power3.out',
+    });
+  });
+}
+
+  function setupScrollTrigger2() {
+    // Set initial state
+    gsap.set(".letter-s, .letter-o, .letter-n, .letter-a, .letter-r", {
+      opacity: 0,
+    });
+
+    // Buat timeline scroll-triggered
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#logo-sonar",
+        start: "top 90%",
+        toggleActions: "restart none none reset"
+      }
+    });
+
+    // Tambahkan animasi per huruf ke timeline
+    tl.to(".letter-s", { opacity: 1, y: 0, duration: 0.5 })
+      .to(".letter-o", { opacity: 1, y: 0, duration: 0.5 }, ">")
+      .to(".letter-n", { opacity: 1, y: 0, duration: 0.5 }, ">")
+      .to(".letter-a", { opacity: 1, y: 0, duration: 0.5 }, ">")
+      .to(".letter-r", { opacity: 1, y: 0, duration: 0.5 }, ">");
+  }
+
+  // Panggil fungsinya saat halaman siap
+  // setupScrollTrigger2();
+
+    function textBlur() {
+    // Split per kata
+    
+    document.fonts.ready.then(() => {
+      gsap.set(".container", { opacity: 1 });
+
+      // Split per kata
+      let split = new SplitText(".animate-me", { type: "words", aria: "hidden" });
+
+      gsap.from(split.words, {
+        opacity: 0,
+        filter: "blur(15px)",
+        duration: 1,
+        ease: "sine.out",
+        stagger: 0.1,
+        scrollTrigger: {
+          trigger: ".animate-me",
+          start: "top 80%",
+          toggleActions: "play none none none"
+        }
+      });
+    });
+    }
+
+
 // Ekspor agar bisa dipanggil dari Blade
 window.initScrollAnimations = initScrollAnimations;
 window.cardScrollAnimations = cardScrollAnimations;
+window.fadeInOnScroll = fadeInOnScroll;
+window.setupScrollTrigger2 = setupScrollTrigger2;
+window.textBlur = textBlur;

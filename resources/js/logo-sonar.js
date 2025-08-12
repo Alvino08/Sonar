@@ -15,8 +15,8 @@ gsap.registerPlugin(ScrollTrigger);
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: "#logo-sonar",
-        start: "top 80%",
-        toggleActions: "restart reset none none"
+        start: "top 90%",
+        toggleActions: "restart none none reset"
       }
     });
 

@@ -20,15 +20,19 @@
 <header x-data="{ open: false }" class="fixed w-full z-50 px-6 py-0 lg:py-6 flex items-center justify-center">
   <!-- Logo -->
   <div class="absolute left-10 top-2 lg:top-5 z-50">
-    <a href="/" class="text-white text-2xl lg:text-3xl font-extrabold tracking-wide">LOGO</a>
-  </div>
+  <a href="/" class="block">
+    <img src="/sonar/Sonar Logo Sep.svg" alt="Sonar Logo" class="h-8 lg:h-10 w-auto">
+  </a>
+</div>
+
 
   <!-- Desktop Navbar -->
   <nav class="nav hidden md:flex space-x-6 lg:space-x-8 px-6 py-2 lg:px-10 lg:py-3 absolute right-6 top-2 lg:top-5">
-    <a href="#home" class="text-white hover:text-blue-400 text-sm lg:text-base font-semibold transition">Home</a>
-    <a href="#about" class="text-white hover:text-blue-400 text-sm lg:text-base font-semibold transition">About</a>
+    <a href="/" class="text-white hover:text-blue-400 text-sm lg:text-base font-semibold transition">Home</a>
+    <a href="/audiopost" class="text-white hover:text-blue-400 text-sm lg:text-base font-semibold transition">Audiopost</a>
     <a href="#services" class="text-white hover:text-blue-400 text-sm lg:text-base font-semibold transition">Services</a>
     <a href="#contact" class="text-white hover:text-blue-400 text-sm lg:text-base font-semibold transition">Contact</a>
+    <a href="/login" class="text-white hover:text-blue-400 text-sm lg:text-base font-semibold transition">Sign Up</a>
   </nav>
 
   <!-- Hamburger Button -->

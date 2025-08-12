@@ -36,13 +36,40 @@
       .collapsible.is-open {
         opacity: 1;
       }
+
+      .bg-noise {
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 700"><defs><filter id="nnnoise-filter" x="-20%" y="-20%" width="140%" height="140%"><feTurbulence type="fractalNoise" baseFrequency="0.063" numOctaves="4" seed="15" stitchTiles="stitch" result="turbulence"/><feSpecularLighting surfaceScale="15" specularConstant="0.75" specularExponent="20" lighting-color="%23474747" in="turbulence" result="specularLighting"><feDistantLight azimuth="3" elevation="100"/></feSpecularLighting></filter></defs><rect width="700" height="700" fill="%23202020"/><rect width="700" height="700" fill="%23474747" filter="url(%23nnnoise-filter)"/></svg>');
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    .bg-noise2 {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 700"><defs><filter id="nnnoise-filter" x="-20%" y="-20%" width="140%" height="140%"><feTurbulence type="fractalNoise" baseFrequency="0.063" numOctaves="4" seed="15" stitchTiles="stitch" result="turbulence"/><feSpecularLighting surfaceScale="15" specularConstant="0.75" specularExponent="20" lighting-color="%23b6b6b6" in="turbulence" result="specularLighting"><feDistantLight azimuth="3" elevation="100"/></feSpecularLighting></filter></defs><rect width="700" height="700" fill="%23d0d0d0"/><rect width="700" height="700" fill="%23b6b6b6" filter="url(%23nnnoise-filter)"/></svg>');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+/* 
+  .anton-outline {
+  -webkit-text-stroke: 2px #121212; outline warna hitam
+  color: transparent;
+  transition: all 0.8s ease; transisi halus
+} */
+
+.anton-solid {
+  -webkit-text-stroke: 0px transparent;
+  color: #121212;
+}
+
+
+
     </style>
   </head>
-  <body class="overflow-x-hidden invisible bg-[#121212]">
+  <body class="overflow-x-hidden invisible bg-noise">
     <x-navbar />
 
     <div id="first-section" class="overflow-hidden">
-      <div class="h-screen w-full bg-[#121212] flex items-center justify-center">
+      <div class="h-screen w-full bg-noise flex items-center justify-center">
         <div class="h-[440px] w-[970px] flex items-center">
           <img src="/Audiopost/Audiopost-1.jpg" id="img-1" class="w-[345px] h-[345px] z-10 mr-[-80px]" />
           <img src="/Audiopost/Audiopost-2.jpg" id="img-2" class="w-[440px] h-[440px] z-20" />
@@ -68,7 +95,7 @@
 
         <!-- HALAMAN KEDUA -->
         <div class="panel">
-          <div id="halaman-kedua" class="halaman-kedua relative h-screen w-full overflow-x-hidden flex flex-col justify-center items-center bg-[#202020]">
+          <div id="halaman-kedua" class="halaman-kedua relative h-screen w-full overflow-x-hidden flex flex-col justify-center items-center bg-noise">
             <div class="relative z-10 h-[600px] w-[475px] text-center flex flex-col justify-center">
               <p id="line1" class="text-[#727070] font-semibold text-[100px] tracking-tighter leading-none">We strive</p>
               <div class="flex items-center justify-center">
@@ -87,8 +114,8 @@
 
       <!-- HALAMAN KETIGA -->
       <section class="content">
-        <div id="halaman-ketiga" class="min-h-screen w-full bg-[#d0d0d0] overflow-x-hidden px-5 py-30 flex justify-between">
-          <div class="h-[670px] w-[700px] ml-auto flex flex-col items-end justify-end pb-[9px] fade-section space-y-2">
+        <div id="halaman-ketiga" class="min-h-screen w-full bg-noise2 overflow-x-hidden px-5 py-30 flex justify-between">
+          <div class="h-[670px] w-[700px] ml-auto flex flex-col items-end justify-end pb-[9px] fade-section space-y-2" data-speed="2">
             <div class="overflow-hidden mb-[-100px]">
               <p class="font-anton text-[160px] text-[#121212] fade-item">OUR</p>
             </div>
@@ -145,6 +172,65 @@
           </div>
         </div>
 
+        {{-- <div id="halaman-ketiga" class="min-h-screen w-full bg-noise2 overflow-x-hidden px-5 py-30 flex justify-between">
+  
+          <!-- OUR SERVICES -->
+          <div class="h-[670px] w-[700px] ml-auto flex flex-col items-end justify-end pb-[9px] fade-section space-y-2" data-speed="2">
+            <div class=" mb-[-100px]">
+              <p class="font-anton text-[160px] text-[#121212] fade-item">OUR</p>
+            </div>
+            <div class="">
+              <p class="font-anton text-[160px] text-[#121212] fade-item">SERVICES</p>
+            </div>
+          </div>
+
+          <!-- Daftar poin -->
+          <div id="container-3" class="flex pt-5 mx-auto">
+            <div class="min-h-[300px] w-[700px] flex flex-col space-y-4"
+              x-data="{
+                items: [
+                  { id: 1, title: 'Jingle Production', desc: 'Catchy tunes that stick in your head—and sell your brand. We make your product sing (literally).', open: false },
+                  { id: 2, title: 'Audio Branding', desc: 'Your brand\'s sound identity. Signature sounds that say you without saying a word.', open: false },
+                  { id: 3, title: 'Automated Dialog Replacement', desc: 'Fixing messy dialogue in post. We re-record voices so they sound crystal-clear and perfectly synced.' , open: false },
+                  { id: 4, title: 'Foley / SFX (Digital & Film)', desc: 'Boom! Crash! Whoosh! We design sound effects that make your visuals come alive.', open: false },
+                  { id: 5, title: 'Mixing', desc: 'We balance every sound and boost it to perfection—so your audio is ready for any speaker, screen, or stage.', open: false },
+                  { id: 6, title: 'Scoring (Digital & Film)', desc: 'Original music that fits your story like a glove. Emotion, tension, drama—we\'ve got the feels.', open: false },
+                  { id: 7, title: 'Voice Over (VO)', desc: 'We cast, direct, and record the perfect voice for your ads, videos, or animated characters.', open: false },
+                  { id: 8, title: 'Offline Video Editing Suite', desc: 'Before color and polish, we shape your story. Cutting clips, adding rhythm, telling it right.', open: false }
+                ],
+                toggleOpen(index) {
+                  this.items[index].open = !this.items[index].open;
+                }
+              }">
+              <template x-for="(item, index) in items" :key="item.id">
+                <div>
+                  <div class="overflow-hidden">
+                    <div @click="toggleOpen(index)" class="h-[60px] flex items-center cursor-pointer border-b-2 border-[#121212]">
+                      <p class="text-[40px] text-[#727070] font-semibold mr-10 tracking-tighter"
+                        x-text="String(index + 1).padStart(2, '0')"></p>
+                      <p class="text-[40px] text-[#121212] font-semibold tracking-tighter mr-auto"
+                        x-text="item.title"></p>
+                      <p class="text-[30px] text-[#121212] font-semibold"
+                        x-text="item.open ? '×' : '+'"></p>
+                    </div>
+                  </div>
+
+                  <!-- Collapsible -->
+                  <div
+                    class="collapsible text-[#333]"
+                    :class="item.open && 'is-open'"
+                    :style="item.open && { height: $el.scrollHeight + 'px' }"
+                    @transitionend="if (!item.open) $el.style.height = null">
+                    <p class="py-3 text-[20px] text-[#727070] font-semibold tracking-tight leading-6"
+                      x-text="item.desc" data-speed="1.3"></p>
+                  </div>
+                </div>
+              </template>
+            </div>
+          </div>
+        </div> --}}
+
+
         <!-- HALAMAN KEEMPAT -->
         <div id="halaman-keempat" class="min-h-screen w-full bg-black overflow-hidden">
           <!-- Slider -->
@@ -181,9 +267,17 @@
               <div class="hs-carousel-body absolute top-0 bottom-0 start-0 flex flex-nowrap transition-transform duration-700 opacity-100">
                 @forelse($audioposts as $post)
                   <div class="hs-carousel-slide w-screen h-screen flex items-center justify-center bg-black">
-                    <iframe
+                    {{-- <iframe
                       class="w-full h-full object-cover"
                       src="{{ $post->link }}"
+                      title="{{ $post->nama_projek }}"
+                      frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowfullscreen
+                    ></iframe> --}}
+                    <iframe
+                      class="w-full h-full object-cover"
+                      src="{{ $post->link }}?rel=0&modestbranding=1&iv_load_policy=3&controls=1"
                       title="{{ $post->nama_projek }}"
                       frameborder="0"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -253,7 +347,7 @@
                     
         </div>
 
-        <div class="h-screen w-full bg-gradient-to-br from-[#d0d0d0] to-[#202020] px-5 py-20 flex justify-center items-start">
+        <div class="h-screen w-full bg-noise px-5 py-20 flex justify-center items-start">
           <div class="backdrop-blur-md  shadow-xl p-6 w-full max-w-5xl ">
             
             <!-- Header Navigasi -->
@@ -329,9 +423,8 @@
     for (let day = 1; day <= lastDate; day++) {
       const date = new Date(year, month, day);
       const dateString = date.getFullYear() + '-' +
-                   String(date.getMonth() + 1).padStart(2, '0') + '-' +
-                   String(date.getDate()).padStart(2, '0');
-
+                  String(date.getMonth() + 1).padStart(2, '0') + '-' +
+                  String(date.getDate()).padStart(2, '0');
 
       const isToday =
         date.getFullYear() === today.getFullYear() &&
@@ -339,7 +432,6 @@
         date.getDate() === today.getDate();
 
       const isPastDate = date < new Date(today.getFullYear(), today.getMonth(), today.getDate());
-
       const isBooked = tanggalTerisi.includes(dateString);
 
       const dayBox = document.createElement('div');
@@ -352,8 +444,19 @@
         ${isBooked ? 'bg-[#8a0606] text-white font-extrabold' : ''}
       `;
 
+      // Kalau tanggal belum terisi dan belum lewat → klik menuju WhatsApp
+      if (!isPastDate && !isBooked) {
+        dayBox.addEventListener('click', () => {
+          const waNumber = "6281586246031"; // ganti dengan nomor WhatsApp tujuan (format internasional tanpa +)
+          const message = `Halo, saya ingin memesan untuk tanggal ${dateString}`;
+          const waLink = `https://wa.me/${waNumber}?text=${encodeURIComponent(message)}`;
+          window.open(waLink, '_blank');
+        });
+      }
+
       calendarDays.appendChild(dayBox);
     }
+
         // ${isToday ? 'bg-[#8a0606] text-white font-extrabold' : ''}
 
   }

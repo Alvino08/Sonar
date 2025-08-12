@@ -110,6 +110,9 @@
         transform: scale(1);
         letter-spacing: 0.1vw;
       }
+      .invert {
+        filter: invert(1);
+      }
     }
 
 
@@ -120,6 +123,14 @@
       #customCursor {
         transition: transform 0.1s ease;
       }
+
+      .bg-noise {
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 700"><defs><filter id="nnnoise-filter" x="-20%" y="-20%" width="140%" height="140%"><feTurbulence type="fractalNoise" baseFrequency="0.063" numOctaves="4" seed="15" stitchTiles="stitch" result="turbulence"/><feSpecularLighting surfaceScale="15" specularConstant="0.75" specularExponent="20" lighting-color="%23474747" in="turbulence" result="specularLighting"><feDistantLight azimuth="3" elevation="100"/></feSpecularLighting></filter></defs><rect width="700" height="700" fill="%23202020"/><rect width="700" height="700" fill="%23474747" filter="url(%23nnnoise-filter)"/></svg>');
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+
 
     </style>
   </head>
@@ -160,9 +171,9 @@
       <section class="min-h-screen flex items-center justify-center text-center overflow-hidden">
         <div id="page2Container">
           <h1 class="font-extrabold text-2xl md:text-4xl lg:text-5xl c">Discover design, sound, and</h1>
-          <h1 class="font-extrabold text-2xl md:text-4xl lg:text-5xl c">vision — reimagined by Sonar.</h1>
-          <p class="font-semibold text-base md:text-xl pt-2 d">We shape emotion through sound, design, and vision.</p>
-          <p class="font-semibold text-base md:text-xl d">Your story resonates beyond the screen.</p>
+          <h1 class="font-extrabold text-2xl md:text-4xl lg:text-5xl d">vision — reimagined by Sonar.</h1>
+          {{-- <p class="font-semibold text-base md:text-xl pt-2 d">We shape emotion through sound, design, and vision.</p>
+          <p class="font-semibold text-base md:text-xl d">Your story resonates beyond the screen.</p> --}}
           {{-- <button id="backButton" class="mt-6 px-6 py-2 bg-white text-black rounded hover:bg-gray-200 transition">
             Kembali
           </button> --}}
@@ -229,15 +240,59 @@
         
       </section>
 
-        <div class="w-full h-screen bg-[#727070] flex justify-center items-center">
+        <div class="w-full min-h-screen flex-col bg-noise">
+  
+</filter></defs><rect width="700" height="700" fill="#202020"></rect><rect width="700" height="700" fill="#474747" filter="url(#nnnoise-filter)"></rect></svg>
 
-          <div class="w-[600px] h-[400px]  flex group overflow-hidden relative">
-            <div class="w-[400px] h-[400px] bg-white flex flex-col justify-end z-10">
-              <p class="font-anton text-red-600 text-[70px] mb-[-10px]">Hudi</p>
-              <p class="font-anton text-red-600 text-[70px] mb-[-10px]">Ardianto</p>
+          <div class="w-[full] h-[50rem] mx-auto">
+                    <div id="logo-sonar" class="w-[500px] h-[500px] mx-auto flex flex-col items-center justify-center invert">
+                      <!-- Baris pertama: S O N -->
+                      <div class="flex mb-[-70px]">
+                        <div class="w-[164px] h-[380px] mr-[-75px]">
+                          <img src="/Audiopost/SONAR ILLUS - S.png" alt="" class="letter-s">
+                        </div>
+                        <div class="w-[120px] h-[180px] ml-[40px] mr-[-67px] mt-[170px]">
+                          <img src="/Audiopost/SONAR ILLUS - O.png" alt="" class="letter-o">
+                        </div>
+                        <div class="w-[186px] h-[280px] mt-30">
+                          <img src="/Audiopost/SONAR ILLUS - N.png" alt="" class="letter-n">
+                        </div>
+                      </div>
+                      
+                      <!-- Baris kedua: A R -->
+                      <div class="flex mt-[-70px]">
+                        <div  class="w-[158px] h-[242px]">
+                          <img src="/Audiopost/SONAR ILLUS - A.png" alt="" class="letter-a">
+                        </div>
+                        <div class="w-[182px] h-[300px] ml-[-45px] mt-[20px]">
+                          <img src="/Audiopost/SONAR ILLUS - R.png" alt="" class="letter-r">
+                        </div>
+                      </div>
+                    </div>
+
+                    {{-- <div class="flex items-center justify-center text-center w-[1300px] mx-auto mt-10">
+                      <p class="tracking-[5px] leading-15">
+                        Sonar Inc is a Jakarta-based creative company founded in 2017 by two individuals driven by a shared passion for music, art, and storytelling. We work across TV, digital, film, events, and multimedia, blending imagination with craft to create experiences that inspire, engage, and connect.    
+                      </p>                      
+                    </div> --}}
+
+
+                    <div class="container flex items-center justify-center text-center w-[1000px] mx-auto mt-10 " style="opacity:0;">
+                      <p class="animate-me tracking-[5px] leading-15 text-[40px]">
+                        Sonar Inc is a Jakarta-based creative company founded in 2017 by two individuals driven by a shared passion for music, art, and storytelling. We work across TV, digital, film, events, and multimedia, blending imagination with craft to create experiences that inspire, engage, and connect.
+                      </p>
+                    </div>
+
+          </div>
+
+          <div class="flex justify-center items-center h-screen">
+            <div class="w-[600px] h-[400px] flex group overflow-hidden relative">
+            <div class="w-[400px] h-[400px] bg-white flex flex-col justify-end z-10 fade-section">
+              <p class="font-anton text-red-600 text-[70px] mb-[-10px] fade-item">Hudi</p>
+              <p class="font-anton text-red-600 text-[70px] mb-[-10px] fade-item">Ardianto</p>
             </div>
-            <div class="w-[200px] h-[400px] text-[20px] absolute duration-400 opacity-0 group-hover:opacity-100 transition-all z-0 right-[100%] group-hover:right-[0%] px-3 py-3">
-              <p>
+            <div class="text-justify tracking-[0.025em] w-[200px] h-[400px] text-[20px] absolute duration-400 opacity-0 group-hover:opacity-100 transition-all z-0 right-[100%] group-hover:right-[0%] px-3 py- 3">
+              <p class>
                 An established Music Producer and
                 Musician in Jakarta electronic music
                 scene.
@@ -255,11 +310,11 @@
           </div>
 
           <div class="w-[600px] h-[400px]  flex justify-end overflow-hidden relative group">
-            <div class="w-[400px] h-[400px] bg-white flex flex-col justify-end items-end">
-              <p class="font-anton text-red-600 text-[70px] mb-[-10px]">Ibam</p>
-              <p class="font-anton text-red-600 text-[70px] mb-[-10px]">Adam</p>
+            <div class="w-[400px] h-[400px] bg-white flex flex-col justify-end items-end fade-section">
+              <p class="font-anton text-red-600 text-[70px] mb-[-10px] fade-item">Ibam</p>
+              <p class="font-anton text-red-600 text-[70px] mb-[-10px] fade-item">Adam</p>
             </div>
-            <div class="w-[200px] h-[400px] text-[20px] absolute duration-400 opacity-0 group-hover:opacity-100 transition-all z-0 left-[100%] group-hover:left-[0%] px-3 py-3 text-right">
+            <div class="text-justify tracking-[0.1em] w-[200px] h-[400px] text-[20px] absolute duration-400 opacity-0 group-hover:opacity-100 transition-all z-0 left-[100%] group-hover:left-[0%] px-3 py-3 ">
               <p>
                 As an electronic music industry
                 veteran, Ibam has set an industry
@@ -274,7 +329,11 @@
               </p>
             </div>
 
+            </div>
           </div>
+          
+
+          
 
 
 
@@ -282,10 +341,8 @@
         </div>
 
 
-
-      <footer class="bg-gray-900 text-white text-center text-lg py-12">
-        <p>&copy; 2025 Nama Kamu. Semua Hak Dilindungi.</p>
-      </footer>
+      <x-footer/>
+      
     </div>
 
     <!-- Custom Cursor -->
@@ -330,6 +387,9 @@
           overlay.classList.remove('full-black');
           window.initScrollAnimations();
           window.cardScrollAnimations();
+          window.fadeInOnScroll();
+          window.setupScrollTrigger2();
+          window.textBlur();
           return;
         }
 
@@ -403,6 +463,9 @@
           page2Container.classList.add('fade-in');
           window.initScrollAnimations();
           window.cardScrollAnimations();
+          window.fadeInOnScroll();
+          window.setupScrollTrigger2();
+          window.textBlur();
           sessionStorage.setItem('hasVisitedMain', 'true');
         }, 2500);
       }

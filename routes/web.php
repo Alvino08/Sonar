@@ -51,3 +51,7 @@ Route::delete('/jadwal/{id}', [JadwalController::class, 'destroy'])->name('jadwa
 
 Route::post('/audiopost/store', [AudiopostController::class, 'store'])->name('audiopost.store');
 Route::delete('/audiopost/{id}', [AudiopostController::class, 'destroy'])->name('audiopost.destroy');
+
+Route::get('/login', function () {
+    return view('login');
+})->name("login");

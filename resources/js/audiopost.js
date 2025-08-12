@@ -60,7 +60,7 @@ window.onload = () => {
         // Sembunyikan first-section
         gsap.to(firstSection, {
             opacity: 0,
-            duration: 0.5,
+            duration: 0.05,
             onComplete: () => {
             firstSection.style.display = "none";
             // Tampilkan second-section
@@ -71,6 +71,7 @@ window.onload = () => {
             setupScrollTrigger();
             fadeInOnScroll('.fade-section');
             fadeInServiceItems("#container-4");
+            parallaxScroll();
             // setupScrollTrigger2();
             }
         });
@@ -189,25 +190,57 @@ gsap.timeline()
   //   });
   // }
 
+// function fadeInOnScroll(selector) {
+//   const elements = document.querySelectorAll(selector);
+
+//   elements.forEach(section => {
+//     const items = section.querySelectorAll('.fade-item');
+
+//     gsap.from(items, {
+//       scrollTrigger: {
+//         trigger: section,
+//         start: 'top 30%',
+//         toggleActions: 'play none none reverse',
+//       },
+//       yPercent: 50,
+//       opacity: 0,
+//       duration: 1.5,
+//       ease: 'power3.out',
+//       // onComplete: () => {
+//       //   items.forEach(item => {
+//       //     // ganti outline → solid dengan transisi CSS
+//       //     item.classList.remove('anton-outline');
+//       //     item.classList.add('anton-solid');
+//       //   });
+//       // }
+//     });
+//   });
+// }
+
   function fadeInOnScroll(selector) {
-  const elements = document.querySelectorAll(selector);
+    const sections = document.querySelectorAll(selector);
+    sections.forEach(section => {
+      const items = section.querySelectorAll('.fade-item');
+      if (!items.length) return;
 
-  elements.forEach(section => {
-    const items = section.querySelectorAll('.fade-item');
-
-    gsap.from(items, {
-      scrollTrigger: {
-        trigger: section,
-        start: 'top 30%',
-        toggleActions: 'play none none none',
-      },
-      yPercent: 50,       // masuk dari bawah
-      opacity: 0,
-      duration: 1.2,
-      ease: 'power3.out',
+      gsap.from(items, {
+        scrollTrigger: {
+          trigger: section,
+          start: 'top 70%',   // sesuaikan kalau mau muncul lebih awal/kemudian
+          end: 'bottom 30%',
+          toggleActions: 'restart none none reset',
+          invalidateOnRefresh: true
+        },
+        yPercent: 100,
+        // opacity: 0,
+        duration: 3,
+        ease: 'power3.out',
+        stagger: 0.06,
+        immediateRender: false // penting agar gsap.from tidak langsung men-set inline styles sebelum ScrollTrigger siap
+      });
     });
-  });
-}
+  }
+
 
 function fadeInServiceItems(selector) {
   const sections = document.querySelectorAll(selector);
@@ -220,7 +253,7 @@ function fadeInServiceItems(selector) {
         scrollTrigger: {
           trigger: item,
           start: 'top 105%',
-          toggleActions: 'play none none reverse',
+          toggleActions: 'restart none none reset',
         },
         scale: 0,
         y: 100,
@@ -230,3 +263,25 @@ function fadeInServiceItems(selector) {
     });
   });
 }
+
+
+  function parallaxScroll(){
+    gsap.utils.toArray('[data-speed]').forEach(el => {
+      const speed = parseFloat(el.getAttribute('data-speed')) || 1;
+
+      // movement = seberapa banyak px elemen akan berpindah (tweak sesuai kebutuhan)
+      const movement = (1 - speed) * (window.innerHeight * 0.6);
+
+      gsap.to(el, {
+        y: movement,
+        ease: "none",
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 10%',   // mulai saat top elemen mencapai bottom viewport
+          // end: 'bottom top',     // selesai saat bottom elemen mencapai top viewport
+          scrub: true,
+          invalidateOnRefresh: true
+        }
+      });
+    });
+  }
