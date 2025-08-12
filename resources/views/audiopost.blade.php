@@ -71,9 +71,9 @@
     <div id="first-section" class="overflow-hidden">
       <div class="h-screen w-full bg-noise flex items-center justify-center">
         <div class="h-[440px] w-[970px] flex items-center">
-          <img src="/Audiopost/Audiopost-1.jpg" id="img-1" class="w-[345px] h-[345px] z-10 mr-[-80px]" />
-          <img src="/Audiopost/Audiopost-2.jpg" id="img-2" class="w-[440px] h-[440px] z-20" />
-          <img src="/Audiopost/Audiopost-3.jpg" id="img-3" class="w-[345px] h-[345px] z-10 ml-[-80px]" />
+          <img src="/Audioposts/Audiopost-1.jpg" id="img-1" class="w-[345px] h-[345px] z-10 mr-[-80px]" />
+          <img src="/Audioposts/Audiopost-2.jpg" id="img-2" class="w-[440px] h-[440px] z-20" />
+          <img src="/Audioposts/Audiopost-3.jpg" id="img-3" class="w-[345px] h-[345px] z-10 ml-[-80px]" />
         </div>
       </div>
     </div>
@@ -83,7 +83,7 @@
         <!-- HALAMAN PERTAMA -->
         <div class="panel">
           <div id="halaman-pertama" class="halaman-pertama h-screen w-full bg-[#121212] items-center justify-center overflow-x-hidden flex">
-            <img src="/Audiopost/Background 2.png" alt="Background" id="img-background"
+            <img src="/Audioposts/Background 2.png" alt="Background" id="img-background"
               class="absolute inset-0 w-full h-full object-cover z-0 opacity-25 brightness-50" />
             <div class="flex flex-col items-center justify-center text-center">
               <p id="sonar" class="split text-[100px] font-bold text-white tracking-tighter mb-[-100px]">SONAR</p>
@@ -172,109 +172,16 @@
           </div>
         </div>
 
-        {{-- <div id="halaman-ketiga" class="min-h-screen w-full bg-noise2 overflow-x-hidden px-5 py-30 flex justify-between">
-  
-          <!-- OUR SERVICES -->
-          <div class="h-[670px] w-[700px] ml-auto flex flex-col items-end justify-end pb-[9px] fade-section space-y-2" data-speed="2">
-            <div class=" mb-[-100px]">
-              <p class="font-anton text-[160px] text-[#121212] fade-item">OUR</p>
-            </div>
-            <div class="">
-              <p class="font-anton text-[160px] text-[#121212] fade-item">SERVICES</p>
-            </div>
-          </div>
 
-          <!-- Daftar poin -->
-          <div id="container-3" class="flex pt-5 mx-auto">
-            <div class="min-h-[300px] w-[700px] flex flex-col space-y-4"
-              x-data="{
-                items: [
-                  { id: 1, title: 'Jingle Production', desc: 'Catchy tunes that stick in your head—and sell your brand. We make your product sing (literally).', open: false },
-                  { id: 2, title: 'Audio Branding', desc: 'Your brand\'s sound identity. Signature sounds that say you without saying a word.', open: false },
-                  { id: 3, title: 'Automated Dialog Replacement', desc: 'Fixing messy dialogue in post. We re-record voices so they sound crystal-clear and perfectly synced.' , open: false },
-                  { id: 4, title: 'Foley / SFX (Digital & Film)', desc: 'Boom! Crash! Whoosh! We design sound effects that make your visuals come alive.', open: false },
-                  { id: 5, title: 'Mixing', desc: 'We balance every sound and boost it to perfection—so your audio is ready for any speaker, screen, or stage.', open: false },
-                  { id: 6, title: 'Scoring (Digital & Film)', desc: 'Original music that fits your story like a glove. Emotion, tension, drama—we\'ve got the feels.', open: false },
-                  { id: 7, title: 'Voice Over (VO)', desc: 'We cast, direct, and record the perfect voice for your ads, videos, or animated characters.', open: false },
-                  { id: 8, title: 'Offline Video Editing Suite', desc: 'Before color and polish, we shape your story. Cutting clips, adding rhythm, telling it right.', open: false }
-                ],
-                toggleOpen(index) {
-                  this.items[index].open = !this.items[index].open;
-                }
-              }">
-              <template x-for="(item, index) in items" :key="item.id">
-                <div>
-                  <div class="overflow-hidden">
-                    <div @click="toggleOpen(index)" class="h-[60px] flex items-center cursor-pointer border-b-2 border-[#121212]">
-                      <p class="text-[40px] text-[#727070] font-semibold mr-10 tracking-tighter"
-                        x-text="String(index + 1).padStart(2, '0')"></p>
-                      <p class="text-[40px] text-[#121212] font-semibold tracking-tighter mr-auto"
-                        x-text="item.title"></p>
-                      <p class="text-[30px] text-[#121212] font-semibold"
-                        x-text="item.open ? '×' : '+'"></p>
-                    </div>
-                  </div>
-
-                  <!-- Collapsible -->
-                  <div
-                    class="collapsible text-[#333]"
-                    :class="item.open && 'is-open'"
-                    :style="item.open && { height: $el.scrollHeight + 'px' }"
-                    @transitionend="if (!item.open) $el.style.height = null">
-                    <p class="py-3 text-[20px] text-[#727070] font-semibold tracking-tight leading-6"
-                      x-text="item.desc" data-speed="1.3"></p>
-                  </div>
-                </div>
-              </template>
-            </div>
-          </div>
-        </div> --}}
-
-
-        <!-- HALAMAN KEEMPAT -->
+        {{-- <!-- HALAMAN KEEMPAT -->
         <div id="halaman-keempat" class="min-h-screen w-full bg-black overflow-hidden">
           <!-- Slider -->
           <div data-hs-carousel='{"loadingClasses": "opacity-0"}' class="relative">
             <div class="hs-carousel relative overflow-hidden w-full h-screen bg-black rounded-none">
               <!-- Slides -->
-              {{-- <div class="hs-carousel-body absolute top-0 bottom-0 start-0 flex flex-nowrap transition-transform duration-700 opacity-100">
-                <!-- Slide 1 -->
-                <div class="hs-carousel-slide w-screen h-screen flex items-center justify-center bg-black">
-                  <iframe
-                    class="w-full h-full object-cover"
-                    src="https://www.youtube.com/embed/wv9zWCm6Ui4"
-                    title="YouTube video player"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen
-                  ></iframe>
-                </div>
-                <!-- Slide 2 -->
-                <div class="hs-carousel-slide w-screen h-screen flex items-center justify-center bg-black">
-                  <video class="w-full h-full object-cover" controls preload="metadata">
-                    <source src="/video/SONAR.mp4" type="video/mp4" />
-                    Browser kamu tidak mendukung video.
-                  </video>
-                </div>
-                <!-- Slide 3 -->
-                <div class="hs-carousel-slide w-screen h-screen flex items-center justify-center bg-black">
-                  <video class="w-full h-full object-cover" controls preload="metadata">
-                    <source src="/video/SONAR.mp4" type="video/mp4" />
-                    Browser kamu tidak mendukung video.
-                  </video>
-                </div>
-              </div> --}}
               <div class="hs-carousel-body absolute top-0 bottom-0 start-0 flex flex-nowrap transition-transform duration-700 opacity-100">
                 @forelse($audioposts as $post)
                   <div class="hs-carousel-slide w-screen h-screen flex items-center justify-center bg-black">
-                    {{-- <iframe
-                      class="w-full h-full object-cover"
-                      src="{{ $post->link }}"
-                      title="{{ $post->nama_projek }}"
-                      frameborder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowfullscreen
-                    ></iframe> --}}
                     <iframe
                       class="w-full h-full object-cover"
                       src="{{ $post->link }}?rel=0&modestbranding=1&iv_load_policy=3&controls=1"
@@ -290,18 +197,7 @@
                   </div>
                 @endforelse
               </div>
-
-              
-
               <!-- Pagination -->
-              {{-- <div id="container-4" class="hs-carousel-pagination absolute h-full gap-y-10 px-5 z-10 flex flex-col justify-center">
-                  <img src="/Audiopost/Background 2.png" class="hs-carousel-pagination-item w-30 h-18 object-cover rounded-md opacity-60 hover:opacity-100 cursor-pointer hs-carousel-active:opacity-100 border-2 border-white fade-item-service overflow-hidden transition-opacity" />
-                  <img src="/Audiopost/Background 2.png" class="hs-carousel-pagination-item w-30 h-18 object-cover rounded-md opacity-60 hover:opacity-100 cursor-pointer hs-carousel-active:opacity-100 border-2 border-white fade-item-service overflow-hidden transition-opacity" />
-                  <img src="/Audiopost/Background 2.png" class="hs-carousel-pagination-item w-30 h-18 object-cover rounded-md opacity-60 hover:opacity-100 cursor-pointer hs-carousel-active:opacity-100 border-2 border-white fade-item-service overflow-hidden transition-opacity" />
-                <a href="/project" class=" bg-white text-black rounded-md text-sm font-medium hover:bg-gray-200 shadow-lg w-30 h-18 flex justify-center items-center text-center opacity-30 hover:opacity-100 fade-item-service overflow-hidden transition-opacity">
-                  View More Projects
-                </a>
-              </div> --}}
               <div id="container-4" class="hs-carousel-pagination absolute h-full gap-y-10 px-5 z-10 flex flex-col justify-center">
                 @forelse($audioposts as $post)
                   <img
@@ -345,7 +241,7 @@
           <!-- End Slider -->
 
                     
-        </div>
+        </div> --}}
 
         <div class="h-screen w-full bg-noise px-5 py-20 flex justify-center items-start">
           <div class="backdrop-blur-md  shadow-xl p-6 w-full max-w-5xl ">

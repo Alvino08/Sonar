@@ -32,7 +32,16 @@
     <a href="/audiopost" class="text-white hover:text-blue-400 text-sm lg:text-base font-semibold transition">Audiopost</a>
     <a href="#services" class="text-white hover:text-blue-400 text-sm lg:text-base font-semibold transition">Services</a>
     <a href="#contact" class="text-white hover:text-blue-400 text-sm lg:text-base font-semibold transition">Contact</a>
-    <a href="/login" class="text-white hover:text-blue-400 text-sm lg:text-base font-semibold transition">Sign Up</a>
+    {{-- <a href="/login" class="text-white hover:text-blue-400 text-sm lg:text-base font-semibold transition">Sign Up</a> --}}
+
+    @guest
+        <a href="{{ route('login') }}" class="text-white hover:text-blue-400 text-sm lg:text-base font-semibold transition">Sign Up</a>
+    @endguest
+
+    @auth
+        <a href="{{ route('profile.edit') }}" class="text-white hover:text-blue-400 text-sm lg:text-base font-semibold transition">Profile</a>
+    @endauth
+
   </nav>
 
   <!-- Hamburger Button -->
@@ -44,7 +53,7 @@
   </button>
 
   <!-- Mobile Menu -->
-  <div
+  {{-- <div
     x-show="open"
     @click.away="open = false"
     x-transition:enter="transition ease-out duration-200"
@@ -59,5 +68,31 @@
     <a href="#about" class="text-white hover:text-blue-400 text-base font-semibold transition">About</a>
     <a href="#services" class="text-white hover:text-blue-400 text-base font-semibold transition">Services</a>
     <a href="#contact" class="text-white hover:text-blue-400 text-base font-semibold transition">Contact</a>
+  </div> --}}
+
+  <div
+      x-show="open"
+      @click.away="open = false"
+      x-transition:enter="transition ease-out duration-200"
+      x-transition:enter-start="opacity-0 scale-95"
+      x-transition:enter-end="opacity-100 scale-100"
+      x-transition:leave="transition ease-in duration-100"
+      x-transition:leave-start="opacity-100 scale-100"
+      x-transition:leave-end="opacity-0 scale-95"
+      class="nav flex flex-col space-y-3 px-4 py-3 absolute top-0 right-0 w-64 h-screen md:hidden z-40"
+  >
+      <a href="/" class="text-white hover:text-blue-400 text-base font-semibold transition">Home</a>
+      <a href="#about" class="text-white hover:text-blue-400 text-base font-semibold transition">About</a>
+      <a href="#services" class="text-white hover:text-blue-400 text-base font-semibold transition">Services</a>
+      <a href="#contact" class="text-white hover:text-blue-400 text-base font-semibold transition">Contact</a>
+
+      @guest
+          <a href="{{ route('login') }}" class="text-white hover:text-blue-400 text-base font-semibold transition">Sign Up</a>
+      @endguest
+
+      @auth
+          <a href="{{ route('profile.edit') }}" class="text-white hover:text-blue-400 text-base font-semibold transition">Profile</a>
+      @endauth
   </div>
+
 </header>

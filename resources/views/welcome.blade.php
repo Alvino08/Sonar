@@ -249,23 +249,23 @@
                       <!-- Baris pertama: S O N -->
                       <div class="flex mb-[-70px]">
                         <div class="w-[164px] h-[380px] mr-[-75px]">
-                          <img src="/Audiopost/SONAR ILLUS - S.png" alt="" class="letter-s">
+                          <img src="/Audioposts/SONAR ILLUS - S.png" alt="" class="letter-s">
                         </div>
                         <div class="w-[120px] h-[180px] ml-[40px] mr-[-67px] mt-[170px]">
-                          <img src="/Audiopost/SONAR ILLUS - O.png" alt="" class="letter-o">
+                          <img src="/Audioposts/SONAR ILLUS - O.png" alt="" class="letter-o">
                         </div>
                         <div class="w-[186px] h-[280px] mt-30">
-                          <img src="/Audiopost/SONAR ILLUS - N.png" alt="" class="letter-n">
+                          <img src="/Audioposts/SONAR ILLUS - N.png" alt="" class="letter-n">
                         </div>
                       </div>
                       
                       <!-- Baris kedua: A R -->
                       <div class="flex mt-[-70px]">
                         <div  class="w-[158px] h-[242px]">
-                          <img src="/Audiopost/SONAR ILLUS - A.png" alt="" class="letter-a">
+                          <img src="/Audioposts/SONAR ILLUS - A.png" alt="" class="letter-a">
                         </div>
                         <div class="w-[182px] h-[300px] ml-[-45px] mt-[20px]">
-                          <img src="/Audiopost/SONAR ILLUS - R.png" alt="" class="letter-r">
+                          <img src="/Audioposts/SONAR ILLUS - R.png" alt="" class="letter-r">
                         </div>
                       </div>
                     </div>
@@ -372,7 +372,7 @@
       // });
 
       window.addEventListener('load', () => {
-        const hasVisited = sessionStorage.getItem('hasVisitedMain');
+        const hasVisited = sessionStorage.getItem('myApp_hasVisitedMain');  // key unik
         const preloader = document.getElementById('preloader');
         const landing = document.getElementById('landingSection');
         const main = document.getElementById('mainContent');
@@ -399,9 +399,11 @@
             preloader.style.display = 'none';
             landing.classList.remove('hidden');
             document.body.classList.remove('overflow-hidden');
+            sessionStorage.setItem('myApp_hasVisitedMain', 'true'); // set key unik
           }, 500);
         }, 4000);
       });
+
 
 
       const HOVER_ANIMATION_DURATION = 400;

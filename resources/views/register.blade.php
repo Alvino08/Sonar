@@ -68,12 +68,11 @@
 
         <!-- Right -->
         <div class="w-full bg-noise lg:w-1/2 flex items-center justify-center">
-          <div class="max-w-md w-full p-6">
-              <h1 class="text-3xl font-semibold mb-6 text-white text-center">Login</h1>
-              <p class="text-sm font-semibold mb-6 text-white text-center">Welcome back! Please login to your account</p>
+            <div class="max-w-md w-full p-6">
+                <h1 class="text-3xl font-semibold mb-6 text-white text-center">Sign Up</h1>
+                <p class="text-sm font-semibold mb-6 text-white text-center">Join our community with all-time access for free</p>
 
-              <!-- tombol login google/github -->
-              <a class="mt-4 flex flex-col lg:flex-row items-center justify-between" href="{{ route('auth.google') }}">
+                <a class="mt-4 flex flex-col lg:flex-row items-center justify-between" href="">
                     <div class="w-full lg:w-full mb-2 lg:mb-0">
                         <button type="button" class="w-full flex justify-center items-center gap-2 bg-white text-sm text-gray-600 p-2 rounded-md hover:bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-200 transition-colors duration-300">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-4" id="google">
@@ -85,38 +84,67 @@
                     </div>
                 </a>
 
-              <div class="mt-4 text-sm text-white text-center">
-                  <p>or with email</p>
-              </div>
+                <div class="mt-4 text-sm text-white text-center">
+                    <p>or with email</p>
+                </div>
 
-              <form action="{{ route('login.post') }}" method="POST" class="space-y-4">
-                @csrf
-                  <div>
-                      <label for="email" class="block text-sm font-medium text-white">Email</label>
-                      <input type="email" id="email" name="email" value="{{ old('email') }}" class="mt-1 p-2 w-full border border-gray-200 rounded-md focus:bg-gray-300 focus:text-black text-white">
-                      @error('email')
-                          <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
-                      @enderror
-                  </div>
-                  <div>
-                      <label for="password" class="block text-sm font-medium text-white">Password</label>
-                      <input type="password" id="password" name="password" class="mt-1 p-2 w-full border border-gray-200 rounded-md focus:bg-gray-300 focus:text-black text-white">
-                      @error('password')
-                          <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
-                      @enderror
-                  </div>
-                  <div>
-                      <button type="submit" class="w-full bg-black text-white p-2 rounded-md hover:bg-white hover:text-black">Login</button>
-                  </div>
-              </form>
+                <form action="{{ route('register') }}" method="POST" class="space-y-4">
+                    @csrf
+                    <div>
+                        <label for="username" class="block text-sm font-medium text-white">Username</label>
+                        <input type="text" id="username" name="username" class="mt-1 p-2 w-full border border-gray-200 rounded-md focus:bg-gray-300 focus:text-black text-white" required>
+                    </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-white">Email</label>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                name="email" 
+                                value="{{ old('email') }}"
+                                class="mt-1 p-2 w-full border border-gray-200 rounded-md focus:bg-gray-300 focus:text-black text-white
+                                    @error('email') border-red-500 @enderror"
+                                required
+                            >
+                            @error('email')
+                                <p id="email-error" class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                            @enderror
+                        </div>
 
+                    <div>
+                        <label for="password" class="block text-sm font-medium text-white">Password</label>
+                        <input type="password" id="password" name="password" class="mt-1 p-2 w-full border border-gray-200 rounded-md focus:bg-gray-300 focus:text-black text-white" required>
+                    </div>
+                    <div>
+                        <label for="password_confirmation" class="block text-sm font-medium text-white">Confirm Password</label>
+                        <input type="password" id="password_confirmation" name="password_confirmation" class="mt-1 p-2 w-full border border-gray-200 rounded-md focus:bg-gray-300 focus:text-black text-white" required>
+                    </div>
+                    <div>
+                        <button type="submit" class="w-full bg-black text-white p-2 rounded-md hover:bg-white hover:text-black">Sign Up</button>
+                    </div>
+                </form>
 
-              <div class="mt-4 text-sm text-white text-center">
-                  <p>Don't have an account? <a href="{{ route('register') }}" class="text-blue-600 hover:underline">Sign up here</a></p>
-              </div>
-          </div>
-      </div>
+                <div class="mt-4 text-sm text-white text-center">
+                    <p>Already have an account? <a href="{{ route('login') }}" class="text-blue-600 hover:underline">Login here</a></p>
+                </div>
+            </div>
+        </div>
     </div>
+
+    
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const emailInput = document.getElementById('email');
+    const emailError = document.getElementById('email-error');
+
+    if (emailInput && emailError) {
+        emailInput.addEventListener('focus', () => {
+            emailInput.classList.remove('border-red-500');
+            emailError.remove();
+        });
+    }
+});
+</script>
+
 </body>
 </html>
 
