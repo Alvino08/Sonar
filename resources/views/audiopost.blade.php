@@ -64,6 +64,7 @@
 
 
     </style>
+    <script src="https://www.youtube.com/iframe_api"></script>
   </head>
   <body class="overflow-x-hidden invisible bg-noise">
     <x-navbar />
@@ -173,8 +174,8 @@
         </div>
 
 
-        {{-- <!-- HALAMAN KEEMPAT -->
-        <div id="halaman-keempat" class="min-h-screen w-full bg-black overflow-hidden">
+        <!-- HALAMAN KEEMPAT -->
+        {{-- <div id="halaman-keempat" class="min-h-screen w-full bg-black overflow-hidden">
           <!-- Slider -->
           <div data-hs-carousel='{"loadingClasses": "opacity-0"}' class="relative">
             <div class="hs-carousel relative overflow-hidden w-full h-screen bg-black rounded-none">
@@ -242,6 +243,137 @@
 
                     
         </div> --}}
+        
+
+
+          {{-- <div id="halaman-keempat" class="min-h-screen w-full bg-black overflow-hidden group">
+              <!-- Slider -->
+              <div data-hs-carousel='{"loadingClasses": "opacity-0"}' class="relative">
+                  <div class="hs-carousel relative overflow-hidden w-full h-screen bg-black rounded-none">
+
+                      <!-- Slides -->
+                      <div class="hs-carousel-body absolute top-0 bottom-0 start-0 flex flex-nowrap transition-transform duration-700 opacity-100">
+                          @forelse($audioposts as $index => $post)
+                              <div class="hs-carousel-slide w-screen h-screen flex flex-col items-center justify-center bg-black relative">
+                                  <div class="relative w-full h-full">
+                                      <iframe
+                                          id="player-{{ $index }}"
+                                          class="w-full h-full object-cover"
+                                          src="{{ $post->link }}?rel=0&modestbranding=1&iv_load_policy=3&controls=0&enablejsapi=1"
+                                          title="{{ $post->nama_projek }}"
+                                          frameborder="0"
+                                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                          allowfullscreen
+                                      ></iframe>
+                                  </div>
+                              </div>
+                          @empty
+                              <div class="hs-carousel-slide w-screen h-screen flex items-center justify-center bg-black text-white text-2xl">
+                                  Belum ada project yang tersedia.
+                              </div>
+                          @endforelse
+                      </div>
+
+                      <!-- Pagination di bawah -->
+                      <div id="container-4"
+                          class="hs-carousel-pagination absolute bottom-0 left-0 w-full flex items-center space-x-4 px-4 py-3 overflow-x-auto scrollbar-hide bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                          @forelse($audioposts as $post)
+                              <img
+                                  src="{{ $post->thumbnail ?? '/default-thumbnail.jpg' }}"
+                                  class="hs-carousel-pagination-item min-w-[120px] h-20 object-cover rounded-md opacity-60 hover:opacity-100 cursor-pointer hs-carousel-active:opacity-100 border-2 border-white transition-opacity"
+                              />
+                          @empty
+                              <img
+                                  src="/Audiopost/placeholder.png"
+                                  class="min-w-[120px] h-20 object-cover rounded-md opacity-40 border-2 border-dashed border-gray-400"
+                                  title="Tidak ada project"
+                              />
+                          @endforelse
+                      </div>
+
+                      <!-- Navigasi -->
+                      <button type="button" 
+                          class="hs-carousel-prev hs-carousel-disabled:opacity-50 absolute inset-y-0 start-0 inline-flex justify-center items-center w-11.5 h-full text-white hover:bg-gray-800/10">
+                          <svg class="size-5" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2">
+                              <path d="m15 18-6-6 6-6"></path>
+                          </svg>
+                      </button>
+                      <button type="button" 
+                          class="hs-carousel-next hs-carousel-disabled:opacity-50 absolute inset-y-0 end-0 inline-flex justify-center items-center w-11.5 h-full text-white hover:bg-gray-800/10">
+                          <svg class="size-5" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2">
+                              <path d="m9 18 6-6-6-6"></path>
+                          </svg>
+                      </button>
+                  </div>
+              </div>
+          </div> --}}
+
+          <div id="halaman-keempat" class="min-h-screen w-full bg-black overflow-hidden group">
+            <!-- Slider -->
+            <div data-hs-carousel='{"loadingClasses": "opacity-0"}' class="relative">
+                <div class="hs-carousel relative overflow-hidden w-full h-screen bg-black rounded-none">
+
+                    <!-- Slides -->
+                    <div class="hs-carousel-body absolute top-0 bottom-0 start-0 flex flex-nowrap transition-transform duration-700 opacity-100">
+                          @forelse($audioposts as $index => $post)
+                              <div class="hs-carousel-slide w-screen h-screen flex flex-col items-center justify-center bg-black relative">
+                                  <div class="relative w-full h-full">
+                                      <iframe
+                                          id="player-{{ $index }}"
+                                          class="w-full h-full object-cover"
+                                          src="{{ $post->link }}?rel=0&modestbranding=1&iv_load_policy=3&controls=0&enablejsapi=1"
+                                          title="{{ $post->nama_projek }}"
+                                          frameborder="0"
+                                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                          allowfullscreen
+                                      ></iframe>
+                                  </div>
+                              </div>
+                          @empty
+                              <div class="hs-carousel-slide w-screen h-screen flex items-center justify-center bg-black text-white text-2xl">
+                                  Belum ada project yang tersedia.
+                              </div>
+                          @endforelse
+                      </div>
+
+                    <!-- Pagination di bawah tanpa background -->
+                    <div id="container-4"
+                        class="hs-carousel-pagination absolute bottom-0 left-0 w-full flex justify-center items-center overflow-x-auto scrollbar-hide opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        @forelse($audioposts as $post)
+                            <div class="hs-carousel-pagination-item transition-transform duration-300 ease-out">
+                                <img
+                                    src="{{ $post->thumbnail ?? '/default-thumbnail.jpg' }}"
+                                    class="thumbnail-img w-[200px] aspect-video object-cover opacity-60 hover:opacity-100 cursor-pointer hs-carousel-active:opacity-100"
+                                />
+                            </div>
+                        @empty
+                            <div class="flex-shrink-0 snap-center">
+                                <img
+                                    src="/Audiopost/placeholder.png"
+                                    class="w-[200px] aspect-video object-cover rounded-md opacity-40 border-2 border-dashed border-gray-400"
+                                    title="Tidak ada project"
+                                />
+                            </div>
+                        @endforelse
+                    </div>
+
+                    <!-- Navigasi -->
+                    <button type="button" 
+                        class="hs-carousel-prev hs-carousel-disabled:opacity-50 absolute inset-y-0 start-0 inline-flex justify-center items-center w-11.5 h-full text-white hover:bg-gray-800/10">
+                        <svg class="size-5" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="m15 18-6-6 6-6"></path>
+                        </svg>
+                    </button>
+                    <button type="button" 
+                        class="hs-carousel-next hs-carousel-disabled:opacity-50 absolute inset-y-0 end-0 inline-flex justify-center items-center w-11.5 h-full text-white hover:bg-gray-800/10">
+                        <svg class="size-5" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="m9 18 6-6-6-6"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
 
         <div class="h-screen w-full bg-noise px-5 py-20 flex justify-center items-start">
           <div class="backdrop-blur-md  shadow-xl p-6 w-full max-w-5xl ">
@@ -272,10 +404,13 @@
 
       </section>
     </div>
+<x-footer/>
+
+
   </body>
 </html>
 
-
+<script src="https://www.youtube.com/iframe_api"></script>
 <script>
   const tanggalTerisi = @json($tanggalTerisi);
   const calendarDays = document.getElementById('calendarDays');
@@ -377,6 +512,233 @@
   });
 
   renderCalendar();
+
+// const players = [];
+// let hasUserStarted = false;
+
+// function onYouTubeIframeAPIReady() {
+//   console.log("YouTube API ready, initializing players...");
+//   document.querySelectorAll('iframe[id^="player-"]').forEach((iframe, index) => {
+//     players[index] = new YT.Player(iframe.id, {
+//       events: {
+//         'onReady': (event) => {
+//           console.log(`Player ${index} ready`);
+//         },
+//         'onStateChange': (event) => {
+//           console.log(`Player ${index} state changed to: `, event.data);
+
+//           // Jika user play video untuk pertama kali, set flag true
+//           if (!hasUserStarted && event.data === YT.PlayerState.PLAYING) {
+//             console.log("User started video playback for the first time");
+//             hasUserStarted = true;
+//           }
+//         }
+//       }
+//     });
+//   });
+//   observeActiveSlide();
+// }
+
+// function pauseAllExcept(activeIndex) {
+//   console.log(`pauseAllExcept called with activeIndex: ${activeIndex}`);
+//   players.forEach((player, i) => {
+//     if (player && player.pauseVideo) {
+//       if (i === activeIndex) {
+//         console.log(`Handling player ${i}`);
+
+//         if (hasUserStarted) {
+//           console.log(`Autoplay enabled, playing player ${i}`);
+//           player.playVideo();
+//         } else {
+//           console.log(`Autoplay disabled (user not started yet), player ${i} paused`);
+//           player.pauseVideo();
+//         }
+//       } else {
+//         console.log(`Pausing player ${i}`);
+//         player.pauseVideo();
+//       }
+//     } else {
+//       console.log(`Player ${i} not ready yet`);
+//     }
+//   });
+// }
+
+// function observeActiveSlide() {
+//   const carouselBody = document.querySelector('.hs-carousel-body');
+//   if (!carouselBody) {
+//     console.warn("carouselBody element not found");
+//     return;
+//   }
+//   console.log("Observing active slide changes...");
+
+//   let lastActiveIndex = -1;
+
+//   const observer = new MutationObserver(() => {
+//     const slides = carouselBody.querySelectorAll('.hs-carousel-slide');
+//     let activeIndex = -1;
+
+//     slides.forEach((slide, i) => {
+//       if (slide.classList.contains('active')) {
+//         activeIndex = i;
+//       }
+//     });
+
+//     if (activeIndex !== -1 && activeIndex !== lastActiveIndex) {
+//       console.log(`Active slide changed to ${activeIndex}`);
+//       lastActiveIndex = activeIndex;
+//       pauseAllExcept(activeIndex);
+//     }
+//   });
+
+//   observer.observe(carouselBody, {
+//     attributes: true,
+//     subtree: true,
+//     attributeFilter: ['class']
+//   });
+
+//   // Initial check after 1s delay
+//   setTimeout(() => {
+//     const slides = carouselBody.querySelectorAll('.hs-carousel-slide');
+//     let activeIndex = -1;
+//     slides.forEach((slide, i) => {
+//       if (slide.classList.contains('active')) {
+//         activeIndex = i;
+//       }
+//     });
+//     console.log(`Initial active slide index: ${activeIndex}`);
+//     pauseAllExcept(activeIndex);
+//   }, 1000);
+// }
+
+const players = [];
+let hasUserStarted = false;
+let isInViewport = false;  // status apakah carousel/slide terlihat di viewport
+
+function onYouTubeIframeAPIReady() {
+  console.log("YouTube API ready, initializing players...");
+  document.querySelectorAll('iframe[id^="player-"]').forEach((iframe, index) => {
+    players[index] = new YT.Player(iframe.id, {
+      events: {
+        'onReady': (event) => {
+          console.log(`Player ${index} ready`);
+        },
+        'onStateChange': (event) => {
+          console.log(`Player ${index} state changed to: `, event.data);
+
+          if (!hasUserStarted && event.data === YT.PlayerState.PLAYING) {
+            console.log("User started video playback for the first time");
+            hasUserStarted = true;
+          }
+        }
+      }
+    });
+  });
+  observeActiveSlide();
+  observeViewportVisibility();
+}
+
+function pauseAllExcept(activeIndex) {
+  console.log(`pauseAllExcept called with activeIndex: ${activeIndex}, isInViewport: ${isInViewport}`);
+  players.forEach((player, i) => {
+    if (player && player.pauseVideo) {
+      if (i === activeIndex && hasUserStarted && isInViewport) {
+        console.log(`Autoplay enabled, playing player ${i}`);
+        player.playVideo();
+      } else {
+        console.log(`Pausing player ${i}`);
+        player.pauseVideo();
+      }
+    } else {
+      console.log(`Player ${i} not ready yet`);
+    }
+  });
+}
+
+function observeActiveSlide() {
+  const carouselBody = document.querySelector('.hs-carousel-body');
+  if (!carouselBody) {
+    console.warn("carouselBody element not found");
+    return;
+  }
+  console.log("Observing active slide changes...");
+
+  let lastActiveIndex = -1;
+
+  const observer = new MutationObserver(() => {
+    const slides = carouselBody.querySelectorAll('.hs-carousel-slide');
+    let activeIndex = -1;
+
+    slides.forEach((slide, i) => {
+      if (slide.classList.contains('active')) {
+        activeIndex = i;
+      }
+    });
+
+    if (activeIndex !== -1 && activeIndex !== lastActiveIndex) {
+      console.log(`Active slide changed to ${activeIndex}`);
+      lastActiveIndex = activeIndex;
+      pauseAllExcept(activeIndex);
+    }
+  });
+
+  observer.observe(carouselBody, {
+    attributes: true,
+    subtree: true,
+    attributeFilter: ['class']
+  });
+
+  setTimeout(() => {
+    const slides = carouselBody.querySelectorAll('.hs-carousel-slide');
+    let activeIndex = -1;
+    slides.forEach((slide, i) => {
+      if (slide.classList.contains('active')) {
+        activeIndex = i;
+      }
+    });
+    console.log(`Initial active slide index: ${activeIndex}`);
+    pauseAllExcept(activeIndex);
+  }, 1000);
+}
+
+function observeViewportVisibility() {
+  const carousel = document.querySelector('#halaman-keempat');
+  if (!carousel) {
+    console.warn("Carousel element not found for viewport observer");
+    return;
+  }
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        console.log("Carousel entered viewport");
+        isInViewport = true;
+      } else {
+        console.log("Carousel left viewport");
+        isInViewport = false;
+        // Jika carousel keluar viewport, pause semua video
+        players.forEach(player => {
+          if (player && player.pauseVideo) {
+            player.pauseVideo();
+          }
+        });
+      }
+      // Update play/pause state dengan kondisi baru
+      // Cek slide aktif agar tetap sinkron
+      const activeSlide = document.querySelector('.hs-carousel-slide.active');
+      if (activeSlide) {
+        const slides = Array.from(document.querySelectorAll('.hs-carousel-slide'));
+        const activeIndex = slides.indexOf(activeSlide);
+        pauseAllExcept(activeIndex);
+      }
+    });
+  }, {
+    threshold: 0.1  // trigger jika minimal 10% elemen terlihat
+  });
+
+  observer.observe(carousel);
+}
+
+
 </script>
 
 

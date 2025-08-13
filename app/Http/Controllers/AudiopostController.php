@@ -15,9 +15,9 @@ class AudiopostController extends Controller
             'thumbnail' => 'required|url|max:255',
         ]);
 
-        if (Audiopost::count() >= 3) {
-            return back()->with('error', 'Maksimal 3 Audiopost Project yang dapat ditambahkan.');
-        }
+        // if (Audiopost::count() >= 3) {
+        //     return back()->with('error', 'Maksimal 3 Audiopost Project yang dapat ditambahkan.');
+        // }
 
         Audiopost::create($request->only(['nama_projek', 'link', 'thumbnail']));
 
