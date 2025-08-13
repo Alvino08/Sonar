@@ -134,3 +134,7 @@ Route::post('/login', function (Request $request) {
         'email' => 'Email atau password salah.',
     ])->onlyInput('email');
 })->name('login.post');
+
+Route::get('/label', function(){
+    return view('label');
+})->name('label');

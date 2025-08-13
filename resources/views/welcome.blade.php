@@ -198,17 +198,17 @@
           </div>
 
           <!-- Card 2: UI/UX -->
-          <div class="group card relative overflow-hidden shadow-lg over:scale-105">
+          <a class="group card relative overflow-hidden shadow-lg over:scale-105" href="{{ route('label') }}">
             <div class="line absolute top-0 left-0 h-[2px] bg-white w-full" style="width: 0%; visibility: hidden;"></div>
             <img src="/images/photo2.jpg" alt="Card 1" class="w-full h-full object-cover card-image " />
             <div class="absolute inset-0 pointer-events-none z-10">
               <div class="absolute right-0 top-0 h-full w-10 bg-gradient-to-l  group-hover:from-transparent group-hover:to-transparent transition-all duration-1000"></div>
             </div>
             <div class="absolute inset-0 flex flex-col justify-center items-center">
-              <p class="card-text font-bebas text-[8vw] leading-[0.75] tracking-tight">UI?</p>
-              <p class="card-text font-bebas text-[8vw] leading-[0.75] tracking-tight translate-x-[10%]">UX</p>
+              <p class="card-text font-bebas text-[8vw] leading-[0.75] tracking-tight">LABEL</p>
+              {{-- <p class="card-text font-bebas text-[8vw] leading-[0.75] tracking-tight translate-x-[10%]">UX</p> --}}
             </div>
-          </div>
+          </a>
 
           <!-- Card 3: AUDIOPOST -->
           <a class="group card relative overflow-hidden shadow-lg over:scale-105" href="{{ route('audiopost') }}">
