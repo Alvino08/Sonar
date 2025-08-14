@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @vite(['resources/css/app.css', 'resources/js/label.js'])
     <title>Document</title>
     <style>
         .bg-noise {
@@ -74,8 +74,8 @@
     </div>
 
     <div class="h-screen w-full bg-noise py-40 px-30 flex">
-        <div class="font-anton text-white w-[135vh] text-5xl tracking-wide text-justify">
-            <p  style="word-spacing: 5px;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quisquam asperiores quas obcaecati necessitatibus at cupiditate. Itaque, blanditiis aut exercitationem id doloribus quae qui ipsa eveniet optio doloremque suscipit, iusto aliquam. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quisquam asperiores quas obcaecati necessitatibus at cupiditate. Itaque, blanditiis aut exercitationem id doloribus quae qui ipsa eveniet optio doloremque suscipit, iusto aliquam.</p>
+        <div class="font-anton text-white w-[135vh] text-5xl tracking-wide text-justify container">
+            <p  class="animate-me">Kelana Musik is a Jakarta-based music label dedicated to crafting chill-out and ambient electronic sounds infused with the rich colors and textures of Indonesia. We blend modern electronic production with local influences—capturing the rhythm of the city, the calm of nature, and the warmth of our culture. Our mission is simple: to create music that lets you wander, drift, and discover new emotional landscapes, wherever you are in the world.</p>
         </div>
 
         <div class="w-[300px] flex flex-col mx-30">
@@ -190,7 +190,7 @@
 
         <div class="w-full min-h-screen grid grid-cols-2 py-40 px-40">
             <div class="grid grid-rows-3 gap-y-20 text-white ">
-                <div>
+                <div data-speed="2.5">
                     <div class="flex justify-start overflow-hidden relative">
                         <div class="w-[300px] h-[300px] group relative flex justify-start">
                             <div class="w-[300px] h-[300px] flex flex-col justify-end items-end z-10">
@@ -206,7 +206,7 @@
                     </div>
                 </div>
 
-                <div class="flex justify-end">
+                <div class="flex justify-end" data-speed="3">
                     <div class="w-[600px] h-[300px] flex justify-end overflow-hidden relative">
                         <div class="w-[300px] h-[300px] group relative flex justify-start">
                             <div class="w-[300px] h-[300px] flex flex-col justify-end items-end z-10">
@@ -222,7 +222,7 @@
                     </div>
                 </div>
 
-                <div>
+                <div data-speed="2">
                     <div class="flex justify-start overflow-hidden relative">
                         <div class="w-[300px] h-[300px] group relative flex justify-start">
                             <div class="w-[300px] h-[300px] flex flex-col justify-end items-end z-10">
@@ -240,7 +240,7 @@
             </div>
 
             <div class="grid grid-rows-3 gap-y-20 text-white">
-                <div>
+                <div data-speed="3">
                     <div class="flex justify-start overflow-hidden relative">
                         <div class="w-[300px] h-[300px] group relative flex justify-start">
                             <div class="w-[300px] h-[300px] flex flex-col justify-end items-end z-10">
@@ -256,7 +256,7 @@
                     </div>
                 </div>
 
-                <div class="flex justify-end">
+                <div class="flex justify-end" data-speed="2">
                     <div class="w-[600px] h-[300px] flex justify-end overflow-hidden relative">
                         <div class="w-[300px] h-[300px] group relative flex justify-start">
                             <div class="w-[300px] h-[300px] flex flex-col justify-end items-end z-10">
@@ -272,7 +272,7 @@
                     </div>
                 </div>
 
-                <div>
+                <div data-speed="2.5">
                     <div class="flex justify-start overflow-hidden relative">
                         <div class="w-[300px] h-[300px] group relative flex justify-start">
                             <div class="w-[300px] h-[300px] flex flex-col justify-end items-end z-10">
@@ -301,28 +301,28 @@
                 <p class="hover:h-[150px]">SUARA KELANA</p>
 
                 <!-- Foto muncul di tengah layar -->
-                <img src="/Kelana/ToFly_album_cover.jpg" 
+                <img src="/Kelana/Spotify Avatar OPT 1.png" 
                     alt="To Fly album cover"
-                    class="opacity-0 group-hover:opacity-100 absolute mx-[600px] w-[300px] h-[300px] object-cover duration-500 mt-8 ">
+                    class="opacity-0 group-hover:opacity-100 absolute left-145 w-[300px] h-[300px] object-cover duration-500 group-hover:top-8 transition-all z-0 top-10 pointer-events-none group-hover:pointer-events-auto">
             </div>
 
             <div class="w-[300px] hover:text-[75pt] hover:w-[600px] hover:h-[150px] duration-500 mb-5 group relative">
                 <p>IBAM ADAM</p>
-                <img src="/Kelana/ToFly_album_cover.jpg" 
+                <img src="/Kelana/P1040444.jpg" 
                     alt="To Fly album cover"
-                    class="opacity-0 group-hover:opacity-100 absolute mx-[500px] w-[300px] h-[300px] object-cover duration-500 mt-[-120px]">
+                    class="opacity-0 group-hover:opacity-100 absolute left-120 w-[300px] h-[300px] object-cover duration-500 transition-all group-hover:top-8 z-0 top-10 pointer-events-none group-hover:pointer-events-auto">
             </div>
-            <div class="w-[300px] hover:text-[75pt] hover:w-[600px] hover:h-[150px] duration-500 mb-5 group">
+            <div class="w-[300px] hover:text-[75pt] hover:w-[600px] hover:h-[150px] duration-500 mb-5 group relative">
                 <p>LANKEI</p>
-                <img src="/Kelana/ToFly_album_cover.jpg" 
+                <img src="/Kelana/P1040503.jpg" 
                     alt="To Fly album cover"
-                    class="opacity-0 group-hover:opacity-100 absolute mx-[600px] w-[300px] h-[300px] object-cover duration-500">
+                    class="opacity-0 group-hover:opacity-100 absolute left-75 w-[300px] h-[300px] object-cover duration-500 transition-all group-hover:top-8 z-0 top-10 pointer-events-none group-hover:pointer-events-auto">
             </div>
             <div class="w-[300px] hover:text-[75pt] hover:w-[600px] hover:h-[150px] duration-500 mb-5 group relative">
                 <p>RZL</p>
-                <img src="/Kelana/ToFly_album_cover.jpg" 
+                <img src="/Kelana/P1040532.jpg" 
                     alt="To Fly album cover"
-                    class="opacity-0 group-hover:opacity-100 absolute mx-[600px] w-[300px] h-[300px] object-cover duration-500">
+                    class="opacity-0 group-hover:opacity-100 absolute left-40 w-[300px] h-[300px] object-cover duration-500 transition-all group-hover:top-8 z-0 top-10 pointer-events-none group-hover:pointer-events-auto">
             </div>
         </div>
 
