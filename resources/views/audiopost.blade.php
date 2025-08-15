@@ -330,7 +330,7 @@
   </body>
 </html>
 
-<script src="https://www.youtube.com/iframe_api"></script>
+{{-- <script src="https://www.youtube.com/iframe_api"></script> --}}
 <script>
   const tanggalTerisi = @json($tanggalTerisi);
   const calendarDays = document.getElementById('calendarDays');
