@@ -224,6 +224,39 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     }
 
+    function aboutUs() {
+      const isMobileOrTablet = window.matchMedia("(max-width: 1024px)").matches;
+
+      if (isMobileOrTablet) {
+        const cards = document.querySelectorAll(".profile-card");
+
+        cards.forEach(card => {
+          const info = card.querySelector(".info-panel");
+
+          // mulai tersembunyi
+          info.classList.add("info-hidden");
+
+          card.addEventListener("click", function () {
+            const isVisible = info.classList.contains("info-visible");
+
+            // tutup semua panel lain
+            document.querySelectorAll(".info-panel").forEach(panel => {
+              panel.classList.remove("info-visible");
+              panel.classList.add("info-hidden");
+            });
+
+            // buka panel yg diklik
+            if (!isVisible) {
+              info.classList.remove("info-hidden");
+              info.classList.add("info-visible");
+            }
+          });
+        });
+      }
+    }
+    window.aboutUs = aboutUs;
+
+ 
 
 // Ekspor agar bisa dipanggil dari Blade
 window.initScrollAnimations = initScrollAnimations;
@@ -231,3 +264,4 @@ window.cardScrollAnimations = cardScrollAnimations;
 window.fadeInOnScroll = fadeInOnScroll;
 window.setupScrollTrigger2 = setupScrollTrigger2;
 window.textBlur = textBlur;
+window.aboutUs = aboutUs;

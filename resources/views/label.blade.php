@@ -20,6 +20,14 @@
     background-position: center;
     }
 
+    .bg-noise3 {
+        background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 700"><defs><filter id="nnnoise-filter" x="-20%" y="-20%" width="140%" height="140%" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" color-interpolation-filters="linearRGB"><feTurbulence type="fractalNoise" baseFrequency="0.102" numOctaves="4" seed="15" stitchTiles="stitch" x="0%" y="0%" width="100%" height="100%" result="turbulence"/><feSpecularLighting surfaceScale="15" specularConstant="0.75" specularExponent="20" lighting-color="%237e7e7e" x="0%" y="0%" width="100%" height="100%" in="turbulence" result="specularLighting"><feDistantLight azimuth="3" elevation="100"/></feSpecularLighting></filter></defs><rect width="700" height="700" fill="%23121212"/><rect width="700" height="700" fill="%237e7e7e" filter="url(%23nnnoise-filter)"/></svg>');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+
         .stock-ticker {
             font-size: 96px;
             padding-block: 8px;
@@ -63,17 +71,41 @@
         .invert {
             filter: invert(1);
         }
+
+        /* Posisi overlay transisi */
+        #transisi-enter {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            pointer-events: none; /* Supaya ga ganggu interaksi */
+            opacity: 1;
+            transition: opacity 1.5s ease; /* efek memudar */
+        }
+
+        /* Class untuk mulai fade-out */
+        #transisi-enter.fade-out {
+            opacity: 0;
+        }
+
         
     </style>
 </head>
 <body>
     <x-navbar/>
+
+    {{-- <div id="transisi-enter">
+        <video autoplay muted playsinline
+            src="{{ asset('/Kelana/KELANA_MUSIK_LOADING_FIXED.mp4') }}"
+            class="w-full h-full object-cover"></video>
+    </div> --}}
+
+
     <div class="h-screen">
         <video autoplay muted loop playsinline
         src="{{ asset('video/SONAR.mp4') }}" class="w-full h-full object-cover"></video>
     </div>
 
-    <div class="h-screen w-full bg-noise py-40 px-30 flex">
+    <div class="h-screen w-full bg-noise3 py-40 px-30 flex">
         <div class="font-anton text-white w-[135vh] text-5xl tracking-wide text-justify container">
             <p  class="animate-me">Kelana Musik is a Jakarta-based music label dedicated to crafting chill-out and ambient electronic sounds infused with the rich colors and textures of Indonesia. We blend modern electronic production with local influences—capturing the rhythm of the city, the calm of nature, and the warmth of our culture. Our mission is simple: to create music that lets you wander, drift, and discover new emotional landscapes, wherever you are in the world.</p>
         </div>
@@ -326,6 +358,22 @@
             </div>
         </div>
 
+    </div>
+
+    <div class="min-h-screen w-full px-30 py-20 bg-center bg-cover" style="background-image: url('/Kelana/BG SUBMIT DEMO.png');">
+        <div class="font-anton text-[156px] text-white mb-10">
+            <p>SUBMIT DEMO</p>
+        </div>
+
+        <div class="font-anton text-8xl text-white mt-10 w-full h-[600px] flex justify-end">
+            <div class=" w-[75%] h-[100%] p-5 font-anton text-white text-5xl text-justify">
+                <p>Submit your demo submissions to kelanamusik@gmail.com and be sure to follow @kelanamusik to stay up to date on new music and artist signings.</p>
+                <br>
+                <p>We listen to all demos that are submitted to us, but please respect that we might take time to respond, due to many artists sending demos to us.</p>
+                <br>
+                <p>Your demo doesn't need to be perfect yet. We are listening to your potential, not the studio quality. If you have a work in progress and are really talented, then we will help you shape the edges.</p>
+            </div>
+        </div>
     </div>
 
 

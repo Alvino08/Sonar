@@ -9,31 +9,6 @@ gsap.registerPlugin(ScrollTrigger);
 window.onload = () => {
     window.Alpine = Alpine
 
-    // const wrapper = document.getElementById("marquee-wrapper");
-    // const content = document.getElementById("marquee-content");
-
-    // if (wrapper && content) {
-    // // Clone konten
-    // const clone = content.cloneNode(true);
-    // wrapper.appendChild(clone);
-
-    // let x = 0;
-
-    // function scrollMarquee() {
-    //     x -= 1;
-
-    //     content.style.transform = `translateX(${x}px)`;
-    //     clone.style.transform = `translateX(${x + content.offsetWidth}px)`;
-
-    //     // Reset jika scroll selesai 1 putaran
-    //     requestAnimationFrame(scrollMarquee);
-    // }
-
-    // scrollMarquee();
-    // }
-
-
-    
     Alpine.start()
     document.body.classList.remove("invisible");
 
@@ -72,6 +47,7 @@ window.onload = () => {
             fadeInOnScroll('.fade-section');
             fadeInServiceItems("#container-4");
             parallaxScroll();
+            // titleOverlay();
             // setupScrollTrigger2();
             }
         });
@@ -114,22 +90,6 @@ function setupScrollTrigger() {
     }
   });
 
-  // gsap.from(splitLines, {
-  //   duration: 1,
-  //   yPercent: 100,
-  //   opacity: 0,
-  //   stagger: 0.15,
-  //   onComplete: () => {
-  //     gsap.fromTo(leftImg, { x: -150, opacity: 0 }, {
-  //       x: 0, opacity: 1, duration: 1, ease: "power2.out",
-  //       onComplete: () => {
-  //         gsap.fromTo(rightImg, { x: 150, opacity: 0 }, {
-  //           x: 0, opacity: 1, duration: 1, ease: "power2.out"
-  //         });
-  //       }
-  //     });
-  //   }
-  // });
 
 gsap.timeline()
   // Gambar zoom-out dan fade-in
@@ -169,53 +129,6 @@ gsap.timeline()
   });
 }
 
-  // function fadeInOnScroll(selector) {
-  //   const elements = document.querySelectorAll(selector);
-
-  //   elements.forEach(section => {
-  //     const items = section.querySelectorAll('.fade-item');
-
-  //     gsap.from(items, {
-  //       scrollTrigger: {
-  //         trigger: section,
-  //         start: 'top 50%', // saat 80% viewport
-  //         toggleActions: 'restart none none reset',
-  //       },
-  //       opacity: 0,
-  //       y:50,
-  //       duration: 1.2,
-  //       // ease: 'power2.inOut',
-  //       stagger: 0.2,
-  //     });
-  //   });
-  // }
-
-// function fadeInOnScroll(selector) {
-//   const elements = document.querySelectorAll(selector);
-
-//   elements.forEach(section => {
-//     const items = section.querySelectorAll('.fade-item');
-
-//     gsap.from(items, {
-//       scrollTrigger: {
-//         trigger: section,
-//         start: 'top 30%',
-//         toggleActions: 'play none none reverse',
-//       },
-//       yPercent: 50,
-//       opacity: 0,
-//       duration: 1.5,
-//       ease: 'power3.out',
-//       // onComplete: () => {
-//       //   items.forEach(item => {
-//       //     // ganti outline → solid dengan transisi CSS
-//       //     item.classList.remove('anton-outline');
-//       //     item.classList.add('anton-solid');
-//       //   });
-//       // }
-//     });
-//   });
-// }
 
   function fadeInOnScroll(selector) {
     const sections = document.querySelectorAll(selector);
@@ -285,3 +198,65 @@ function fadeInServiceItems(selector) {
       });
     });
   }
+
+function titleOverlay(index) {
+  const titleEl = document.querySelector(`#overlay-title-${index} .project-title`);
+  const overlay = document.getElementById(`overlay-title-${index}`);
+  if (!titleEl || !overlay) return;
+
+  // Reset state sebelum animasi
+  gsap.set(titleEl, {
+    y: 50,
+    opacity: 0,
+    letterSpacing: "0.1em"
+  });
+  // titleEl.classList.remove("anton-solid");
+  // titleEl.classList.add("anton-outline");
+
+  overlay.classList.remove("opacity-0");
+  overlay.classList.add("opacity-100");
+
+  // Buat timeline
+  const tl = gsap.timeline({
+    defaults: { ease: "power3.out" }
+  });
+
+  tl.fromTo(titleEl,
+    { y: 50, opacity: 0 },
+    { y: 0, opacity: 1, duration: 0.8 }
+  )
+
+  // Ubah ke solid setelah muncul
+  // .add(() => {
+  //   titleEl.classList.remove("anton-outline");
+  //   titleEl.classList.add("anton-solid");
+  // })
+
+  // Letter spacing renggang
+  .to(titleEl, {
+    letterSpacing: "0.4em",
+    duration: 2,
+    ease: "power3.inOut"
+  })
+
+  // Kembali ke normal
+  // .to(titleEl, {
+  //   letterSpacing: "0em",
+  //   duration: 0.3,
+  //   ease: "power1.inOut"
+  // })
+
+  // Fade out
+  .to(titleEl, {
+    opacity: 0,
+    duration: 0.6,
+    ease: "power2.in",
+    onComplete: () => {
+      overlay.classList.remove("opacity-100");
+      overlay.classList.add("opacity-0");
+    }
+  });
+}
+
+window.titleOverlay = titleOverlay;
+

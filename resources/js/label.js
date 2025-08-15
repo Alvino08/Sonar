@@ -17,8 +17,10 @@ gsap.registerPlugin(SplitText);
 
     
 window.onload = () => {
+    // transition();
     window.Alpine = Alpine
     Alpine.start()
+    // transition();
     textBlur();
     parallaxScroll();
 }
@@ -66,4 +68,21 @@ function parallaxScroll(){
             }
         });
     });
+}
+
+function transition(){
+    document.body.style.overflow = "hidden";
+
+    const transisi = document.getElementById("transisi-enter");
+
+    // Misalnya fade-out setelah 3 detik
+    setTimeout(() => {
+        transisi.classList.add("fade-out");
+
+        // Lepas scroll setelah animasi fade selesai
+        setTimeout(() => {
+            transisi.style.display = "none";
+            document.body.style.overflow = "auto";
+        }, 1500); // 1.5s = sama dengan transition CSS
+    }, 3000); // durasi tampil transisi sebelum memudar
 }

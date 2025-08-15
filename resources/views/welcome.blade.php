@@ -130,6 +130,16 @@
       background-repeat: no-repeat;
     }
 
+        .bg-noise2 {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 700"><defs><filter id="nnnoise-filter" x="-20%" y="-20%" width="140%" height="140%"><feTurbulence type="fractalNoise" baseFrequency="0.063" numOctaves="4" seed="15" stitchTiles="stitch" result="turbulence"/><feSpecularLighting surfaceScale="15" specularConstant="0.75" specularExponent="20" lighting-color="%23b6b6b6" in="turbulence" result="specularLighting"><feDistantLight azimuth="3" elevation="100"/></feSpecularLighting></filter></defs><rect width="700" height="700" fill="%23d0d0d0"/><rect width="700" height="700" fill="%23b6b6b6" filter="url(%23nnnoise-filter)"/></svg>');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.neon-border {
+
+}
 
 
     </style>
@@ -241,10 +251,8 @@
       </section>
 
         <div class="w-full min-h-screen flex-col bg-noise">
-  
-</filter></defs><rect width="700" height="700" fill="#202020"></rect><rect width="700" height="700" fill="#474747" filter="url(#nnnoise-filter)"></rect></svg>
 
-          <div class="w-[full] h-[50rem] mx-auto">
+          {{-- <div class="w-[full] h-[50rem] mx-auto">
                     <div id="logo-sonar" class="w-[500px] h-[500px] mx-auto flex flex-col items-center justify-center invert">
                       <!-- Baris pertama: S O N -->
                       <div class="flex mb-[-70px]">
@@ -269,77 +277,196 @@
                         </div>
                       </div>
                     </div>
-
-                    {{-- <div class="flex items-center justify-center text-center w-[1300px] mx-auto mt-10">
-                      <p class="tracking-[5px] leading-15">
-                        Sonar Inc is a Jakarta-based creative company founded in 2017 by two individuals driven by a shared passion for music, art, and storytelling. We work across TV, digital, film, events, and multimedia, blending imagination with craft to create experiences that inspire, engage, and connect.    
-                      </p>                      
-                    </div> --}}
-
-
                     <div class="container flex items-center justify-center text-center w-[1000px] mx-auto mt-10 " style="opacity:0;">
                       <p class="animate-me tracking-[5px] leading-15 text-[40px]">
                         Sonar Inc is a Jakarta-based creative company founded in 2017 by two individuals driven by a shared passion for music, art, and storytelling. We work across TV, digital, film, events, and multimedia, blending imagination with craft to create experiences that inspire, engage, and connect.
                       </p>
                     </div>
 
+          </div> --}}
+
+          <div class="w-full h-auto mx-auto">
+            <div id="logo-sonar" class="w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] md:w-[500px] md:h-[500px] mx-auto flex flex-col items-center justify-center invert">
+              
+              <!-- Baris pertama: S O N -->
+              <div class="flex mb-[-40px] sm:mb-[-50px] md:mb-[-70px]">
+                <div class="w-[100px] h-[230px] sm:w-[130px] sm:h-[300px] md:w-[164px] md:h-[380px] mr-[-40px] sm:mr-[-55px] md:mr-[-75px]">
+                  <img src="/Audioposts/SONAR ILLUS - S.png" alt="" class="letter-s w-full h-full object-contain">
+                </div>
+                <div class="w-[80px] h-[110px] sm:w-[100px] sm:h-[140px] md:w-[120px] md:h-[180px] ml-[20px] sm:ml-[30px] md:ml-[40px] mr-[-40px] sm:mr-[-50px] md:mr-[-67px] mt-[90px] sm:mt-[130px] md:mt-[170px]">
+                  <img src="/Audioposts/SONAR ILLUS - O.png" alt="" class="letter-o w-full h-full object-contain">
+                </div>
+                <div class="w-[120px] h-[180px] sm:w-[150px] sm:h-[230px] md:w-[186px] md:h-[280px] mt-[50px] mb-[-10px] md:mt-[120px]">
+                  <img src="/Audioposts/SONAR ILLUS - N.png" alt="" class="letter-n w-full h-full object-contain">
+                </div>
+              </div>
+
+              <!-- Baris kedua: A R -->
+              <div class="flex mt-[-40px] sm:mt-[-50px] md:mt-[-70px]">
+                <div class="w-[100px] h-[150px] sm:w-[130px] sm:h-[200px] md:w-[158px] md:h-[242px]">
+                  <img src="/Audioposts/SONAR ILLUS - A.png" alt="" class="letter-a w-full h-full object-contain">
+                </div>
+                <div class="w-[120px] h-[190px] sm:w-[150px] sm:h-[230px] md:w-[182px] md:h-[300px] ml-[-25px] sm:ml-[-35px] md:ml-[-45px] mt-[10px] sm:mt-[15px] md:mt-[20px]">
+                  <img src="/Audioposts/SONAR ILLUS - R.png" alt="" class="letter-r w-full h-full object-contain">
+                </div>
+              </div>
+            </div>
+
+            <!-- Deskripsi -->
+            <div class="container flex items-center justify-center text-center max-w-[90%] sm:max-w-[700px] md:max-w-[1000px] mx-auto mt-6 sm:mt-8 md:mt-10 px-10" style="opacity:0;">
+              <p class="animate-me tracking-[2px] sm:tracking-[4px] md:tracking-[5px] leading-7 sm:leading-9 md:leading-[3.75rem] text-[16px] sm:text-[24px] md:text-[40px]">
+                Sonar Inc is a Jakarta-based creative company founded in 2017 by two individuals driven by a shared passion for music, art, and storytelling. We work across TV, digital, film, events, and multimedia, blending imagination with craft to create experiences that inspire, engage, and connect.
+              </p>
+            </div>
           </div>
 
-          <div class="flex justify-center items-center h-screen">
+
+          {{-- <div class="lg:flex justify-center items-center h-screen">
+  
+            <!-- Card 1 -->
             <div class="w-[600px] h-[400px] flex group overflow-hidden relative">
-            <div class="w-[400px] h-[400px] bg-white flex flex-col justify-end z-10 fade-section">
-              <p class="font-anton text-red-600 text-[70px] mb-[-10px] fade-item">Hudi</p>
-              <p class="font-anton text-red-600 text-[70px] mb-[-10px] fade-item">Ardianto</p>
+              <div class="w-[400px] h-[400px] bg-white flex flex-col justify-end z-10 fade-section">
+                <p class="font-anton text-red-600 text-[70px] mb-[-10px] fade-item">Hudi</p>
+                <p class="font-anton text-red-600 text-[70px] mb-[-10px] fade-item">Ardianto</p>
+              </div>
+              <div class="text-justify tracking-[0.025em] w-[200px] h-[400px] text-[20px] absolute duration-400 opacity-0 group-hover:opacity-100 transition-all z-0 right-[100%] group-hover:right-[0%] px-3 py-3">
+                <p>
+                  An established Music Producer and Musician in Jakarta electronic music scene.
+                </p>
+                <br>
+                <p>
+                  Life and wholeness of it becomes his inspiration in creating a unique sound.
+                  This view liberates his music and enables him to see and hear everything as instruments and sounds.
+                </p>
+              </div>
             </div>
-            <div class="text-justify tracking-[0.025em] w-[200px] h-[400px] text-[20px] absolute duration-400 opacity-0 group-hover:opacity-100 transition-all z-0 right-[100%] group-hover:right-[0%] px-3 py- 3">
-              <p class>
-                An established Music Producer and
-                Musician in Jakarta electronic music
-                scene.
-              </p>
-              <br>
-              <p>
-                Life and wholeness of it becomes his
-                inspiration in creating a unique
-                sound. This view liberates his music
-                and enables him to see and hear
-                everything as instruments and
-                sounds.
-              </p>
+
+            <!-- Card 2 -->
+            <div class="w-[600px] h-[400px] flex justify-end overflow-hidden relative group">
+              <div class="w-[400px] h-[400px] bg-white flex flex-col justify-end items-end fade-section">
+                <p class="font-anton text-red-600 text-[70px] mb-[-10px] fade-item">Ibam</p>
+                <p class="font-anton text-red-600 text-[70px] mb-[-10px] fade-item">Adam</p>
+              </div>
+              <div class="text-justify tracking-[0.1em] w-[200px] h-[400px] text-[20px] absolute duration-400 opacity-0 group-hover:opacity-100 transition-all z-0 left-[100%] group-hover:left-[0%] px-3 py-3">
+                <p>
+                  As an electronic music industry veteran, Ibam has set an industry standard
+                  and helped to revolutionize the electronic music scene in Indonesia.
+                </p>
+                <br>
+                <p>
+                  A Paranoia awards winner and part of Tantra Music Group.
+                </p>
+              </div>
             </div>
+
+          </div> --}}
+
+          {{-- <div class="flex flex-col lg:flex-row justify-center items-center min-h-screen gap-6 px-4">
+  
+            <!-- Card 1 -->
+            <div class="w-full sm:w-[450px] lg:w-[600px] h-[300px] sm:h-[350px] lg:h-[400px] flex group overflow-hidden relative">
+              <div class="w-[60%] sm:w-[400px] h-full bg-white flex flex-col justify-end z-10 fade-section p-2">
+                <p class="font-anton text-red-600 text-[40px] sm:text-[55px] lg:text-[70px] mb-[-6px] fade-item">Hudi</p>
+                <p class="font-anton text-red-600 text-[40px] sm:text-[55px] lg:text-[70px] mb-[-6px] fade-item">Ardianto</p>
+              </div>
+              <div class="text-justify tracking-[0.02em] w-[40%] sm:w-[200px] h-full text-[14px] sm:text-[16px] lg:text-[20px] absolute duration-400 opacity-0 group-hover:opacity-100 transition-all z-0 right-[100%] group-hover:right-[0%] px-2 sm:px-3 py-2 sm:py-3">
+                <p>
+                  An established Music Producer and Musician in Jakarta electronic music scene.
+                </p>
+                <br>
+                <p>
+                  Life and wholeness of it becomes his inspiration in creating a unique sound.
+                  This view liberates his music and enables him to see and hear everything as instruments and sounds.
+                </p>
+              </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="w-full sm:w-[450px] lg:w-[600px] h-[300px] sm:h-[350px] lg:h-[400px] flex justify-end overflow-hidden relative group">
+              <div class="w-[60%] sm:w-[400px] h-full bg-white flex flex-col justify-end items-end fade-section p-2">
+                <p class="font-anton text-red-600 text-[40px] sm:text-[55px] lg:text-[70px] mb-[-6px] fade-item">Ibam</p>
+                <p class="font-anton text-red-600 text-[40px] sm:text-[55px] lg:text-[70px] mb-[-6px] fade-item">Adam</p>
+              </div>
+              <div class="text-justify tracking-[0.05em] w-[40%] sm:w-[200px] h-full text-[14px] sm:text-[16px] lg:text-[20px] absolute duration-400 opacity-0 group-hover:opacity-100 transition-all z-0 left-[100%] group-hover:left-[0%] px-2 sm:px-3 py-2 sm:py-3">
+                <p>
+                  As an electronic music industry veteran, Ibam has set an industry standard
+                  and helped to revolutionize the electronic music scene in Indonesia.
+                </p>
+                <br>
+                <p>
+                  A Paranoia awards winner and part of Tantra Music Group.
+                </p>
+              </div>
+            </div>
+
+          </div> --}}
+
+          <div class="flex flex-col lg:flex-row justify-center items-center min-h-screen gap-6 px-4">
+  
+            <!-- Card 1 -->
+            <div 
+              x-data="{ open: false }" 
+              @click="open = !open" 
+              class="w-full sm:w-[450px] lg:w-[600px] h-[300px] sm:h-[350px] lg:h-[400px] flex relative cursor-pointer overflow-hidden"
+            >
+              <div class="w-[60%] lg:w-[300px] h-[100%] bg-white flex flex-col justify-end z-10 fade-section p-2 bg-cover bg-center border-solid border-gray-500 border-[1px]"
+                  style="background-image: url('/images/Hudi About Us.png');">
+                <p class="font-anton text-white text-[40px] sm:text-[55px] lg:text-[70px] mb-[-6px] fade-item">Hudi</p>
+                <p class="font-anton text-white text-[40px] sm:text-[55px] lg:text-[70px] mb-[-6px] fade-item">Ardianto</p>
+              </div>
+
+              <div 
+                class="text-justify tracking-[0.02em] w-[40%] sm:w-[200px] h-full text-[14px] sm:text-[16px] lg:text-[20px] absolute duration-400 transition-all z-0 px-2 sm:px-3 py-2 sm:py-3"
+                :class="{
+                  'opacity-100 right-[17%]': open, 
+                  'opacity-0 right-[70%]': !open
+                }"
+              >
+                <p>
+                  An established Music Producer and Musician in Jakarta electronic music scene.
+                </p>
+                <br>
+                <p>
+                  Life and wholeness of it becomes his inspiration in creating a unique sound.
+                  This view liberates his music and enables him to see and hear everything as instruments and sounds.
+                </p>
+              </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div 
+              x-data="{ open: false }" 
+              @click="open = !open" 
+              class="w-full sm:w-[450px] lg:w-[600px] h-[300px] sm:h-[350px] lg:h-[400px] flex justify-end relative cursor-pointer overflow-hidden"
+            >
+              <div class="w-[60%] lg:w-[300px] h-full bg-white flex flex-col justify-end items-end fade-section p-2 bg-cover bg-center border-solid border-gray-500 border-[1px] z-10"
+              style="background-image: url('/images/Ibam About Us.png');">
+                <p class="font-anton text-white text-[40px] sm:text-[55px] lg:text-[70px] mb-[-6px] fade-item">Ibam</p>
+                <p class="font-anton text-white text-[40px] sm:text-[55px] lg:text-[70px] mb-[-6px] fade-item">Adam</p>
+              </div>
+              <div 
+                class="text-justify tracking-[0.05em] w-[40%] sm:w-[200px] h-full text-[14px] sm:text-[16px] lg:text-[20px] absolute duration-400 transition-all z-0 px-2 sm:px-3 py-2 sm:py-3"
+                :class="{
+                  'opacity-100 left-[17%]': open, 
+                  'opacity-0 left-[70%]': !open
+                }"
+              >
+                <p>
+                  As an electronic music industry veteran, Ibam has set an industry standard
+                  and helped to revolutionize the electronic music scene in Indonesia.
+                </p>
+                <br>
+                <p>
+                  A Paranoia awards winner and part of Tantra Music Group.
+                </p>
+              </div>
+            </div>
+
           </div>
-
-          <div class="w-[600px] h-[400px]  flex justify-end overflow-hidden relative group">
-            <div class="w-[400px] h-[400px] bg-white flex flex-col justify-end items-end fade-section">
-              <p class="font-anton text-red-600 text-[70px] mb-[-10px] fade-item">Ibam</p>
-              <p class="font-anton text-red-600 text-[70px] mb-[-10px] fade-item">Adam</p>
-            </div>
-            <div class="text-justify tracking-[0.1em] w-[200px] h-[400px] text-[20px] absolute duration-400 opacity-0 group-hover:opacity-100 transition-all z-0 left-[100%] group-hover:left-[0%] px-3 py-3 ">
-              <p>
-                As an electronic music industry
-                veteran, Ibam has set an industry
-                standard and helped to revolutionize
-                the electronic music scene in
-                Indonesia.
-              </p>
-              <br>
-              <p>
-                A Paranoia awards winner and part of
-                Tantra Music Group.
-              </p>
-            </div>
-
-            </div>
-          </div>
-          
-
-          
-
 
 
 
         </div>
-
 
       <x-footer/>
       

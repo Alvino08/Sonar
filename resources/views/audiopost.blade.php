@@ -49,16 +49,16 @@
   background-repeat: no-repeat;
   background-position: center;
 }
-/* 
+ 
   .anton-outline {
-  -webkit-text-stroke: 2px #121212; outline warna hitam
+  -webkit-text-stroke: 2px #ffffff;
   color: transparent;
-  transition: all 0.8s ease; transisi halus
-} */
+  transition: all 0.8s ease;
+} 
 
 .anton-solid {
   -webkit-text-stroke: 0px transparent;
-  color: #121212;
+  color: #ffffff;
 }
 
 
@@ -175,22 +175,65 @@
 
 
         <!-- HALAMAN KEEMPAT -->
-        {{-- <div id="halaman-keempat" class="min-h-screen w-full bg-black overflow-hidden">
+        <div id="halaman-keempat" class="min-h-screen w-full bg-black overflow-hidden group">
           <!-- Slider -->
           <div data-hs-carousel='{"loadingClasses": "opacity-0"}' class="relative">
+
             <div class="hs-carousel relative overflow-hidden w-full h-screen bg-black rounded-none">
+
               <!-- Slides -->
               <div class="hs-carousel-body absolute top-0 bottom-0 start-0 flex flex-nowrap transition-transform duration-700 opacity-100">
-                @forelse($audioposts as $post)
-                  <div class="hs-carousel-slide w-screen h-screen flex items-center justify-center bg-black">
-                    <iframe
-                      class="w-full h-full object-cover"
-                      src="{{ $post->link }}?rel=0&modestbranding=1&iv_load_policy=3&controls=1"
-                      title="{{ $post->nama_projek }}"
-                      frameborder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowfullscreen
-                    ></iframe>
+                {{-- @forelse($audioposts as $index => $post)
+                  <div class="hs-carousel-slide w-screen h-screen flex flex-col items-center justify-center bg-black relative">
+                    <div class="relative w-full h-full">
+                      <iframe
+                        id="player-{{ $index }}"
+                        class="w-full h-full object-cover"
+                        src="{{ $post->link }}?rel=0&modestbranding=1&iv_load_policy=3&controls=0&enablejsapi=1"
+                        title="{{ $post->nama_projek }}"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen
+                      ></iframe>
+                    </div>
+                  </div>
+                
+                  @empty
+                  <div class="hs-carousel-slide w-screen h-screen flex items-center justify-center bg-black text-white text-2xl">
+                    Belum ada project yang tersedia.
+                  </div>
+                @endforelse --}}
+
+                @forelse($audioposts as $index => $post)
+                  <div class="hs-carousel-slide w-screen h-screen flex flex-col items-center justify-center bg-black relative">
+                    <div class="relative w-full h-full">
+
+                      <!-- Overlay judul -->
+                      {{-- <div 
+                        id="overlay-title-{{ $index }}" 
+                        class=" absolute bottom-[110px] px-4 py-2 rounded-lg text-lg transition-opacity duration-300 z-50 w-screen flex justify-center"
+                      >
+                        <p class="font-anton anton-outline tracking-wider text-2xl">{{ $post->nama_projek }}</p>
+                      </div> --}}
+                      <div 
+                        id="overlay-title-{{ $index }}" 
+                        class="absolute bottom-[110px] px-4 py-2 rounded-lg text-lg transition-opacity duration-300 z-50 w-screen flex justify-center opacity-0"
+                      >
+                        <p class="font-anton text-6xl project-title tracking-wider text-white uppercase">
+                          {{ $post->nama_projek }}
+                        </p>
+                      </div>
+
+                      <iframe
+                        id="player-{{ $index }}"
+                        class="w-full h-full object-cover"
+                        src="{{ $post->link }}?rel=0&modestbranding=1&iv_load_policy=3&controls=0&enablejsapi=1"
+                        title="{{ $post->nama_projek }}"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen
+                      ></iframe>
+                    </div>
                   </div>
                 @empty
                   <div class="hs-carousel-slide w-screen h-screen flex items-center justify-center bg-black text-white text-2xl">
@@ -198,181 +241,58 @@
                   </div>
                 @endforelse
               </div>
-              <!-- Pagination -->
-              <div id="container-4" class="hs-carousel-pagination absolute h-full gap-y-10 px-5 z-10 flex flex-col justify-center">
-                @forelse($audioposts as $post)
-                  <img
-                    src="{{ $post->thumbnail ?? '/default-thumbnail.jpg' }}"
-                    class="hs-carousel-pagination-item w-30 h-18 object-cover rounded-md opacity-60 hover:opacity-100 cursor-pointer hs-carousel-active:opacity-100 border-2 border-white transition-opacity"
-                  />
-                @empty
-                  <img
-                    src="/Audiopost/placeholder.png"
-                    class="w-30 h-18 object-cover rounded-md opacity-40 border-2 border-dashed border-gray-400"
-                    title="Tidak ada project"
-                  />
-                @endforelse
 
-                <a href="/project" class="bg-white text-black rounded-md text-sm font-medium hover:bg-gray-200 shadow-lg w-30 h-18 flex justify-center items-center text-center opacity-30 hover:opacity-100 transition-opacity">
-                  View More Projects
-                </a>
+              <!-- Pagination di bawah tanpa background -->
+              <div
+                id="container-4"
+                class="hs-carousel-pagination absolute bottom-0 left-0 w-full flex justify-center items-center overflow-x-auto scrollbar-hide opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              >
+                @forelse($audioposts as $post)
+                  <div class="hs-carousel-pagination-item transition-transform duration-300 ease-out">
+                    <img
+                      src="{{ $post->thumbnail ?? '/default-thumbnail.jpg' }}"
+                      class="thumbnail-img w-[200px] aspect-video object-cover opacity-60 hover:opacity-100 cursor-pointer hs-carousel-active:opacity-100"
+                    />
+                  </div>
+                @empty
+                  <div class="flex-shrink-0 snap-center">
+                    <img
+                      src="/Audiopost/placeholder.png"
+                      class="w-[200px] aspect-video object-cover rounded-md opacity-40 border-2 border-dashed border-gray-400"
+                      title="Tidak ada project"
+                    />
+                  </div>
+                @endforelse
               </div>
 
-              
+              <!-- overlay jduul -->
+              <div>
+                <!-- mengambil judul dari database dengan nama kolom "nama_projek" -->
+              </div>
 
-              <button type="button" class="hs-carousel-prev hs-carousel-disabled:opacity-50 hs-carousel-disabled:pointer-events-none absolute inset-y-0 start-0 inline-flex justify-center items-center w-11.5 h-full text-gray-800 hover:bg-gray-800/10 focus:outline-hidden focus:bg-gray-800/10 rounded-s-lg dark:text-white dark:hover:bg-white/10 dark:focus:bg-white/10 md:hidden">
-                <span class="text-2xl" aria-hidden="true">
-                  <svg class="shrink-0 size-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="m15 18-6-6 6-6"></path>
-                  </svg>
-                </span>
-                <span class="sr-only">Previous</span>
+              <!-- Navigasi -->
+              <button
+                type="button"
+                class="hs-carousel-prev hs-carousel-disabled:opacity-50 absolute inset-y-0 start-0 inline-flex justify-center items-center w-11.5 h-full text-white hover:bg-gray-800/10"
+              >
+                <svg class="size-5" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="m15 18-6-6 6-6"></path>
+                </svg>
               </button>
-              <button type="button" class="hs-carousel-next hs-carousel-disabled:opacity-50 hs-carousel-disabled:pointer-events-none absolute inset-y-0 end-0 inline-flex justify-center items-center w-11.5 h-full text-gray-800 hover:bg-gray-800/10 focus:outline-hidden focus:bg-gray-800/10 rounded-e-lg dark:text-white dark:hover:bg-white/10 dark:focus:bg-white/10 lg:hidden">
-                <span class="sr-only">Next</span>
-                <span class="text-2xl" aria-hidden="true">
-                  <svg class="shrink-0 size-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="m9 18 6-6-6-6"></path>
-                  </svg>
-                </span>
+
+              <button
+                type="button"
+                class="hs-carousel-next hs-carousel-disabled:opacity-50 absolute inset-y-0 end-0 inline-flex justify-center items-center w-11.5 h-full text-white hover:bg-gray-800/10"
+              >
+                <svg class="size-5" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="m9 18 6-6-6-6"></path>
+                </svg>
               </button>
 
             </div>
           </div>
-          <!-- End Slider -->
-
-                    
-        </div> --}}
-        
-
-
-          {{-- <div id="halaman-keempat" class="min-h-screen w-full bg-black overflow-hidden group">
-              <!-- Slider -->
-              <div data-hs-carousel='{"loadingClasses": "opacity-0"}' class="relative">
-                  <div class="hs-carousel relative overflow-hidden w-full h-screen bg-black rounded-none">
-
-                      <!-- Slides -->
-                      <div class="hs-carousel-body absolute top-0 bottom-0 start-0 flex flex-nowrap transition-transform duration-700 opacity-100">
-                          @forelse($audioposts as $index => $post)
-                              <div class="hs-carousel-slide w-screen h-screen flex flex-col items-center justify-center bg-black relative">
-                                  <div class="relative w-full h-full">
-                                      <iframe
-                                          id="player-{{ $index }}"
-                                          class="w-full h-full object-cover"
-                                          src="{{ $post->link }}?rel=0&modestbranding=1&iv_load_policy=3&controls=0&enablejsapi=1"
-                                          title="{{ $post->nama_projek }}"
-                                          frameborder="0"
-                                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                          allowfullscreen
-                                      ></iframe>
-                                  </div>
-                              </div>
-                          @empty
-                              <div class="hs-carousel-slide w-screen h-screen flex items-center justify-center bg-black text-white text-2xl">
-                                  Belum ada project yang tersedia.
-                              </div>
-                          @endforelse
-                      </div>
-
-                      <!-- Pagination di bawah -->
-                      <div id="container-4"
-                          class="hs-carousel-pagination absolute bottom-0 left-0 w-full flex items-center space-x-4 px-4 py-3 overflow-x-auto scrollbar-hide bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                          @forelse($audioposts as $post)
-                              <img
-                                  src="{{ $post->thumbnail ?? '/default-thumbnail.jpg' }}"
-                                  class="hs-carousel-pagination-item min-w-[120px] h-20 object-cover rounded-md opacity-60 hover:opacity-100 cursor-pointer hs-carousel-active:opacity-100 border-2 border-white transition-opacity"
-                              />
-                          @empty
-                              <img
-                                  src="/Audiopost/placeholder.png"
-                                  class="min-w-[120px] h-20 object-cover rounded-md opacity-40 border-2 border-dashed border-gray-400"
-                                  title="Tidak ada project"
-                              />
-                          @endforelse
-                      </div>
-
-                      <!-- Navigasi -->
-                      <button type="button" 
-                          class="hs-carousel-prev hs-carousel-disabled:opacity-50 absolute inset-y-0 start-0 inline-flex justify-center items-center w-11.5 h-full text-white hover:bg-gray-800/10">
-                          <svg class="size-5" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2">
-                              <path d="m15 18-6-6 6-6"></path>
-                          </svg>
-                      </button>
-                      <button type="button" 
-                          class="hs-carousel-next hs-carousel-disabled:opacity-50 absolute inset-y-0 end-0 inline-flex justify-center items-center w-11.5 h-full text-white hover:bg-gray-800/10">
-                          <svg class="size-5" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2">
-                              <path d="m9 18 6-6-6-6"></path>
-                          </svg>
-                      </button>
-                  </div>
-              </div>
-          </div> --}}
-
-          <div id="halaman-keempat" class="min-h-screen w-full bg-black overflow-hidden group">
-            <!-- Slider -->
-            <div data-hs-carousel='{"loadingClasses": "opacity-0"}' class="relative">
-                <div class="hs-carousel relative overflow-hidden w-full h-screen bg-black rounded-none">
-
-                    <!-- Slides -->
-                    <div class="hs-carousel-body absolute top-0 bottom-0 start-0 flex flex-nowrap transition-transform duration-700 opacity-100">
-                          @forelse($audioposts as $index => $post)
-                              <div class="hs-carousel-slide w-screen h-screen flex flex-col items-center justify-center bg-black relative">
-                                  <div class="relative w-full h-full">
-                                      <iframe
-                                          id="player-{{ $index }}"
-                                          class="w-full h-full object-cover"
-                                          src="{{ $post->link }}?rel=0&modestbranding=1&iv_load_policy=3&controls=0&enablejsapi=1"
-                                          title="{{ $post->nama_projek }}"
-                                          frameborder="0"
-                                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                          allowfullscreen
-                                      ></iframe>
-                                  </div>
-                              </div>
-                          @empty
-                              <div class="hs-carousel-slide w-screen h-screen flex items-center justify-center bg-black text-white text-2xl">
-                                  Belum ada project yang tersedia.
-                              </div>
-                          @endforelse
-                      </div>
-
-                    <!-- Pagination di bawah tanpa background -->
-                    <div id="container-4"
-                        class="hs-carousel-pagination absolute bottom-0 left-0 w-full flex justify-center items-center overflow-x-auto scrollbar-hide opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        @forelse($audioposts as $post)
-                            <div class="hs-carousel-pagination-item transition-transform duration-300 ease-out">
-                                <img
-                                    src="{{ $post->thumbnail ?? '/default-thumbnail.jpg' }}"
-                                    class="thumbnail-img w-[200px] aspect-video object-cover opacity-60 hover:opacity-100 cursor-pointer hs-carousel-active:opacity-100"
-                                />
-                            </div>
-                        @empty
-                            <div class="flex-shrink-0 snap-center">
-                                <img
-                                    src="/Audiopost/placeholder.png"
-                                    class="w-[200px] aspect-video object-cover rounded-md opacity-40 border-2 border-dashed border-gray-400"
-                                    title="Tidak ada project"
-                                />
-                            </div>
-                        @endforelse
-                    </div>
-
-                    <!-- Navigasi -->
-                    <button type="button" 
-                        class="hs-carousel-prev hs-carousel-disabled:opacity-50 absolute inset-y-0 start-0 inline-flex justify-center items-center w-11.5 h-full text-white hover:bg-gray-800/10">
-                        <svg class="size-5" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="m15 18-6-6 6-6"></path>
-                        </svg>
-                    </button>
-                    <button type="button" 
-                        class="hs-carousel-next hs-carousel-disabled:opacity-50 absolute inset-y-0 end-0 inline-flex justify-center items-center w-11.5 h-full text-white hover:bg-gray-800/10">
-                        <svg class="size-5" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="m9 18 6-6-6-6"></path>
-                        </svg>
-                    </button>
-                </div>
-            </div>
         </div>
+
 
 
         <div class="h-screen w-full bg-noise px-5 py-20 flex justify-center items-start">
@@ -513,103 +433,6 @@
 
   renderCalendar();
 
-// const players = [];
-// let hasUserStarted = false;
-
-// function onYouTubeIframeAPIReady() {
-//   console.log("YouTube API ready, initializing players...");
-//   document.querySelectorAll('iframe[id^="player-"]').forEach((iframe, index) => {
-//     players[index] = new YT.Player(iframe.id, {
-//       events: {
-//         'onReady': (event) => {
-//           console.log(`Player ${index} ready`);
-//         },
-//         'onStateChange': (event) => {
-//           console.log(`Player ${index} state changed to: `, event.data);
-
-//           // Jika user play video untuk pertama kali, set flag true
-//           if (!hasUserStarted && event.data === YT.PlayerState.PLAYING) {
-//             console.log("User started video playback for the first time");
-//             hasUserStarted = true;
-//           }
-//         }
-//       }
-//     });
-//   });
-//   observeActiveSlide();
-// }
-
-// function pauseAllExcept(activeIndex) {
-//   console.log(`pauseAllExcept called with activeIndex: ${activeIndex}`);
-//   players.forEach((player, i) => {
-//     if (player && player.pauseVideo) {
-//       if (i === activeIndex) {
-//         console.log(`Handling player ${i}`);
-
-//         if (hasUserStarted) {
-//           console.log(`Autoplay enabled, playing player ${i}`);
-//           player.playVideo();
-//         } else {
-//           console.log(`Autoplay disabled (user not started yet), player ${i} paused`);
-//           player.pauseVideo();
-//         }
-//       } else {
-//         console.log(`Pausing player ${i}`);
-//         player.pauseVideo();
-//       }
-//     } else {
-//       console.log(`Player ${i} not ready yet`);
-//     }
-//   });
-// }
-
-// function observeActiveSlide() {
-//   const carouselBody = document.querySelector('.hs-carousel-body');
-//   if (!carouselBody) {
-//     console.warn("carouselBody element not found");
-//     return;
-//   }
-//   console.log("Observing active slide changes...");
-
-//   let lastActiveIndex = -1;
-
-//   const observer = new MutationObserver(() => {
-//     const slides = carouselBody.querySelectorAll('.hs-carousel-slide');
-//     let activeIndex = -1;
-
-//     slides.forEach((slide, i) => {
-//       if (slide.classList.contains('active')) {
-//         activeIndex = i;
-//       }
-//     });
-
-//     if (activeIndex !== -1 && activeIndex !== lastActiveIndex) {
-//       console.log(`Active slide changed to ${activeIndex}`);
-//       lastActiveIndex = activeIndex;
-//       pauseAllExcept(activeIndex);
-//     }
-//   });
-
-//   observer.observe(carouselBody, {
-//     attributes: true,
-//     subtree: true,
-//     attributeFilter: ['class']
-//   });
-
-//   // Initial check after 1s delay
-//   setTimeout(() => {
-//     const slides = carouselBody.querySelectorAll('.hs-carousel-slide');
-//     let activeIndex = -1;
-//     slides.forEach((slide, i) => {
-//       if (slide.classList.contains('active')) {
-//         activeIndex = i;
-//       }
-//     });
-//     console.log(`Initial active slide index: ${activeIndex}`);
-//     pauseAllExcept(activeIndex);
-//   }, 1000);
-// }
-
 const players = [];
 let hasUserStarted = false;
 let isInViewport = false;  // status apakah carousel/slide terlihat di viewport
@@ -622,12 +445,40 @@ function onYouTubeIframeAPIReady() {
         'onReady': (event) => {
           console.log(`Player ${index} ready`);
         },
+        // 'onStateChange': (event) => {
+        //   console.log(`Player ${index} state changed to: `, event.data);
+
+        //   if (!hasUserStarted && event.data === YT.PlayerState.PLAYING) {
+        //     console.log("User started video playback for the first time");
+        //     hasUserStarted = true;
+        //   }
+
+        //   // Jika video berakhir
+        //   if (event.data === YT.PlayerState.ENDED) {
+        //     goToNextSlide(index);
+        //   }
+        // }
         'onStateChange': (event) => {
           console.log(`Player ${index} state changed to: `, event.data);
 
-          if (!hasUserStarted && event.data === YT.PlayerState.PLAYING) {
-            console.log("User started video playback for the first time");
+          const overlay = document.getElementById(`overlay-title-${index}`);
+
+          // Tampilkan overlay ketika video diputar
+          if (event.data === YT.PlayerState.PLAYING) {
+            // overlay.classList.remove("opacity-0");
+            // overlay.classList.add("opacity-100");
+            // window.textBlur();
             hasUserStarted = true;
+            titleOverlay(index); // Jalankan animasi GSAP
+          } else {
+            // Sembunyikan overlay saat pause, buffering, atau selesai
+            overlay.classList.remove("opacity-100");
+            overlay.classList.add("opacity-0");
+          }
+
+          // Auto ke slide berikutnya kalau selesai
+          if (event.data === YT.PlayerState.ENDED) {
+            goToNextSlide(index);
           }
         }
       }
@@ -636,6 +487,30 @@ function onYouTubeIframeAPIReady() {
   observeActiveSlide();
   observeViewportVisibility();
 }
+
+function goToNextSlide(currentIndex) {
+  const slides = Array.from(document.querySelectorAll('.hs-carousel-slide'));
+  let nextIndex = currentIndex + 1;
+
+  if (nextIndex >= slides.length) {
+    nextIndex = 0;
+  }
+
+  // Selalu pakai tombol navigasi bawaan
+  if (nextIndex === 0) {
+    // Trik: klik prev beberapa kali atau langsung pakai pagination item pertama
+    document.querySelectorAll('.hs-carousel-pagination-item')[0]?.click();
+  } else {
+    document.querySelector('.hs-carousel-next')?.click();
+  }
+
+  // Mainkan video di slide berikutnya
+  setTimeout(() => {
+    pauseAllExcept(nextIndex);
+  }, 600); // beri jeda sesuai durasi transisi carousel
+}
+
+
 
 function pauseAllExcept(activeIndex) {
   console.log(`pauseAllExcept called with activeIndex: ${activeIndex}, isInViewport: ${isInViewport}`);
