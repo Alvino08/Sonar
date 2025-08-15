@@ -223,7 +223,7 @@ function titleOverlay(index) {
 
   tl.fromTo(titleEl,
     { y: 50, opacity: 0 },
-    { y: 0, opacity: 1, duration: 0.8 }
+    { y: 0, opacity: 1, duration: 1.5 }
   )
 
   // Ubah ke solid setelah muncul

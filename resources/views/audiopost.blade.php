@@ -250,7 +250,7 @@
                 @forelse($audioposts as $post)
                   <div class="hs-carousel-pagination-item transition-transform duration-300 ease-out">
                     <img
-                      src="{{ $post->thumbnail ?? '/default-thumbnail.jpg' }}"
+                      src="{{ $post->thumbnail ? asset('storage/' . $post->thumbnail) : asset('default-thumbnail.jpg') }}"
                       class="thumbnail-img w-[200px] aspect-video object-cover opacity-60 hover:opacity-100 cursor-pointer hs-carousel-active:opacity-100"
                     />
                   </div>

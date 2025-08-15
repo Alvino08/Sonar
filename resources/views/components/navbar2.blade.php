@@ -1,5 +1,5 @@
-<style>
-  /* NAVBAR STYLE */
+{{-- <style>
+  /* NAVBAR STYLE
   .nav-glass {
     background-color: rgba(0, 0, 0, 0.6) !important;
     backdrop-filter: blur(10px) !important;
@@ -82,7 +82,7 @@
   <!-- Contact Button -->
   <div class="absolute right-6 z-50 text-xl">
     <p class="hover:underline">CONTACT</p>
-  </div>
+  </div> */ --}}
 </nav>
 
 <!-- Sidebar Navbar -->
@@ -146,3 +146,36 @@
 
 
 <!-- Sidebar Navbar -->
+
+      {{-- // function backToPage1() {
+      //   page2Container.classList.remove('fade-in');
+      //   void page2Container.offsetWidth;
+      //   page2Container.classList.add('fade-out');
+
+      //   setTimeout(() => {
+      //     maskLayer.classList.remove('mask-fullscreen', 'hovered');
+      //     maskLayer.classList.add('mask-logo');
+      //     void maskLayer.offsetWidth;
+
+      //     setTransitionStyle(maskLayer, ['mask-size', '-webkit-mask-size'], TRANSITION_OUT_DURATION);
+      //     maskLayer.style.webkitMaskSize = '40%';
+      //     maskLayer.style.maskSize = '60%';
+
+      //     setTransitionStyle(overlay, ['background', 'opacity'], TRANSITION_OUT_DURATION);
+      //     overlay.style.opacity = '1';
+      //     overlay.style.background = 'rgba(0, 0, 0, 1)';
+      //   }, TRANSITION_OUT_DURATION * 0.33);
+
+      //   setTimeout(() => {
+      //     mainContent.classList.add('hidden');
+      //     document.body.classList.add('overflow-hidden');
+      //     landingSection.classList.remove('hidden');
+      //     logoHoverArea.style.display = 'block';
+      //     maskLayer.classList.remove('mask-fullscreen');
+      //     maskLayer.classList.add('mask-logo');
+      //     overlay.style.background = 'rgba(0, 0, 0, 0.6)';
+      //     page2Container.classList.remove('fade-out');
+      //     maskLayer.style.webkitMaskSize = '';
+      //     maskLayer.style.maskSize = '';
+      //   }, TRANSITION_OUT_DURATION);
+      // } --}}

@@ -7,22 +7,43 @@ use App\Models\Audiopost;
 
 class AudiopostController extends Controller
 {
+    // public function store(Request $request)
+    // {
+    //     $request->validate([
+    //         'nama_projek' => 'required|string|max:255',
+    //         'link' => 'required|url|max:255',
+    //         'thumbnail' => 'required|url|max:255',
+    //     ]);
+
+    //     // if (Audiopost::count() >= 3) {
+    //     //     return back()->with('error', 'Maksimal 3 Audiopost Project yang dapat ditambahkan.');
+    //     // }
+
+    //     Audiopost::create($request->only(['nama_projek', 'link', 'thumbnail']));
+
+    //     return back()->with('success', 'Audiopost Project berhasil ditambahkan.');
+    // }
+
     public function store(Request $request)
     {
         $request->validate([
             'nama_projek' => 'required|string|max:255',
             'link' => 'required|url|max:255',
-            'thumbnail' => 'required|url|max:255',
+            'thumbnail' => 'required|image|mimes:png|max:2048', // hanya PNG, max 2MB
         ]);
 
-        // if (Audiopost::count() >= 3) {
-        //     return back()->with('error', 'Maksimal 3 Audiopost Project yang dapat ditambahkan.');
-        // }
+        // Simpan file thumbnail
+        $thumbnailPath = $request->file('thumbnail')->store('thumbnails', 'public');
 
-        Audiopost::create($request->only(['nama_projek', 'link', 'thumbnail']));
+        Audiopost::create([
+            'nama_projek' => $request->nama_projek,
+            'link' => $request->link,
+            'thumbnail' => $thumbnailPath, // simpan path-nya di DB
+        ]);
 
         return back()->with('success', 'Audiopost Project berhasil ditambahkan.');
     }
+
 
     public function audiopost()
     {
@@ -30,7 +51,7 @@ class AudiopostController extends Controller
             return Carbon::parse($date)->format('Y-m-d');
         });
 
-        $audioposts = Audiopost::latest()->take(3)->get();
+        $audioposts = Audiopost::latest()->get();
 
         return view('audiopost', compact('tanggalTerisi', 'audioposts'));
     }

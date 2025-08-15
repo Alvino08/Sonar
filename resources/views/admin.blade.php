@@ -312,7 +312,7 @@
       <section class="bg-white rounded shadow p-6 mb-6">
         <h2 class="text-lg font-bold mb-4 text-gray-800">Audiopost Project</h2>
 
-        <form method="POST" action="{{ route('audiopost.store') }}" class="space-y-4">
+        {{-- <form method="POST" action="{{ route('audiopost.store') }}" class="space-y-4">
           @csrf
           <div>
             <label class="block text-gray-700">Nama Project</label>
@@ -330,7 +330,27 @@
           </div>
 
           <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Simpan Project</button>
+        </form> --}}
+        <form method="POST" action="{{ route('audiopost.store') }}" enctype="multipart/form-data" class="space-y-4">
+          @csrf
+          <div>
+            <label class="block text-gray-700">Nama Project</label>
+            <input type="text" name="nama_projek" class="w-full border rounded px-3 py-2" required>
+          </div>
+
+          <div>
+            <label class="block text-gray-700">Link Video</label>
+            <input type="url" name="link" class="w-full border rounded px-3 py-2" required>
+          </div>
+
+          <div>
+            <label class="block text-gray-700">Thumbnail (PNG)</label>
+            <input type="file" name="thumbnail" accept="image/png" class="w-full border rounded px-3 py-2" required>
+          </div>
+
+          <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Simpan Project</button>
         </form>
+
 
       </section>
 
@@ -340,7 +360,7 @@
           <li class="flex justify-between items-center p-3 bg-gray-100 rounded">
             <div class="flex items-center space-x-4">
               @if($a->thumbnail)
-                <img src="{{ $a->thumbnail }}" alt="Thumbnail" class="w-16 h-16 object-cover rounded">
+                <img src="{{ asset('storage/' . $a->thumbnail) }}" alt="Thumbnail" class="w-16 h-16 object-cover rounded">
               @endif
               <div>
                 <strong>{{ $a->nama_projek }}</strong><br>
