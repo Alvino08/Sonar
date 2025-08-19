@@ -70,11 +70,11 @@
     <x-navbar />
 
     <div id="first-section" class="overflow-hidden">
-      <div class="h-screen w-full bg-noise flex items-center justify-center">
-        <div class="h-[440px] w-[970px] flex items-center">
-          <img src="/Audioposts/Audiopost-1.jpg" id="img-1" class="w-[345px] h-[345px] z-10 mr-[-80px]" />
-          <img src="/Audioposts/Audiopost-2.jpg" id="img-2" class="w-[440px] h-[440px] z-20" />
-          <img src="/Audioposts/Audiopost-3.jpg" id="img-3" class="w-[345px] h-[345px] z-10 ml-[-80px]" />
+      <div class="h-screen w-screen bg-noise flex items-center justify-center">
+        <div class="h-[440px] w-screen justify-center lg:w-[970px] flex items-center">
+          <img src="/Audioposts/Audiopost-1.jpg" id="img-1" class="w-[100px] h-[100px] lg:w-[345px] lg:h-[345px] z-10 lg:mr-[-80px]" />
+          <img src="/Audioposts/Audiopost-2.jpg" id="img-2" class="w-[125px] h-[125px] lg:w-[440px] lg:h-[440px] z-20" />
+          <img src="/Audioposts/Audiopost-3.jpg" id="img-3" class="w-[100px] h-[100px] lg:w-[345px] lg:h-[345px] z-10 lg:ml-[-80px]" />
         </div>
       </div>
     </div>
@@ -294,6 +294,183 @@
         </div>
 
 
+        {{-- <div x-data="{ active: null }" class="min-h-screen w-screen bg-gray-500 flex">
+          <div 
+            class="bg-red-600 h-screen transition-all duration-500 cursor-pointer"
+            :class="active === null ? 'w-1/4' : (active === 0 ? 'w-[50%]' : 'w-[16.3%]')"
+            @click="active = active === 0 ? null : 0">
+          </div>
+          <div 
+            class="bg-blue-600 h-screen transition-all duration-500 cursor-pointer"
+            :class="active === null ? 'w-1/4' : (active === 1 ? 'w-[50%]' : 'w-[16.3%]')"
+            @click="active = active === 1 ? null : 1">
+          </div>
+
+          <div 
+            class="bg-green-600 h-screen transition-all duration-500 cursor-pointer"
+            :class="active === null ? 'w-1/4' : (active === 2 ? 'w-[50%]' : 'w-[16.3%]')"
+            @click="active = active === 2 ? null : 2">
+          </div>
+
+          <div 
+            class="bg-yellow-600 h-screen transition-all duration-500 cursor-pointer"
+            :class="active === null ? 'w-1/4' : (active === 3 ? 'w-[50%]' : 'w-[16.3%]')"
+            @click="active = active === 3 ? null : 3">
+          </div>
+        </div> --}}
+
+        {{-- <div class="h-screen w-screen flex">
+          <div x-data="{ active: null }" class="h-screen w-[65%] bg-gray-500 flex overflow-hidden justify-between">
+        <!-- Panel 1 -->
+          <div 
+            class="relative h-full transition-all duration-500 cursor-pointer flex items-end justify-center"
+            :class="active === null ? 'w-1/4' : (active === 0 ? 'w-[55%] flex-row' : 'w-[15%] flex items-end')"
+            @click="active = active === 0 ? null : 0">
+
+            <!-- Foto kecil saat tertutup, besar saat dibuka -->
+            <img 
+              src="/kelana/P1040444.jpg" 
+              class="transition-all duration-500 object-cover"
+              :class="active === 0 ? 'w-full h-full' : 'w-full h-full'" />
+
+            <!-- Teks muncul hanya saat dibuka -->
+          </div>
+
+          <!-- Panel 2 -->
+          <div 
+            class="relative h-full transition-all duration-500 cursor-pointer flex items-end justify-center"
+            :class="active === null ? 'w-1/4' : (active === 1 ? 'w-[55%] flex-row' : 'w-[15%] flex items-end')"
+            @click="active = active === 1 ? null : 1">
+
+            <img 
+              src="/kelana/P1040503.jpg" 
+              class="transition-all duration-500 object-cover"
+              :class="active === 1 ? 'w-full h-full' : 'w-full h-full'" />
+
+          </div>
+
+          <!-- Panel 3 -->
+          <div 
+            class="relative h-full transition-all duration-500 cursor-pointer flex items-end justify-center"
+            :class="active === null ? 'w-1/4' : (active === 2 ? 'w-[55%] flex-row' : 'w-[15%] flex items-end')"
+            @click="active = active === 2 ? null : 2">
+
+            <img 
+              src="/kelana/P1040532.jpg" 
+              class="transition-all duration-500 object-cover"
+              :class="active === 2 ? 'w-full h-full' : 'w-full h-full'" />
+
+          </div>
+
+          <!-- Panel 4 -->
+          <div 
+            class="relative h-full transition-all duration-500 cursor-pointer flex items-end justify-center"
+            :class="active === null ? 'w-1/4' : (active === 3 ? 'w-[55%] flex-row' : 'w-[15%] flex items-end')"
+            @click="active = active === 3 ? null : 3">
+
+            <img 
+              src="/kelana/Spotify Avatar OPT 1.png" 
+              class="transition-all duration-500 object-cover"
+              :class="active === 3 ? 'w-full h-full' : 'w-full h-full'" />
+
+          </div>
+        </div>
+
+        <div>
+          tulisan 1
+        </div>
+        <div>
+          tulisan 2
+        </div>
+        <div>
+          tulisan 3
+        </div>
+        <div>
+          tulisan 4
+        </div>
+
+        </div> --}}
+
+        <div x-data="{ active: null }" class="h-screen w-screen flex justify-between bg-noise2">
+  <!-- KIRI: Panel Foto -->
+  <div class="h-full w-[65%] bg-gray-500 flex overflow-hidden justify-between">
+    <!-- Panel 1 -->
+    <div 
+      class="relative h-full transition-all duration-500 cursor-pointer flex items-end justify-center"
+      :class="active === null ? 'w-1/4' : (active === 0 ? 'w-[55%]' : 'w-[15%]')"
+      @click="active = active === 0 ? null : 0">
+
+      <img src="/kelana/P1040444.jpg" class="w-full h-full object-cover" />
+    </div>
+
+    <!-- Panel 2 -->
+    <div 
+      class="relative h-full transition-all duration-500 cursor-pointer flex items-end justify-center"
+      :class="active === null ? 'w-1/4' : (active === 1 ? 'w-[55%]' : 'w-[15%]')"
+      @click="active = active === 1 ? null : 1">
+
+      <img src="/kelana/P1040503.jpg" class="w-full h-full object-cover" />
+    </div>
+
+    <!-- Panel 3 -->
+    <div 
+      class="relative h-full transition-all duration-500 cursor-pointer flex items-end justify-center"
+      :class="active === null ? 'w-1/4' : (active === 2 ? 'w-[55%]' : 'w-[15%]')"
+      @click="active = active === 2 ? null : 2">
+
+      <img src="/kelana/P1040532.jpg" class="w-full h-full object-cover" />
+    </div>
+
+    <!-- Panel 4 -->
+    <div 
+      class="relative h-full transition-all duration-500 cursor-pointer flex items-end justify-center"
+      :class="active === null ? 'w-1/4' : (active === 3 ? 'w-[55%]' : 'w-[15%]')"
+      @click="active = active === 3 ? null : 3">
+
+      <img src="/kelana/Spotify Avatar OPT 1.png" class="w-full h-full object-cover" />
+    </div>
+  </div>
+
+  <!-- KANAN: Tulisan -->
+  <div class="h-full w-[30%] flex items-center justify-center py-10 bg-noise2 pr-25">
+    <div class=" text-gray-800" x-show="active === 0" x-transition>
+      <p class="font-anton text-[35px] mb-[-30px]">Ibam Adam</p>
+      <br>
+      <p class="font-workSans text-[20px] text-red-600">Composer & CMO | Co-Founder</p>
+      <br>
+      <p class="text-justify font-workSans text-[24px]">Arizal blends his background as a musician with technical expertise in mixing, delivering sound that is both precise and expressive. His work ensures every project carries depth, clarity, and character</p>
+    </div>
+    <div class=" text-gray-800" x-show="active === 1" x-transition>
+      <p class="font-anton text-[35px] mb-[-30px]">Hudi Ardianto</p>
+      <br>
+      <p class="font-workSans text-[20px] text-red-600">Composer, Music Director & CTO | Co-Founder</p>
+      <br>
+      <p class="text-justify font-workSans text-[24px]">Hudi shapes the creative and technical direction of the company. As a composer and music director, he crafts emotive scores, while his role as CTO drives innovation in audio technology and production</p>    
+    </div>
+    <div class=" text-gray-800" x-show="active === 2" x-transition>
+      <p class="font-anton text-[35px] mb-[-30px]">Arizal Nur Rokhim</p>
+      <br>
+      <p class="font-workSans text-[20px] text-red-600">Musician & Senior Mixing Engineer </p>
+      <br>
+      <p class="text-justify font-workSans text-[24px]">Arizal blends his background as a musician with technical expertise in mixing, delivering sound that is both precise and expressive. His work ensures every project carries depth, clarity, and character</p>  
+    </div>
+    <div class=" text-gray-800" x-show="active === 3" x-transition>
+      <p class="font-anton text-[35px] mb-[-30px]">Audrey Salsabila</p>
+      <br>
+      <p class="font-workSans text-[20px] text-red-600">Musician & Senior Mixing Engineer </p>
+      <br>
+      <p class="text-justify font-workSans text-[24px]">Arizal blends his background as a musician with technical expertise in mixing, delivering sound that is both precise and expressive. His work ensures every project carries depth, clarity, and character.</p>
+    </div>
+
+    <!-- Default kalau belum ada yang dipilih -->
+    <div class="text-[60px] font-anton text-black w-full justify-start leading-[60px]" x-show="active === null" x-transition>
+      <p>The <br>People <br>Behind</p>
+    </div>
+  </div>
+</div>
+
+<!-- Alpine.js -->
+
 
         <div class="h-screen w-full bg-noise px-5 py-20 flex justify-center items-start">
           <div class="backdrop-blur-md  shadow-xl p-6 w-full max-w-5xl ">
@@ -321,6 +498,10 @@
             <div id="calendarDays" class="grid grid-cols-7 text-center text-white"></div>
           </div>
         </div>
+
+
+
+
 
       </section>
     </div>

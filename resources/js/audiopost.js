@@ -24,11 +24,11 @@ window.onload = () => {
     .fromTo(img3, { x: -150, opacity: 0 }, { x: 0, opacity: 1, duration: 1 }, 1.2)
     .to(img2, { opacity: 0.8, scale: 0.8, duration: 0.5 }, 2.7)
     .to(img2, { scale: 5, opacity: 0, duration: 0.5 }, ">")
-    .to(img1, { x: -200, opacity: 0.5, duration: 0.5 }, 2.9)
-    .to(img3, { x: 200, opacity: 0.5, duration: 0.5 }, 2.9)
-    .to(img1, { x: 400, opacity: 0, duration: 0.5 }, "<")
+    .to(img1, { xPercent: 0, opacity: 0.5, duration: 0.5 }, 2.9)
+    .to(img3, { xPercent: 100, opacity: 0.5, duration: 0.5 }, 2.9)
+    .to(img1, { xPercent: 100, opacity: 0, duration: 0.5 }, "<")
     .to(img3, {
-      x: -400,
+      xPercent: 0,
       opacity: 0,
       duration: 0.5,
       onComplete: () => {
@@ -49,6 +49,7 @@ window.onload = () => {
             parallaxScroll();
             // titleOverlay();
             // setupScrollTrigger2();
+            animateTeks2();
             }
         });
         }
@@ -256,6 +257,41 @@ function titleOverlay(index) {
       overlay.classList.add("opacity-0");
     }
   });
+}
+
+function animateTeks2() {
+  // let typeSplit = new SplitType('.animate-teks', {
+  //   types: 'lines, words, chars',
+  //   tagName: 'span'
+  // });
+
+  // gsap.from('.animate-teks .word', {
+  //   opacity: 0.5, // biar lebih kelihatan masuk
+  //   filter: "blur(5px)",
+  //   duration: 1,
+  //   ease: 'power1.out',
+  //   stagger: 0.1,
+    
+  //   scrollTrigger: {
+  //     trigger: '.animate-submit',
+  //     start: 'top 80%',
+  //     toggleActions: "play none none none",
+  //     scrub: false,
+  //     // markers: true // tes apakah aktif
+  //   }
+  // });
+let typeSplit = new SplitType('animate-text', {
+  types: 'lines, words, chars',
+  tagName: 'span'
+})
+
+gsap.from('animate-text .line', {
+  y: '100%',
+  opacity: 0,
+  duration: 1,
+  ease: 'sine.inOut',
+  stagger: 0.15,
+})
 }
 
 window.titleOverlay = titleOverlay;

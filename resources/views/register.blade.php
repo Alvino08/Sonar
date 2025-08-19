@@ -72,7 +72,7 @@
                 <h1 class="text-3xl font-semibold mb-6 text-white text-center">Sign Up</h1>
                 <p class="text-sm font-semibold mb-6 text-white text-center">Join our community with all-time access for free</p>
 
-                <a class="mt-4 flex flex-col lg:flex-row items-center justify-between" href="">
+                <a class="mt-4 flex flex-col lg:flex-row items-center justify-between" href="{{ route('auth.google') }}">
                     <div class="w-full lg:w-full mb-2 lg:mb-0">
                         <button type="button" class="w-full flex justify-center items-center gap-2 bg-white text-sm text-gray-600 p-2 rounded-md hover:bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-200 transition-colors duration-300">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-4" id="google">

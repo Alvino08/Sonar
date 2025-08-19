@@ -6,24 +6,42 @@ import Alpine from 'alpinejs';
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from 'gsap/all';
+// import { SplitType } from 'gsap/all';
+
 
 window.Alpine = Alpine
 
 Alpine.start()
 
 gsap.registerPlugin(ScrollTrigger);
-gsap.registerPlugin(SplitText);    
+gsap.registerPlugin(SplitText); 
+// gsap.registerPlugin(SplitType);    
+
 
 
     
+// window.onload = () => {
+//     // transition();
+//     window.Alpine = Alpine
+//     Alpine.start()
+//     // transition();
+//     textBlur();
+//     parallaxScroll();
+//     scrollVideo();
+//     animateSubmit();
+// }
+
+
 window.onload = () => {
-    // transition();
-    window.Alpine = Alpine
-    Alpine.start()
-    // transition();
-    textBlur();
-    parallaxScroll();
-    scrollVideo();
+  window.Alpine = Alpine
+  textBlur();
+  parallaxScroll();
+  scrollVideo();
+  animateSubmit();
+  animateTeks();
+
+
+  ScrollTrigger.refresh();
 }
 
 function textBlur() {
@@ -139,6 +157,50 @@ function scrollVideo() {
     }
   }, 1000);
 }
+
+function animateSubmit() {
+  let typeSplit = new SplitType('.animate-submit', {
+    types: 'lines, words, chars',
+    tagName: 'span'
+  });
+
+  gsap.from('.animate-submit .word', {
+    y: '100%',
+    opacity: 0,
+    duration: 1,
+    ease: 'power1.out',
+    stagger: 0.25,
+    scrollTrigger: {
+      trigger: '.animate-submit',
+      start: 'top 60%',
+      toggleActions: "play none none reverse",
+    }
+  });
+}
+
+function animateTeks() {
+  let typeSplit = new SplitType('.animate-teks', {
+    types: 'lines, words, chars',
+    tagName: 'span'
+  });
+
+  gsap.from('.animate-teks .word', {
+    opacity: 0.5, // biar lebih kelihatan masuk
+    filter: "blur(5px)",
+    duration: 1,
+    ease: 'power1.out',
+    stagger: 0.1,
+    
+    scrollTrigger: {
+      trigger: '.animate-submit',
+      start: 'top 80%',
+      toggleActions: "play none none none",
+      scrub: false,
+      // markers: true // tes apakah aktif
+    }
+  });
+}
+
 
 document.addEventListener("DOMContentLoaded", scrollVideo);
 

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     @vite(['resources/css/app.css', 'resources/js/label.js'])
+    <script src="https://unpkg.com/split-type"></script>
     <title>Document</title>
     <style>
         .bg-noise {
@@ -26,6 +27,13 @@
         background-repeat: no-repeat;
         background-position: center;
     }
+
+    .dark-bg {
+        background-image: url('/Kelana/BG SUBMIT DEMO.png');
+        background-size: cover;
+        background-position: center;
+        /* filter: brightness(10); makin kecil makin gelap */
+        }
 
 
         .stock-ticker {
@@ -123,25 +131,25 @@
     </div> --}}
 
     <!-- HTML -->
-    <div class="h-screen w-full bg-noise3 py-40 px-30 flex">
-    <div class="font-anton text-white w-[135vh] text-5xl tracking-wide text-justify container">
-        <p class="animate-me">
-        Kelana Musik is a Jakarta-based music label dedicated to crafting chill-out and ambient electronic sounds infused with the rich colors and textures of Indonesia. We blend modern electronic production with local influences—capturing the rhythm of the city, the calm of nature, and the warmth of our culture. Our mission is simple: to create music that lets you wander, drift, and discover new emotional landscapes, wherever you are in the world.
-        </p>
-    </div>
-
-    <div class="w-[300px] flex flex-col mx-30 justify-end">
-        <div class="aspect-square">
-        <video
-            class="scroll-video w-full h-full object-cover"
-            playsinline
-            webkit-playsinline
-            preload="auto"
-            muted
-            src="{{ asset('/Kelana/output_square.mp4') }}">
-        </video>
+    <div class="h-screen w-full bg-black py-40 px-30 flex justify-between">
+        <div class="font-anton text-white text-[32px] tracking-wide container ">
+            <p class="animate-me font-workSans w-[800px] text-justify">
+            Kelana Musik is a Jakarta-based music label dedicated to crafting chill-out and ambient electronic sounds infused with the rich colors and textures of Indonesia. We blend modern electronic production with local influences — capturing the rhythm of the city, the calm of nature, and the warmth of our culture. Our mission is simple: to create music that lets you wander, drift, and discover new emotional landscapes, wherever you are in the world.
+            </p>
         </div>
-    </div>
+
+        <div class="w-[300px] flex flex-col mx-30 justify-end ">
+            <div class="aspect-square">
+            <video
+                class="scroll-video w-full h-full object-cover"
+                playsinline
+                webkit-playsinline
+                preload="auto"
+                muted
+                src="{{ asset('/Kelana/output_square.mp4') }}">
+            </video>
+            </div>
+        </div>
     </div>
 
     {{-- <div id="scroll-area" style="height: 400vh;"></div> --}}
@@ -257,14 +265,14 @@
                 <div data-speed="2.5">
                     <div class="flex justify-start overflow-hidden relative">
                         <div class="w-[300px] h-[300px] group relative flex justify-start">
-                            <div class="w-[300px] h-[300px] flex flex-col justify-end items-end z-10">
+                            <a href="https://open.spotify.com/intl-id/album/6Pg8Z4ntwzgeTnayMK5KHm" target="_blank" rel="noopener noreferrer" class="w-[300px] h-[300px] flex flex-col justify-end items-end z-10">
                                 <img src="/kelana/Raga EP_album_cover.jpg" alt="Raga EP album cover">
-                            </div>
+                            </a>
                             <div class="w-[500px] h-[300px] text-[20px] absolute duration-400 opacity-0 
                                         group-hover:opacity-100 transition-all z-0 right-[100%] group-hover:right-[-167%] 
-                                        font-anton flex flex-col justify-end">
-                                <p class="text-8xl m-0">RAGA</p>
-                                <p class="text-6xl mt-[-8px]">Suara Kelana</p>
+                                         flex flex-col justify-end">
+                                <p class="font-anton text-8xl m-0">RAGA</p>
+                                <p class="font-worksans text-6xl mt-[-8px]">Suara Kelana</p>
                             </div>
                         </div>
                     </div>
@@ -273,14 +281,14 @@
                 <div class="flex justify-end" data-speed="3">
                     <div class="w-[600px] h-[300px] flex justify-end overflow-hidden relative">
                         <div class="w-[300px] h-[300px] group relative flex justify-start">
-                            <div class="w-[300px] h-[300px] flex flex-col justify-end items-end z-10">
+                            <a href="https://open.spotify.com/intl-id/album/0aypoE04vvsjevivecNvZd" target="_blank" rel="noopener noreferrer" class="w-[300px] h-[300px] flex flex-col justify-end items-end z-10">
                                 <img src="/kelana/ToFly_album_cover.jpg" alt="To Fly album cover">
-                            </div>
+                            </a>
                             <div class="w-[300px] h-[300px] text-[20px] absolute duration-400 opacity-0 
                                         group-hover:opacity-100 transition-all z-0 left-[100%] group-hover:left-[-100%] 
-                                        font-anton flex flex-col justify-end text-end">
-                                <p class="text-8xl m-0">TO FLY</p>
-                                <p class="text-6xl mt-[-8px]">RZL</p>
+                                         flex flex-col justify-end text-end">
+                                <p class=" font-anton text-8xl m-0">TO FLY</p>
+                                <p class=" font-worksans text-6xl mt-[-8px]">RZL</p>
                             </div>
                         </div>
                     </div>
@@ -289,14 +297,14 @@
                 <div data-speed="2">
                     <div class="flex justify-start overflow-hidden relative">
                         <div class="w-[300px] h-[300px] group relative flex justify-start">
-                            <div class="w-[300px] h-[300px] flex flex-col justify-end items-end z-10">
+                            <a href="https://open.spotify.com/intl-id/album/7hOGZg4X8RwyqTmAcyv3qO" target="_blank" rel="noopener noreferrer" class="w-[300px] h-[300px] flex flex-col justify-end items-end z-10">
                                 <img src="/kelana/Taiyo_album_cover.jpg" alt="Taiyo album cover">
-                            </div>
+                            </a>
                             <div class="w-[300px] h-[300px] text-[20px] absolute duration-400 opacity-0 
                                         group-hover:opacity-100 transition-all z-0 right-[100%] group-hover:right-[-100%] 
-                                        font-anton flex flex-col justify-end">
-                                <p class="text-8xl m-0">TAIYO</p>
-                                <p class="text-6xl mt-[-8px]">LANKEI</p>
+                                        flex flex-col justify-end">
+                                <p class="font-anton text-8xl m-0">TAIYO</p>
+                                <p class="font-workSans text-6xl mt-[-8px]">LANKEI</p>
                             </div>
                         </div>
                     </div>
@@ -307,30 +315,30 @@
                 <div data-speed="3">
                     <div class="flex justify-start overflow-hidden relative">
                         <div class="w-[300px] h-[300px] group relative flex justify-start">
-                            <div class="w-[300px] h-[300px] flex flex-col justify-end items-end z-10">
+                            <a href="https://open.spotify.com/intl-id/album/4heYvtQLU9gvefmOgQHN9a" target="_blank" rel="noopener noreferrer" class="w-[300px] h-[300px] flex flex-col justify-end items-end z-10">
                                 <img src="/kelana/Ruang Ilusi_album_cover.jpg" alt="Ruang Ilusi album cover">
-                            </div>
+                            </a>
                             <div class="w-[500px] h-[300px] text-[20px] absolute duration-400 opacity-0 
                                         group-hover:opacity-100 transition-all z-0 right-[100%] group-hover:right-[-167%] 
-                                        font-anton flex flex-col justify-end">
-                                <p class="text-8xl m-0">RUANG ILUSI</p>
-                                <p class="text-6xl mt-[-8px]">Suara Kelana</p>
+                                        flex flex-col justify-end">
+                                <p class="font-anton text-8xl m-0">RUANG ILUSI</p>
+                                <p class="font-worksans text-6xl mt-[-8px]">Suara Kelana</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="flex justify-end" data-speed="2">
-                    <div class="w-[600px] h-[300px] flex justify-end overflow-hidden relative">
+                    <div class="w-[700px] h-[300px] flex justify-end overflow-hidden relative">
                         <div class="w-[300px] h-[300px] group relative flex justify-start">
-                            <div class="w-[300px] h-[300px] flex flex-col justify-end items-end z-10">
+                            <a href="https://open.spotify.com/intl-id/album/0JzMjZOyLoRs5eaSg7wCzu" target="_blank" rel="noopener noreferrer" class="w-[300px] h-[300px] flex flex-col justify-end items-end z-10">
                                 <img src="/kelana/Fana_album_cover.jpg" alt="Fana album cover">
-                            </div>
-                            <div class="w-[300px] h-[300px] text-[20px] absolute duration-400 opacity-0 
-                                        group-hover:opacity-100 transition-all z-0 left-[100%] group-hover:left-[-100%] 
-                                        font-anton flex flex-col justify-end text-end">
-                                <p class="text-8xl m-0">FANA</p>
-                                <p class="text-6xl mt-[-8px]">Ibam Adam</p>
+                            </a>
+                            <div class="w-[500px] h-[300px] text-[20px] absolute duration-400 opacity-0 
+                                        group-hover:opacity-100 transition-all z-0 left-[100%] group-hover:left-[-167%] 
+                                         flex flex-col justify-end text-end">
+                                <p class="font-anton text-8xl m-0">FANA</p>
+                                <p class="font-workSans text-6xl mt-[-8px]">Ibam Adam</p>
                             </div>
                         </div>
                     </div>
@@ -339,14 +347,14 @@
                 <div data-speed="2.5">
                     <div class="flex justify-start overflow-hidden relative">
                         <div class="w-[300px] h-[300px] group relative flex justify-start">
-                            <div class="w-[300px] h-[300px] flex flex-col justify-end items-end z-10">
+                            <a href="https://open.spotify.com/intl-id/album/3w55hVVh2rwwPD6ptFlnZn" target="_blank" rel="noopener noreferrer" class="w-[300px] h-[300px] flex flex-col justify-end items-end z-10">
                                 <img src="/kelana/Kembali_album_cover.jpg" alt="Kembali album cover">
-                            </div>
+                            </a>
                             <div class="w-[300px] h-[300px] text-[20px] absolute duration-400 opacity-0 
                                         group-hover:opacity-100 transition-all z-0 right-[100%] group-hover:right-[-100%] 
-                                        font-anton flex flex-col justify-end">
-                                <p class="text-8xl m-0">TAIYO</p>
-                                <p class="text-6xl mt-[-8px]">LANKEI</p>
+                                        flex flex-col justify-end">
+                                <p class="font-anton text-8xl m-0">KEMBALI</p>
+                                <p class="font-workSans text-6xl mt-[-8px]">LANKEI</p>
                             </div>
                         </div>
                     </div>
@@ -360,50 +368,50 @@
             <p>ARTIST</p>
         </div>
 
-        <div class="w-full flex flex-col text-[40pt] font-anton mt-10 text-[#f8f8f8]">
-            <div class="w-[300px] hover:text-[75pt] hover:w-[600px] duration-500 mb-5 flex group relative">
-                <p class="hover:h-[150px]">SUARA KELANA</p>
+        <div class="w-full flex flex-col text-[40pt] font-worksans font-bold mt-10 text-[#f8f8f8]">
+            <div class="w-[500px] hover:text-[75pt] hover:w-[800px] duration-500 mb-5 flex group relative">
+                <a class="hover:h-[150px]" href="https://open.spotify.com/intl-id/artist/0djfXKhDl6BI58Whv32kea" target="_blank" rel="noopener noreferrer">SUARA KELANA</a>
 
                 <!-- Foto muncul di tengah layar -->
                 <img src="/Kelana/Spotify Avatar OPT 1.png" 
                     alt="To Fly album cover"
-                    class="opacity-0 group-hover:opacity-100 absolute left-145 w-[300px] h-[300px] object-cover duration-500 group-hover:top-8 transition-all z-0 top-10 pointer-events-none group-hover:pointer-events-auto">
+                    class="opacity-0 group-hover:opacity-100 absolute left-200 w-[300px] h-[300px] object-cover duration-500 group-hover:top-8 transition-all z-0 top-10 pointer-events-none group-hover:pointer-events-auto">
             </div>
 
-            <div class="w-[300px] hover:text-[75pt] hover:w-[600px] hover:h-[150px] duration-500 mb-5 group relative">
-                <p>IBAM ADAM</p>
+            <div class="w-[500px] hover:text-[75pt] hover:w-[800px] hover:h-[150px] duration-500 mb-5 group relative">
+                <a href="https://open.spotify.com/intl-id/artist/0EoJdO68QocXlLBO8B50Av" target="_blank" rel="noopener noreferrer">IBAM ADAM</a>
                 <img src="/Kelana/P1040444.jpg" 
                     alt="To Fly album cover"
-                    class="opacity-0 group-hover:opacity-100 absolute left-120 w-[300px] h-[300px] object-cover duration-500 transition-all group-hover:top-8 z-0 top-10 pointer-events-none group-hover:pointer-events-auto">
+                    class="opacity-0 group-hover:opacity-100 absolute left-160 w-[300px] h-[300px] object-cover duration-500 transition-all group-hover:top-8 z-0 top-10 pointer-events-none group-hover:pointer-events-auto">
             </div>
             <div class="w-[300px] hover:text-[75pt] hover:w-[600px] hover:h-[150px] duration-500 mb-5 group relative">
-                <p>LANKEI</p>
+                <a href="https://open.spotify.com/intl-id/artist/4IAohotRVmqywseyr3HBYK" target="_blank" rel="noopener noreferrer">LANKEI</a>
                 <img src="/Kelana/P1040503.jpg" 
                     alt="To Fly album cover"
-                    class="opacity-0 group-hover:opacity-100 absolute left-75 w-[300px] h-[300px] object-cover duration-500 transition-all group-hover:top-8 z-0 top-10 pointer-events-none group-hover:pointer-events-auto">
+                    class="opacity-0 group-hover:opacity-100 absolute left-100 w-[300px] h-[300px] object-cover duration-500 transition-all group-hover:top-8 z-0 top-10 pointer-events-none group-hover:pointer-events-auto">
             </div>
             <div class="w-[300px] hover:text-[75pt] hover:w-[600px] hover:h-[150px] duration-500 mb-5 group relative">
-                <p>RZL</p>
+                <a href="https://open.spotify.com/intl-id/artist/1ObjWAMyImOytrPADQgtni" target="_blank" rel="noopener noreferrer">RZL</a>
                 <img src="/Kelana/P1040532.jpg" 
                     alt="To Fly album cover"
-                    class="opacity-0 group-hover:opacity-100 absolute left-40 w-[300px] h-[300px] object-cover duration-500 transition-all group-hover:top-8 z-0 top-10 pointer-events-none group-hover:pointer-events-auto">
+                    class="opacity-0 group-hover:opacity-100 absolute left-50 w-[300px] h-[300px] object-cover duration-500 transition-all group-hover:top-8 z-0 top-10 pointer-events-none group-hover:pointer-events-auto">
             </div>
         </div>
 
     </div>
 
-    <div class="min-h-screen w-full px-30 py-20 bg-center bg-cover" style="background-image: url('/Kelana/BG SUBMIT DEMO.png');">
-        <div class="font-anton text-[156px] text-white mb-10">
+    <div class="min-h-screen w-full px-30 py-20 bg-center bg-cover dark-bg">
+        <div class="font-anton text-[156px] text-white mb-10 animate-submit overflow-hidden">
             <p>SUBMIT DEMO</p>
         </div>
 
-        <div class="font-anton text-8xl text-white mt-10 w-full h-[600px] flex justify-end">
-            <div class=" w-[75%] h-[100%] p-5 font-anton text-white text-5xl text-justify">
-                <p>Submit your demo submissions to kelanamusik@gmail.com and be sure to follow @kelanamusik to stay up to date on new music and artist signings.</p>
+        <div class=" text-white mt-10 w-full flex justify-end ">
+            <div class=" w-[75%] h-[100%] p-5 font-worksans text-white text-[40px] text-justify leading-10 pb-20">
+                <p class="animate-teks">Submit your demo submissions to <b>kelanamusik@gmail.com</b> and be sure to follow <b>@kelanamusik</b> to stay up to date on new music and artist signings.</p>
                 <br>
-                <p>We listen to all demos that are submitted to us, but please respect that we might take time to respond, due to many artists sending demos to us.</p>
+                <p class="animate-teks">We listen to all demos that are submitted to us, but please respect that we might take time to respond, due to many artists sending demos to us.</p>
                 <br>
-                <p>Your demo doesn't need to be perfect yet. We are listening to your potential, not the studio quality. If you have a work in progress and are really talented, then we will help you shape the edges.</p>
+                <p class="animate-teks">Your demo doesn't need to be perfect yet. We are listening to your potential, not the studio quality. If you have a work in progress and are really talented, then we will help you shape the edges.</p>
             </div>
         </div>
     </div>
@@ -412,3 +420,28 @@
     <x-footer/>
 </body>
 </html>
+{{-- 
+<script src="https://unpkg.com/split-type"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script> --}}
+
+{{-- <script>
+let typeSplit = new SplitType('[animate]', {
+  types: 'lines, words, chars',
+  tagName: 'span'
+})
+
+gsap.from('[animate] .word', {
+  y: '100%',
+  opacity: 1,
+  duration: 0.5,
+  ease: 'power1.out',
+  stagger: 0.25,
+  
+  scrollTrigger: {
+    trigger: '[animate]',
+    start: 'top center',
+    
+  }
+})
+</script> --}}
