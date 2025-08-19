@@ -8,15 +8,43 @@
     <title>Document</title>
 </head>
 <body>
-    <div id="preloader" class="fixed inset-0 bg-black flex items-center justify-center z-[9999] transition-opacity duration-500 h-screen w-screen">
+    {{-- <div id="preloader" class="fixed inset-0 bg-black flex items-center justify-center z-[9999] transition-opacity duration-500 h-screen w-screen">
         <div class="flex items-center">
-            <img src="/sonar/Sonar Logo Sep 1.png" alt="Card 1" class="w-96 h-96 object-contain mr-[-381px] z-10 animate-slide-6 opacity-0 "/> <!--6-->
-            <img src="/sonar/Sonar Logo Sep 2.png" alt="Card 2" class="w-96 h-96 object-contain mr-[-382px] z-10 animate-slide-4 opacity-0" /> <!--4-->
-            <img src="/sonar/Sonar Logo Sep 3.png" alt="Card 3" class="w-96 h-96 object-contain mr-[-385px] z-30 animate-slide-5 opacity-0 "/> <!--5-->
-            <img src="/sonar/Sonar Logo Sep 5.png" alt="Card 4" class="w-96 h-96 object-contain mr-[-385px] z-10 animate-slide-1 opacity-0 "/> <!--1-->
-            <img src="/sonar/Sonar Logo Sep 4.png" alt="Card 5" class="w-96 h-96 object-contain mr-[-380px] z-10 animate-slide-3 opacity-0 "/> <!--3-->
+            <img src="/sonar/Sonar Logo Sep 1.png" alt="Card 1" class="w-96 h-96 object-contain md:mr-[-381px] z-10 animate-slide-6 opacity-0 "/> <!--6-->
+            <img src="/sonar/Sonar Logo Sep 2.png" alt="Card 2" class="w-96 h-96 object-contain md:mr-[-382px] z-10 animate-slide-4 opacity-0" /> <!--4-->
+            <img src="/sonar/Sonar Logo Sep 3.png" alt="Card 3" class="w-96 h-96 object-contain md:mr-[-385px] z-30 animate-slide-5 opacity-0 "/> <!--5-->
+            <img src="/sonar/Sonar Logo Sep 5.png" alt="Card 4" class="w-96 h-96 object-contain md:mr-[-385px] z-10 animate-slide-1 opacity-0 "/> <!--1-->
+            <img src="/sonar/Sonar Logo Sep 4.png" alt="Card 5" class="w-96 h-96 object-contain md:mr-[-380px] z-10 animate-slide-3 opacity-0 "/> <!--3-->
             <img src="/sonar/Sonar Logo Sep 6.png" alt="Card 6" class="w-96 h-96 object-contain animate-slide-2 opacity-0"/> <!--2-->
         </div>
-    </div>
+    </div> --}}
+    <div id="preloader" class="fixed inset-0 bg-black flex items-center justify-center z-[9999] transition-opacity duration-500 h-screen w-screen">
+  <div class="flex flex-nowrap md:flex-nowrap items-center justify-center">
+    <img src="/sonar/Sonar Logo Sep 1.png" 
+         alt="Card 1" 
+         class="w-40 h-40 md:w-96 md:h-96 object-contain mr-[-158px] md:mr-[-381px] z-10 animate-slide-6 opacity-0"/> <!--6-->
+
+    <img src="/sonar/Sonar Logo Sep 2.png" 
+         alt="Card 2" 
+         class="w-40 h-40 md:w-96 md:h-96 object-contain mr-[-159px] md:mr-[-382px] z-10 animate-slide-4 opacity-0"/><!--4-->
+
+    <img src="/sonar/Sonar Logo Sep 3.png" 
+         alt="Card 3" 
+         class="w-40 h-40 md:w-96 md:h-96 object-contain mr-[-162px] md:mr-[-385px] z-30 animate-slide-5 opacity-0"/> <!--5-->
+
+    <img src="/sonar/Sonar Logo Sep 5.png" 
+         alt="Card 4" 
+         class="w-40 h-40 md:w-96 md:h-96 object-contain mr-[-162px] md:mr-[-385px] z-10 animate-slide-1 opacity-0"/> <!--1-->
+
+    <img src="/sonar/Sonar Logo Sep 4.png" 
+         alt="Card 5" 
+         class="w-40 h-40 md:w-96 md:h-96 object-contain mr-[-157px] md:mr-[-380px] z-10 animate-slide-3 opacity-0"/> <!--3-->
+
+    <img src="/sonar/Sonar Logo Sep 6.png" 
+         alt="Card 6" 
+         class="w-40 h-40 md:w-96 md:h-96 object-contain animate-slide-2 opacity-0"/> <!--2-->
+  </div>
+</div>
+
 </body>
 </html>

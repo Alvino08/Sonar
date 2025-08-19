@@ -20,8 +20,20 @@
         mask-image: url('/Sonar/Sonar Logo Sep.svg');
         mask-repeat: no-repeat;
         mask-position: center;
-        mask-size: 30%;
+        mask-size: 245px;
       }
+
+      @media(min-width:768px){
+        .mask-logo{mask-size: 576px;}
+      }
+
+      /* @media(min-width:1024px){
+        .mask-logo{mask-size: 55%;}
+      } */
+
+      /* @media(min-width:1280px){
+        .mask-logo{mask-size: 30%;}
+      } */
 
       .mask-logo.hovered {
         -webkit-mask-size: 100%;
@@ -401,24 +413,24 @@
 
           </div> --}}
 
-          <div class="flex flex-col lg:flex-row justify-center items-center min-h-screen gap-6 px-4">
+          <div class="flex flex-col lg:flex-row justify-center items-center min-h-screen gap-6 px-4 lg:gap-0 xl:gap-6">
   
             <!-- Card 1 -->
             <div 
               x-data="{ open: false }" 
               @click="open = !open" 
-              class="w-full sm:w-[450px] lg:w-[600px] h-[300px] sm:h-[350px] lg:h-[400px] flex relative cursor-pointer overflow-hidden"
+              class="w-full sm:w-[450px] md:w-[500px] lg:w-[600px] h-[300px] sm:h-[350px] lg:h-[400px] flex relative cursor-pointer overflow-hidden bg-amber-500"
             >
-              <div class="w-[60%] lg:w-[300px] h-[100%] bg-white flex flex-col justify-end z-10 fade-section p-2 bg-cover bg-center border-solid border-gray-500 border-[1px]"
+              <div class="w-[60%] md:w-[300px] lg:w-[300px] h-[100%] flex flex-col justify-end z-10 fade-section p-2 bg-cover bg-center border-solid border-gray-500 border-[1px]"
                   style="background-image: url('/images/Hudi About Us.png');">
                 <p class="font-anton text-white text-[40px] sm:text-[55px] lg:text-[70px] mb-[-6px] fade-item">Hudi</p>
                 <p class="font-anton text-white text-[40px] sm:text-[55px] lg:text-[70px] mb-[-6px] fade-item">Ardianto</p>
               </div>
 
               <div 
-                class="text-justify tracking-[0.02em] w-[40%] sm:w-[200px] h-full text-[14px] sm:text-[16px] lg:text-[20px] absolute duration-400 transition-all z-0 px-2 sm:px-3 py-2 sm:py-3"
+                class="text-justify tracking-[0.02em] w-[40%] sm:w-[200px] h-full text-[12px] sm:text-[16px] lg:text-[18px] xl:text-[20px] absolute duration-400 transition-all z-0 px-2 sm:px-3 py-2 sm:py-3"
                 :class="{
-                  'opacity-100 right-[17%]': open, 
+                  'opacity-100 xl:right-[17%] md:right-[0%%] right-[0%]': open, 
                   'opacity-0 right-[70%]': !open
                 }"
               >
@@ -437,7 +449,7 @@
             <div 
               x-data="{ open: false }" 
               @click="open = !open" 
-              class="w-full sm:w-[450px] lg:w-[600px] h-[300px] sm:h-[350px] lg:h-[400px] flex justify-end relative cursor-pointer overflow-hidden"
+              class="w-full sm:w-[450px] md:w-[500px] lg:w-[600px] h-[300px] sm:h-[350px] lg:h-[400px] flex justify-end relative cursor-pointer overflow-hidden bg-amber-400"
             >
               <div class="w-[60%] lg:w-[300px] h-full bg-white flex flex-col justify-end items-end fade-section p-2 bg-cover bg-center border-solid border-gray-500 border-[1px] z-10"
               style="background-image: url('/images/Ibam About Us.png');">
@@ -445,9 +457,9 @@
                 <p class="font-anton text-white text-[40px] sm:text-[55px] lg:text-[70px] mb-[-6px] fade-item">Adam</p>
               </div>
               <div 
-                class="text-justify tracking-[0.05em] w-[40%] sm:w-[200px] h-full text-[14px] sm:text-[16px] lg:text-[20px] absolute duration-400 transition-all z-0 px-2 sm:px-3 py-2 sm:py-3"
+                class="text-justify tracking-[0.05em] w-[40%] sm:w-[200px] h-full text-[12px] sm:text-[16px] lg:text-[18px] xl:text-[20px] absolute duration-400 transition-all z-0 px-2 sm:px-3 py-2 sm:py-3"
                 :class="{
-                  'opacity-100 left-[17%]': open, 
+                  'opacity-100 xl:left-[17%] md:left-[0%%] left-[0%]': open, 
                   'opacity-0 left-[70%]': !open
                 }"
               >
@@ -499,26 +511,26 @@
       // });
 
       window.addEventListener('load', () => {
-        const hasVisited = sessionStorage.getItem('myApp_hasVisitedMain');  // key unik
+        // const hasVisited = sessionStorage.getItem('myApp_hasVisitedMain');  // key unik
         const preloader = document.getElementById('preloader');
         const landing = document.getElementById('landingSection');
         const main = document.getElementById('mainContent');
 
-        if (hasVisited === 'true') {
-          preloader.style.display = 'none';
-          landing.classList.add('hidden');
-          main.classList.remove('hidden');
-          document.body.classList.remove('overflow-hidden');
-          maskLayer.classList.remove('mask-logo');
-          maskLayer.classList.add('mask-fullscreen');
-          overlay.classList.remove('full-black');
-          window.initScrollAnimations();
-          window.cardScrollAnimations();
-          window.fadeInOnScroll();
-          window.setupScrollTrigger2();
-          window.textBlur();
-          return;
-        }
+        // if (hasVisited === 'true') {
+        //   preloader.style.display = 'none';
+        //   landing.classList.add('hidden');
+        //   main.classList.remove('hidden');
+        //   document.body.classList.remove('overflow-hidden');
+        //   maskLayer.classList.remove('mask-logo');
+        //   maskLayer.classList.add('mask-fullscreen');
+        //   overlay.classList.remove('full-black');
+        //   window.initScrollAnimations();
+        //   window.cardScrollAnimations();
+        //   window.fadeInOnScroll();
+        //   window.setupScrollTrigger2();
+        //   window.textBlur();
+        //   return;
+        // }
 
         setTimeout(() => {
           preloader.classList.add('opacity-0', 'pointer-events-none');

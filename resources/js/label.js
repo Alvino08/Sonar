@@ -23,6 +23,7 @@ window.onload = () => {
     // transition();
     textBlur();
     parallaxScroll();
+    scrollVideo();
 }
 
 function textBlur() {
@@ -86,3 +87,59 @@ function transition(){
         }, 1500); // 1.5s = sama dengan transition CSS
     }, 3000); // durasi tampil transisi sebelum memudar
 }
+
+function scrollVideo() {
+  const video = document.querySelector(".scroll-video");
+  let src = video.currentSrc || video.src;
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  function once(el, event, fn, opts) {
+    var onceFn = function () {
+      el.removeEventListener(event, onceFn);
+      fn.apply(this, arguments);
+    };
+    el.addEventListener(event, onceFn, opts);
+  }
+
+  once(document.documentElement, "touchstart", function () {
+    video.play();
+    video.pause();
+  });
+
+  once(video, "loadedmetadata", () => {
+    gsap.to(video, {
+      currentTime: video.duration,
+      ease: "none",
+      scrollTrigger: {
+        trigger: ".h-screen",
+        start: "top top",
+        end: "+=2000", // jarak scroll dalam px
+        scrub: true,
+        pin: true, // section tetap di layar
+      }
+    });
+  });
+
+  // Optional: fetch video sebagai blob untuk mencegah drop frame
+  setTimeout(() => {
+    if (window.fetch) {
+      fetch(src)
+        .then((res) => res.blob())
+        .then((blob) => {
+          let blobURL = URL.createObjectURL(blob);
+          let t = video.currentTime;
+          once(document.documentElement, "touchstart", function () {
+            video.play();
+            video.pause();
+          });
+          video.setAttribute("src", blobURL);
+          video.currentTime = t + 0.01;
+        });
+    }
+  }, 1000);
+}
+
+document.addEventListener("DOMContentLoaded", scrollVideo);
+
+

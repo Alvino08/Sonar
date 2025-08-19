@@ -87,6 +87,10 @@
             opacity: 0;
         }
 
+        .scroll-video {
+  display: block;
+}
+
         
     </style>
 </head>
@@ -105,15 +109,43 @@
         src="{{ asset('video/SONAR.mp4') }}" class="w-full h-full object-cover"></video>
     </div>
 
-    <div class="h-screen w-full bg-noise3 py-40 px-30 flex">
+    {{-- <div class="h-screen w-full bg-noise3 py-40 px-30 flex">
         <div class="font-anton text-white w-[135vh] text-5xl tracking-wide text-justify container">
             <p  class="animate-me">Kelana Musik is a Jakarta-based music label dedicated to crafting chill-out and ambient electronic sounds infused with the rich colors and textures of Indonesia. We blend modern electronic production with local influences—capturing the rhythm of the city, the calm of nature, and the warmth of our culture. Our mission is simple: to create music that lets you wander, drift, and discover new emotional landscapes, wherever you are in the world.</p>
         </div>
 
-        <div class="w-[300px] flex flex-col mx-30">
-            <img src="/Kelana/KELANAMUSIK.png" alt="" class="mt-auto invert">
+        <div class="w-[300px] flex flex-col mx-30 bg-amber-300 justify-end">
+            <div class="aspect-square bg-amber-600">
+                <video autoplay muted loop playsinline
+                src="{{ asset('/Kelana/Kelana Musik Page 2.mp4') }}" class="w-full h-full object-cover scroll-video"></video>
+            </div>
+        </div>
+    </div> --}}
+
+    <!-- HTML -->
+    <div class="h-screen w-full bg-noise3 py-40 px-30 flex">
+    <div class="font-anton text-white w-[135vh] text-5xl tracking-wide text-justify container">
+        <p class="animate-me">
+        Kelana Musik is a Jakarta-based music label dedicated to crafting chill-out and ambient electronic sounds infused with the rich colors and textures of Indonesia. We blend modern electronic production with local influences—capturing the rhythm of the city, the calm of nature, and the warmth of our culture. Our mission is simple: to create music that lets you wander, drift, and discover new emotional landscapes, wherever you are in the world.
+        </p>
+    </div>
+
+    <div class="w-[300px] flex flex-col mx-30 justify-end">
+        <div class="aspect-square">
+        <video
+            class="scroll-video w-full h-full object-cover"
+            playsinline
+            webkit-playsinline
+            preload="auto"
+            muted
+            src="{{ asset('/Kelana/output_square.mp4') }}">
+        </video>
         </div>
     </div>
+    </div>
+
+    {{-- <div id="scroll-area" style="height: 400vh;"></div> --}}
+
 
     <div class="min-h-screen w-full bg-noise">
         <div class="stock-ticker bg-noise2 font-anton tracking-[0.75em]">
