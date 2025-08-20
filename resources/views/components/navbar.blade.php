@@ -30,7 +30,7 @@
   <nav class="nav hidden md:flex space-x-6 lg:space-x-8 px-6 py-2 lg:px-10 lg:py-3 absolute right-6 top-2 lg:top-5">
     <a href="/" class="text-white hover:text-blue-400 text-sm lg:text-base font-semibold transition">Home</a>
     <a href="/audiopost" class="text-white hover:text-blue-400 text-sm lg:text-base font-semibold transition">Audiopost</a>
-    <a href="#services" class="text-white hover:text-blue-400 text-sm lg:text-base font-semibold transition">Services</a>
+    <a href="/label" class="text-white hover:text-blue-400 text-sm lg:text-base font-semibold transition">Label</a>
     <a href="#contact" class="text-white hover:text-blue-400 text-sm lg:text-base font-semibold transition">Contact</a>
     {{-- <a href="/login" class="text-white hover:text-blue-400 text-sm lg:text-base font-semibold transition">Sign Up</a> --}}
 
@@ -82,8 +82,8 @@
       class="nav flex flex-col space-y-3 px-4 py-3 absolute top-0 right-0 w-64 h-screen md:hidden z-40"
   >
       <a href="/" class="text-white hover:text-blue-400 text-base font-semibold transition">Home</a>
-      <a href="#about" class="text-white hover:text-blue-400 text-base font-semibold transition">About</a>
-      <a href="#services" class="text-white hover:text-blue-400 text-base font-semibold transition">Services</a>
+      <a href="/audiopost" class="text-white hover:text-blue-400 text-base font-semibold transition">Audiopost</a>
+      <a href="/label" class="text-white hover:text-blue-400 text-base font-semibold transition">Label</a>
       <a href="#contact" class="text-white hover:text-blue-400 text-base font-semibold transition">Contact</a>
 
       @guest

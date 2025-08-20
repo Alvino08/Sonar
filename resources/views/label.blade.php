@@ -105,11 +105,11 @@
 <body>
     <x-navbar/>
 
-    {{-- <div id="transisi-enter">
+    <div id="transisi-enter">
         <video autoplay muted playsinline
             src="{{ asset('/Kelana/KELANA_MUSIK_LOADING_FIXED.mp4') }}"
             class="w-full h-full object-cover"></video>
-    </div> --}}
+    </div>
 
 
     <div class="h-screen">

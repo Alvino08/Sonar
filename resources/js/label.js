@@ -34,6 +34,8 @@ gsap.registerPlugin(SplitText);
 
 window.onload = () => {
   window.Alpine = Alpine
+  Alpine.start();
+  transition();
   textBlur();
   parallaxScroll();
   scrollVideo();

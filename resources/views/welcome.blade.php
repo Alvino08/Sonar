@@ -419,7 +419,7 @@
             <div 
               x-data="{ open: false }" 
               @click="open = !open" 
-              class="w-full sm:w-[450px] md:w-[500px] lg:w-[600px] h-[300px] sm:h-[350px] lg:h-[400px] flex relative cursor-pointer overflow-hidden bg-amber-500"
+              class="w-full sm:w-[450px] md:w-[500px] lg:w-[600px] h-[300px] sm:h-[350px] lg:h-[400px] flex relative cursor-pointer overflow-hidden "
             >
               <div class="w-[60%] md:w-[300px] lg:w-[300px] h-[100%] flex flex-col justify-end z-10 fade-section p-2 bg-cover bg-center border-solid border-gray-500 border-[1px]"
                   style="background-image: url('/images/Hudi About Us.png');">
@@ -449,7 +449,7 @@
             <div 
               x-data="{ open: false }" 
               @click="open = !open" 
-              class="w-full sm:w-[450px] md:w-[500px] lg:w-[600px] h-[300px] sm:h-[350px] lg:h-[400px] flex justify-end relative cursor-pointer overflow-hidden bg-amber-400"
+              class="w-full sm:w-[450px] md:w-[500px] lg:w-[600px] h-[300px] sm:h-[350px] lg:h-[400px] flex justify-end relative cursor-pointer overflow-hidden "
             >
               <div class="w-[60%] lg:w-[300px] h-full bg-white flex flex-col justify-end items-end fade-section p-2 bg-cover bg-center border-solid border-gray-500 border-[1px] z-10"
               style="background-image: url('/images/Ibam About Us.png');">

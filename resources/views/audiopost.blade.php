@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     @vite(['resources/css/app.css', 'resources/js/audiopost.js'])
     <script src="./node_modules/preline/dist/preline.js"></script>
+    <script src="https://unpkg.com/split-type"></script>
     <title>Layered Scroll</title>
     <style>
       #container {
@@ -72,14 +73,14 @@
     <div id="first-section" class="overflow-hidden">
       <div class="h-screen w-screen bg-noise flex items-center justify-center">
         <div class="h-[440px] w-screen justify-center lg:w-[970px] flex items-center">
-          <img src="/Audioposts/Audiopost-1.jpg" id="img-1" class="w-[100px] h-[100px] lg:w-[345px] lg:h-[345px] z-10 lg:mr-[-80px]" />
-          <img src="/Audioposts/Audiopost-2.jpg" id="img-2" class="w-[125px] h-[125px] lg:w-[440px] lg:h-[440px] z-20" />
-          <img src="/Audioposts/Audiopost-3.jpg" id="img-3" class="w-[100px] h-[100px] lg:w-[345px] lg:h-[345px] z-10 lg:ml-[-80px]" />
+          <img src="/Audioposts/Audiopost-1.jpg" id="img-1" class="w-[100px] h-[100px] md:w-[170px] md:h-[170px]  lg:w-[345px] lg:h-[345px] z-10 lg:mr-[-80px] opacity-100" />
+          <img src="/Audioposts/Audiopost-2.jpg" id="img-2" class="w-[125px] h-[125px] md:w-[220px] md:h-[220px] lg:w-[440px] lg:h-[440px] z-20" />
+          <img src="/Audioposts/Audiopost-3.jpg" id="img-3" class="w-[100px] h-[100px] md:w-[170px] md:h-[170px] lg:w-[345px] lg:h-[345px] z-10 lg:ml-[-80px] opacity-100" />
         </div>
       </div>
     </div>
 
-    <div id="second-section" class="bg-[#121212] hidden">
+    <div id="second-section" class="bg-noise2 hidden">
       <section id="container">
         <!-- HALAMAN PERTAMA -->
         <div class="panel">
@@ -87,9 +88,9 @@
             <img src="/Audioposts/Background 2.png" alt="Background" id="img-background"
               class="absolute inset-0 w-full h-full object-cover z-0 opacity-25 brightness-50" />
             <div class="flex flex-col items-center justify-center text-center">
-              <p id="sonar" class="split text-[100px] font-bold text-white tracking-tighter mb-[-100px]">SONAR</p>
-              <p id="audio" class="split text-[190px] font-bold text-white tracking-tighter">AUDIO</p>
-              <p id="post" class="split text-[100px] font-bold text-white tracking-tighter mt-[-90px]">POST</p>
+              <p id="sonar" class="split text-[32px] md:text-[100px] font-bold text-white tracking-tighter mb-[-30px] md:mb-[-100px]">SONAR</p>
+              <p id="audio" class="split text-[64px] md:text-[190px] font-bold text-white tracking-tighter">AUDIO</p>
+              <p id="post" class="split text-[32px]  md:text-[100px] font-bold text-white tracking-tighter mt-[-25px] md:mt-[-90px]">POST</p>
             </div>
           </div>
         </div>
@@ -97,17 +98,17 @@
         <!-- HALAMAN KEDUA -->
         <div class="panel">
           <div id="halaman-kedua" class="halaman-kedua relative h-screen w-full overflow-x-hidden flex flex-col justify-center items-center bg-noise">
-            <div class="relative z-10 h-[600px] w-[475px] text-center flex flex-col justify-center">
-              <p id="line1" class="text-[#727070] font-semibold text-[100px] tracking-tighter leading-none">We strive</p>
+            <div class="relative z-10 h-[600px] w-[475px] text-center flex flex-col justify-center text-[32px]">
+              <p id="line1" class="text-[#727070] font-semibold md:text-[100px] tracking-tighter leading-none">We strive</p>
               <div class="flex items-center justify-center">
-                <p id="line2a" class="text-[#727070] font-semibold text-[100px] tracking-tighter leading-none mr-5">to</p>
-                <p id="line2b" class="text-white font-semibold text-[100px] tracking-tighter leading-none">create</p>
+                <p id="line2a" class="text-[#727070] font-semibold md:text-[100px] tracking-tighter leading-none mr-5">to</p>
+                <p id="line2b" class="text-white font-semibold md:text-[100px] tracking-tighter leading-none">create</p>
               </div>
               <div class="flex items-center justify-center">
-                <p id="line3a" class="text-[#727070] font-semibold text-[100px] tracking-tighter leading-none mr-5">sounds</p>
-                <p id="line3b" class="text-white font-semibold text-[100px] tracking-tighter leading-none">with</p>
+                <p id="line3a" class="text-[#727070] font-semibold md:text-[100px] tracking-tighter leading-none mr-5">sounds</p>
+                <p id="line3b" class="text-white font-semibold md:text-[100px] tracking-tighter leading-none">with</p>
               </div>
-              <p id="line4" class="text-white font-semibold text-[100px] tracking-tighter leading-none">a purpose.</p>
+              <p id="line4" class="text-white font-semibold md:text-[100px] tracking-tighter leading-none">a purpose.</p>
             </div>
           </div>
         </div>
@@ -115,18 +116,18 @@
 
       <!-- HALAMAN KETIGA -->
       <section class="content">
-        <div id="halaman-ketiga" class="min-h-screen w-full bg-noise2 overflow-x-hidden px-5 py-30 flex justify-between">
-          <div class="h-[670px] w-[700px] ml-auto flex flex-col items-end justify-end pb-[9px] fade-section space-y-2" data-speed="2">
-            <div class="overflow-hidden mb-[-100px]">
-              <p class="font-anton text-[160px] text-[#121212] fade-item">OUR</p>
+        <div id="halaman-ketiga" class="min-h-screen w-full bg-noise2 overflow-x-hidden px-5 py-30 xl:flex-row xl:items-center flex flex-col xl:justify-between justify-center">
+          <div class="xl:h-[670px] 2xl:w-[700px] xl:ml-auto ml-auto flex flex-col items-end justify-end pb-[9px] fade-section space-y-2 " data-speed="2">
+            <div class="overflow-hidden text-[48px] mb-[-20px] lg:mb-[-100px] md:mb-[-60px]">
+              <p class="font-anton md:text-[100px] lg:text-[160px] text-[#121212] fade-item">OUR</p>
             </div>
             <div class="overflow-hidden">
-              <p class="font-anton text-[160px] text-[#121212] fade-item">SERVICES</p>
+              <p class="font-anton text-[48px] md:text-[100px] lg:text-[160px] text-[#121212] fade-item">SERVICES</p>
             </div>
           </div>
 
           <div id="container-3" class="flex pt-5 mx-auto">
-            <div class="min-h-[300px] w-[700px] flex flex-col space-y-4"
+            <div class="xl:min-h-[300px] xl:w-[700px] flex flex-col space-y-4"
               x-data="{
                 items: [
                   { id: 1, title: 'Jingle Production', desc: 'Catchy tunes that stick in your head—and sell your brand. We make your product sing (literally).', open: false },
@@ -147,12 +148,12 @@
                   <!-- Bungkus untuk masking -->
                   <div class="overflow-hidden ">
                     <!-- Trigger -->
-                    <div @click="toggleOpen(index)" class="h-[60px] flex items-center cursor-pointer border-b-2 border-[#121212]">
-                      <p class="text-[40px] text-[#727070] font-semibold mr-10 tracking-tighter"
+                    <div @click="toggleOpen(index)" class="h-[45px] md:h-[60px] flex items-end md:items-center cursor-pointer border-b-2 border-[#121212]">
+                      <p class="text-[20px] md:text-[35px] lg:text-[40px] text-[#727070] font-semibold mr-10 tracking-tighter"
                         x-text="String(index + 1).padStart(2, '0')"></p>
-                      <p class="text-[40px] text-[#121212] font-semibold tracking-tighter mr-auto"
+                      <p class="text-[20px] md:text-[35px] lg:text-[40px] text-[#121212] font-semibold tracking-tighter mr-auto"
                         x-text="item.title"></p>
-                      <p class="text-[30px] text-[#121212] font-semibold"
+                      <p class="text-[20px] lg:text-[30px] text-[#121212] font-semibold"
                         x-text="item.open ? '×' : '+'"></p>
                     </div>
                   </div>
@@ -163,7 +164,7 @@
                     :class="item.open && 'is-open'"
                     :style="item.open && { height: $el.scrollHeight + 'px' }"
                     @transitionend="if (!item.open) $el.style.height = null">
-                    <p class="py-3 text-[20px] text-[#727070] font-semibold tracking-tight leading-6"
+                    <p class="py-3 text-[12px] md:text-[20px] text-[#727070] font-semibold tracking-tight leading-6"
                       x-text="item.desc"></p>
                   </div>
                 </div>
@@ -391,7 +392,7 @@
 
         </div> --}}
 
-        <div x-data="{ active: null }" class="h-screen w-screen flex justify-between bg-noise2">
+        {{-- <div x-data="{ active: null }" class="h-screen w-screen flex justify-between bg-noise2">
   <!-- KIRI: Panel Foto -->
   <div class="h-full w-[65%] bg-gray-500 flex overflow-hidden justify-between">
     <!-- Panel 1 -->
@@ -433,32 +434,24 @@
 
   <!-- KANAN: Tulisan -->
   <div class="h-full w-[30%] flex items-center justify-center py-10 bg-noise2 pr-25">
-    <div class=" text-gray-800" x-show="active === 0" x-transition>
+    <div class=" text-gray-800 animate-text" x-show="active === 0" x-transition x-effect="$nextTick(() => animateTeks2($el))">
       <p class="font-anton text-[35px] mb-[-30px]">Ibam Adam</p>
-      <br>
       <p class="font-workSans text-[20px] text-red-600">Composer & CMO | Co-Founder</p>
-      <br>
       <p class="text-justify font-workSans text-[24px]">Arizal blends his background as a musician with technical expertise in mixing, delivering sound that is both precise and expressive. His work ensures every project carries depth, clarity, and character</p>
     </div>
-    <div class=" text-gray-800" x-show="active === 1" x-transition>
+    <div class=" text-gray-800 animate-text" x-show="active === 1" x-transition x-effect="$nextTick(() => animateTeks2($el))">
       <p class="font-anton text-[35px] mb-[-30px]">Hudi Ardianto</p>
-      <br>
       <p class="font-workSans text-[20px] text-red-600">Composer, Music Director & CTO | Co-Founder</p>
-      <br>
       <p class="text-justify font-workSans text-[24px]">Hudi shapes the creative and technical direction of the company. As a composer and music director, he crafts emotive scores, while his role as CTO drives innovation in audio technology and production</p>    
     </div>
-    <div class=" text-gray-800" x-show="active === 2" x-transition>
+    <div class=" text-gray-800 animate-text" x-show="active === 2" x-transition x-effect="$nextTick(() => animateTeks2($el))">
       <p class="font-anton text-[35px] mb-[-30px]">Arizal Nur Rokhim</p>
-      <br>
       <p class="font-workSans text-[20px] text-red-600">Musician & Senior Mixing Engineer </p>
-      <br>
       <p class="text-justify font-workSans text-[24px]">Arizal blends his background as a musician with technical expertise in mixing, delivering sound that is both precise and expressive. His work ensures every project carries depth, clarity, and character</p>  
     </div>
-    <div class=" text-gray-800" x-show="active === 3" x-transition>
+    <div class=" text-gray-800 animate-text" x-show="active === 3" x-transition x-effect="$nextTick(() => animateTeks2($el))">
       <p class="font-anton text-[35px] mb-[-30px]">Audrey Salsabila</p>
-      <br>
       <p class="font-workSans text-[20px] text-red-600">Musician & Senior Mixing Engineer </p>
-      <br>
       <p class="text-justify font-workSans text-[24px]">Arizal blends his background as a musician with technical expertise in mixing, delivering sound that is both precise and expressive. His work ensures every project carries depth, clarity, and character.</p>
     </div>
 
@@ -467,7 +460,337 @@
       <p>The <br>People <br>Behind</p>
     </div>
   </div>
+</div> --}}
+
+<!-- Root Alpine -->
+{{-- <div x-data="{
+    active: null,
+
+    animateTeks2(el) {
+      if (!el) return;
+
+      // bersihkan split sebelumnya pada elemen ini (kalau ada)
+      if (el._split) el._split.revert();
+
+      // split baru untuk elemen yang aktif
+      el._split = new SplitType(el, {
+        types: 'lines, words, chars',
+        tagName: 'span'
+      });
+
+      // animasi baris
+      gsap.from(el.querySelectorAll('.line'), {
+        y: '100%',
+        opacity: 0,
+        duration: 1,
+        ease: 'sine.out',
+        stagger: 0.15
+      });
+    }
+  }"
+  x-init="
+    // setiap active berubah, jalankan animasi untuk panel yg baru aktif
+    $watch('active', (v) => {
+      $nextTick(() => {
+        if (v === 0) animateTeks2($refs.panel0);
+        if (v === 1) animateTeks2($refs.panel1);
+        if (v === 2) animateTeks2($refs.panel2);
+        if (v === 3) animateTeks2($refs.panel3);
+      });
+    });
+  " class="h-screen w-screen flex flex-col md:flex-row justify-between bg-noise2 overflow-hidden">
+
+  <!-- KIRI: Panel Foto -->
+  <div class="md:h-full h-[65%] w-100% md:w-[65%] bg-gray-500 flex overflow-hidden justify-between">
+    <!-- Panel 1 -->
+    <div 
+      class="relative h-full transition-all duration-500 cursor-pointer flex items-end justify-center"
+      :class="active === null ? 'w-1/4' : (active === 0 ? 'w-[55%]' : 'w-[15%]')"
+      @click="active = active === 0 ? null : 0">
+
+      <img src="/kelana/P1040444.jpg" class="w-full h-full object-cover" />
+    </div>
+
+    <!-- Panel 2 -->
+    <div 
+      class="relative h-full transition-all duration-500 cursor-pointer flex items-end justify-center"
+      :class="active === null ? 'w-1/4' : (active === 1 ? 'w-[55%]' : 'w-[15%]')"
+      @click="active = active === 1 ? null : 1">
+
+      <img src="/kelana/P1040503.jpg" class="w-full h-full object-cover" />
+    </div>
+
+    <!-- Panel 3 -->
+    <div 
+      class="relative h-full transition-all duration-500 cursor-pointer flex items-end justify-center"
+      :class="active === null ? 'w-1/4' : (active === 2 ? 'w-[55%]' : 'w-[15%]')"
+      @click="active = active === 2 ? null : 2">
+
+      <img src="/kelana/P1040532.jpg" class="w-full h-full object-cover" />
+    </div>
+
+    <!-- Panel 4 -->
+    <div 
+      class="relative h-full transition-all duration-500 cursor-pointer flex items-end justify-center"
+      :class="active === null ? 'w-1/4' : (active === 3 ? 'w-[55%]' : 'w-[15%]')"
+      @click="active = active === 3 ? null : 3">
+
+      <img src="/kelana/Spotify Avatar OPT 1.png" class="w-full h-full object-cover" />
+    </div>
+  </div>
+
+  <!-- KANAN: Tulisan -->
+  <div class="h-full w-[30%] flex items-center justify-center py-10 bg-noise2 2xl:pr-25 xl:pr-17 md:pr-10">
+
+    <!-- Panel 0 -->
+    <div x-ref="panel0"
+         x-show="active === 0"
+         x-transition:enter="transition-opacity ease-out duration-500"
+         x-transition:enter-start="opacity-0"
+         x-transition:enter-end="opacity-100"
+         x-transition:leave="transition-opacity ease-in duration-0"
+         x-transition:leave-start="opacity-0"
+         x-transition:leave-end="opacity-0"
+         class="text-gray-800 animate-text overflow-hidden">
+      <p class="font-anton text-[35px]">Ibam Adam</p>
+      <p class="font-workSans text-[20px] text-red-600">Composer & CMO | Co-Founder</p>
+      <p class="text-justify font-workSans text-[24px]">
+        Arizal blends his background as a musician with technical expertise in mixing,
+        delivering sound that is both precise and expressive. His work ensures every project
+        carries depth, clarity, and character.
+      </p>
+    </div>
+
+    <!-- Panel 1 -->
+    <div x-ref="panel1"
+         x-show="active === 1"
+         x-transition:enter="transition-opacity ease-out duration-500"
+         x-transition:enter-start="opacity-0"
+         x-transition:enter-end="opacity-100"
+         x-transition:leave="transition-opacity ease-in duration-0"
+         x-transition:leave-start="opacity-0"
+         x-transition:leave-end="opacity-0"
+         class="text-gray-800 animate-text overflow-hidden">
+      <p class="font-anton text-[35px]">Hudi Ardianto</p>
+      <p class="font-workSans text-[20px] text-red-600">Composer, Music Director & CTO | Co-Founder</p>
+      <p class="text-justify font-workSans text-[24px]">
+        Hudi shapes the creative and technical direction of the company. As a composer and music director,
+        he crafts emotive scores, while his role as CTO drives innovation in audio technology and production.
+      </p>
+    </div>
+
+    <!-- Panel 2 -->
+    <div x-ref="panel2"
+         x-show="active === 2"
+         x-transition:enter="transition-opacity ease-out duration-500"
+         x-transition:enter-start="opacity-0"
+         x-transition:enter-end="opacity-100"
+         x-transition:leave="transition-opacity ease-in duration-0"
+         x-transition:leave-start="opacity-0"
+         x-transition:leave-end="opacity-0"
+         class="text-gray-800 animate-text overflow-hidden">
+      <p class="font-anton text-[35px]">Arizal Nur Rokhim</p>
+      <p class="font-workSans text-[20px] text-red-600">Musician & Senior Mixing Engineer</p>
+      <p class="text-justify font-workSans text-[24px]">
+        Arizal blends his background as a musician with technical expertise in mixing,
+        delivering sound that is both precise and expressive. His work ensures every project
+        carries depth, clarity, and character.
+      </p>
+    </div>
+
+    <!-- Panel 3 -->
+    <div x-ref="panel3"
+         x-show="active === 3"
+         x-transition:enter="transition-opacity ease-out duration-500"
+         x-transition:enter-start="opacity-0"
+         x-transition:enter-end="opacity-100"
+         x-transition:leave="transition-opacity ease-in duration-0"
+         x-transition:leave-start="opacity-0"
+         x-transition:leave-end="opacity-0"
+         class="text-gray-800 animate-text overflow-hidden">
+      <p class="font-anton xl:text-[35px] md:text-[24px]">Audrey Salsabila</p>
+      <p class="font-workSans xl:text-[20px] md:text-[12px] text-red-600">Musician & Senior Mixing Engineer</p>
+      <p class="text-justify font-workSans xl:text-[24px] md:text-[16px]">
+        Arizal blends his background as a musician with technical expertise in mixing,
+        delivering sound that is both precise and expressive. His work ensures every project
+        carries depth, clarity, and character.
+      </p>
+    </div>
+
+    <!-- Default -->
+    <div x-show="active === null" x-transition:enter="transition-opacity ease-out duration-500"
+         x-transition:enter-start="opacity-0"
+         x-transition:enter-end="opacity-100"
+         x-transition:leave="transition-opacity ease-in duration-0"
+         x-transition:leave-start="opacity-0"
+         x-transition:leave-end="opacity-0"
+         class="text-[60px] font-anton text-black w-full justify-start leading-[60px]">
+      <p>The <br>People <br>Behind</p>
+    </div>
+  </div>
+
+</div> --}}
+
+<div 
+  x-data="{
+    active: null,
+
+    animateTeks2(el) {
+      if (!el) return;
+
+      // Bersihkan split sebelumnya pada elemen ini (kalau ada)
+      if (el._split) el._split.revert();
+
+      // Split baru untuk elemen yang aktif
+      el._split = new SplitType(el, {
+        types: 'lines, words, chars',
+        tagName: 'span'
+      });
+
+      // Animasi baris
+      gsap.from(el.querySelectorAll('.line'), {
+        y: '100%',
+        opacity: 0,
+        duration: 1,
+        ease: 'sine.out',
+        stagger: 0.15
+      });
+    }
+  }"
+  x-init="
+    // setiap active berubah, jalankan animasi untuk panel yg baru aktif
+    $watch('active', (v) => {
+      $nextTick(() => {
+        if (v === 0) animateTeks2($refs.panel0);
+        if (v === 1) animateTeks2($refs.panel1);
+        if (v === 2) animateTeks2($refs.panel2);
+        if (v === 3) animateTeks2($refs.panel3);
+      });
+    });
+  "
+  class="h-screen w-screen flex flex-col md:flex-row justify-between bg-noise2 overflow-hidden"
+>
+
+  <!-- KIRI: Panel Foto -->
+  <div class="w-full md:w-[65%] h-[60%] md:h-full bg-gray-500 flex overflow-hidden justify-between">
+    <!-- Panel 1 -->
+    <div 
+      class="relative h-full transition-all duration-500 cursor-pointer flex items-end justify-center"
+      :class="active === null 
+        ? 'w-1/4' 
+        : (active === 0 ? 'w-[55%]' : 'w-[15%]')"
+      @click="active = active === 0 ? null : 0">
+
+      <img src="/kelana/P1040444.jpg" class="w-full h-full object-cover" />
+    </div>
+
+    <!-- Panel 2 -->
+    <div 
+      class="relative h-full transition-all duration-500 cursor-pointer flex items-end justify-center"
+      :class="active === null 
+        ? 'w-1/4' 
+        : (active === 1 ? 'w-[55%]' : 'w-[15%]')"
+      @click="active = active === 1 ? null : 1">
+
+      <img src="/kelana/P1040503.jpg" class="w-full h-full object-cover" />
+    </div>
+
+    <!-- Panel 3 -->
+    <div 
+      class="relative h-full transition-all duration-500 cursor-pointer flex items-end justify-center"
+      :class="active === null 
+        ? 'w-1/4' 
+        : (active === 2 ? 'w-[55%]' : 'w-[15%]')"
+      @click="active = active === 2 ? null : 2">
+
+      <img src="/kelana/P1040532.jpg" class="w-full h-full object-cover" />
+    </div>
+
+    <!-- Panel 4 -->
+    <div 
+      class="relative h-full transition-all duration-500 cursor-pointer flex items-end justify-center"
+      :class="active === null 
+        ? 'w-1/4' 
+        : (active === 3 ? 'w-[55%]' : 'w-[15%]')"
+      @click="active = active === 3 ? null : 3">
+
+      <img src="/kelana/Spotify Avatar OPT 1.png" class="w-full h-full object-cover" />
+    </div>
+  </div>
+
+  <!-- KANAN: Tulisan -->
+  <div class="h-[40%] md:h-full w-full md:w-[35%] flex items-center justify-center py-6 px-4 md:px-10 bg-noise2">
+
+    <!-- Panel 0 -->
+    <div x-ref="panel0"
+         x-show="active === 0"
+         x-transition:enter="transition-opacity ease-out duration-500"
+         x-transition:enter-start="opacity-0"
+         x-transition:enter-end="opacity-100"
+         class="text-gray-800 animate-text overflow-hidden">
+      <p class="font-anton text-2xl sm:text-3xl md:text-[35px]">Ibam Adam</p>
+      <p class="font-workSans text-sm sm:text-base md:text-[20px] text-red-600">Composer & CMO | Co-Founder</p>
+      <p class="text-justify font-workSans text-base sm:text-lg md:text-[24px]">
+        Arizal blends his background as a musician with technical expertise in mixing,
+        delivering sound that is both precise and expressive.
+      </p>
+    </div>
+
+    <!-- Panel 1 -->
+    <div x-ref="panel1"
+         x-show="active === 1"
+         x-transition:enter="transition-opacity ease-out duration-500"
+         x-transition:enter-start="opacity-0"
+         x-transition:enter-end="opacity-100"
+         class="text-gray-800 animate-text overflow-hidden">
+      <p class="font-anton text-2xl sm:text-3xl md:text-[35px]">Hudi Ardianto</p>
+      <p class="font-workSans text-sm sm:text-base md:text-[20px] text-red-600">Composer, Music Director & CTO | Co-Founder</p>
+      <p class="text-justify font-workSans text-base sm:text-lg md:text-[24px]">
+        Hudi shapes the creative and technical direction of the company. As a composer and music director,
+        he crafts emotive scores, while his role as CTO drives innovation in audio technology and production.
+      </p>
+    </div>
+
+    <!-- Panel 2 -->
+    <div x-ref="panel2"
+         x-show="active === 2"
+         x-transition:enter="transition-opacity ease-out duration-500"
+         x-transition:enter-start="opacity-0"
+         x-transition:enter-end="opacity-100"
+         class="text-gray-800 animate-text overflow-hidden">
+      <p class="font-anton text-2xl sm:text-3xl md:text-[35px]">Arizal Nur Rokhim</p>
+      <p class="font-workSans text-sm sm:text-base md:text-[20px] text-red-600">Musician & Senior Mixing Engineer</p>
+      <p class="text-justify font-workSans text-base sm:text-lg md:text-[24px]">
+        Arizal blends his background as a musician with technical expertise in mixing,
+        delivering sound that is both precise and expressive.
+      </p>
+    </div>
+
+    <!-- Panel 3 -->
+    <div x-ref="panel3"
+         x-show="active === 3"
+         x-transition:enter="transition-opacity ease-out duration-500"
+         x-transition:enter-start="opacity-0"
+         x-transition:enter-end="opacity-100"
+         class="text-gray-800 animate-text overflow-hidden">
+      <p class="font-anton text-2xl sm:text-3xl md:text-[35px]">Audrey Salsabila</p>
+      <p class="font-workSans text-sm sm:text-base md:text-[20px] text-red-600">Musician & Senior Mixing Engineer</p>
+      <p class="text-justify font-workSans text-base sm:text-lg md:text-[24px]">
+        Audrey brings a unique sensitivity to mixing, ensuring that every detail is preserved while enhancing the emotional impact of the music.
+      </p>
+    </div>
+
+    <!-- Default -->
+    <div x-show="active === null"
+         x-transition:enter="transition-opacity ease-out duration-500"
+         x-transition:enter-start="opacity-0"
+         x-transition:enter-end="opacity-100"
+         class="text-4xl sm:text-5xl md:text-[60px] font-anton text-black w-full leading-tight">
+      <p>The <br>People <br>Behind</p>
+    </div>
+  </div>
 </div>
+
 
 <!-- Alpine.js -->
 

@@ -6,6 +6,11 @@ import 'preline'
 
 gsap.registerPlugin(ScrollTrigger);
 
+// expose gsap ke global agar bisa dipanggil di Alpine / inline
+window.gsap = gsap;
+window.ScrollTrigger = ScrollTrigger;
+window.SplitText = SplitText;
+
 window.onload = () => {
     window.Alpine = Alpine
 
@@ -20,15 +25,15 @@ window.onload = () => {
     const tl = gsap.timeline();
 
   tl.fromTo(img2, { scale: 5, opacity: 0 }, { scale: 1, opacity: 1, duration: 1 })
-    .fromTo(img1, { x: 150, opacity: 0 }, { x: 0, opacity: 1, duration: 1 }, 1.2)
-    .fromTo(img3, { x: -150, opacity: 0 }, { x: 0, opacity: 1, duration: 1 }, 1.2)
+    .fromTo(img1, { xPercent: 100, opacity: 0 }, { xPercent: 0, opacity: 1, duration: 1 }, 1.2)
+    .fromTo(img3, { xPercent: -100, opacity: 0 }, { xPercent: 0, opacity: 1, duration: 1 }, 1.2)
     .to(img2, { opacity: 0.8, scale: 0.8, duration: 0.5 }, 2.7)
     .to(img2, { scale: 5, opacity: 0, duration: 0.5 }, ">")
-    .to(img1, { xPercent: 0, opacity: 0.5, duration: 0.5 }, 2.9)
+    .to(img1, { xPercent: 100, opacity: 0.5, duration: 0.5 }, 2.9)
     .to(img3, { xPercent: 100, opacity: 0.5, duration: 0.5 }, 2.9)
     .to(img1, { xPercent: 100, opacity: 0, duration: 0.5 }, "<")
     .to(img3, {
-      xPercent: 0,
+      xPercent: -100,
       opacity: 0,
       duration: 0.5,
       onComplete: () => {
@@ -49,7 +54,7 @@ window.onload = () => {
             parallaxScroll();
             // titleOverlay();
             // setupScrollTrigger2();
-            animateTeks2();
+            // animateTeks2();
             }
         });
         }
@@ -259,40 +264,23 @@ function titleOverlay(index) {
   });
 }
 
-function animateTeks2() {
-  // let typeSplit = new SplitType('.animate-teks', {
-  //   types: 'lines, words, chars',
-  //   tagName: 'span'
-  // });
+// function animateTeks2() {
+//   let typeSplit = new SplitType('.animate-text', {
+//     types: 'lines, words, chars',
+//     tagName: 'span'
+//   })
 
-  // gsap.from('.animate-teks .word', {
-  //   opacity: 0.5, // biar lebih kelihatan masuk
-  //   filter: "blur(5px)",
-  //   duration: 1,
-  //   ease: 'power1.out',
-  //   stagger: 0.1,
-    
-  //   scrollTrigger: {
-  //     trigger: '.animate-submit',
-  //     start: 'top 80%',
-  //     toggleActions: "play none none none",
-  //     scrub: false,
-  //     // markers: true // tes apakah aktif
-  //   }
-  // });
-let typeSplit = new SplitType('animate-text', {
-  types: 'lines, words, chars',
-  tagName: 'span'
-})
+//   console.log(typeSplit)
 
-gsap.from('animate-text .line', {
-  y: '100%',
-  opacity: 0,
-  duration: 1,
-  ease: 'sine.inOut',
-  stagger: 0.15,
-})
-}
+//   gsap.from('.animate-text .line', {
+//     y: '100%',
+//     opacity: 0,
+//     duration: 1,
+//     ease: 'sine.inOut',
+//     stagger: 0.15,
+//   })
+//   }
+
 
 window.titleOverlay = titleOverlay;
 
