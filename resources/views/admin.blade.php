@@ -217,7 +217,16 @@
     </nav>
 
     <div class="p-4 border-t border-gray-700">
-      <button class="w-full p-2 bg-red-500 hover:bg-red-600 rounded">Logout</button>
+      {{-- <button class="w-full p-2 bg-red-500 hover:bg-red-600 rounded">Logout</button> --}}
+      <form action="{{ route('logout') }}" method="POST" class="mt-4">
+          @csrf
+          <button 
+            type="submit" 
+            class="w-full bg-red-600 text-white py-2 px-4 rounded-md hover:bg-red-700 transition"
+          >
+              Logout
+          </button>
+        </form>
     </div>
   </aside>
 

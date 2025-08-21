@@ -32,7 +32,7 @@
                         name="name" 
                         value="{{ $user->name }}" 
                         readonly
-                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm bg-gray-100 cursor-not-allowed"
+                        class="mt-1 block w-full rounded-md border-gray-300 font-workSans font-medium text-gray-500 shadow-sm bg-gray-100 cursor-not-allowed"
                     >
                 </div>
 
@@ -45,7 +45,7 @@
                         name="email" 
                         value="{{ $user->email }}" 
                         readonly
-                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm bg-gray-100 cursor-not-allowed"
+                        class="mt-1 block w-full rounded-md border-gray-300 font-workSans font-medium text-gray-500 shadow-sm bg-gray-100 cursor-not-allowed"
                     >
                 </div>
 
@@ -58,7 +58,7 @@
                         name="number" 
                         value="{{ $user->number ?? '' }}"
                         placeholder="Masukkan nomor telepon"
-                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                        class="mt-1 block w-full rounded-md border border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
                     >
                 </div>
 
@@ -71,7 +71,7 @@
                         name="company" 
                         value="{{ $user->company ?? '' }}"
                         placeholder="Masukkan nama perusahaan"
-                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                        class="mt-1 block w-full rounded-md border border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
                     >
                 </div>
 
@@ -84,7 +84,7 @@
                         name="region" 
                         value="{{ $user->region ?? '' }}"
                         placeholder="Masukkan asal"
-                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                        class="mt-1 block w-full rounded-md border border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
                     >
                 </div>
 

@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('company')->nullable();
             $table->string('region')->nullable();
             $table->string('number')->nullable();
+            $table->boolean('is_admin')->default(0);
             $table->rememberToken();
             $table->timestamps();
         });

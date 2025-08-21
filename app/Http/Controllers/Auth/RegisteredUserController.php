@@ -28,6 +28,7 @@ class RegisteredUserController extends Controller
             'name' => $request->username,
             'email'    => $request->email,
             'password' => Hash::make($request->password),
+            'is_admin' => 0,
         ]);
 
         event(new Registered($user)); // kirim email verifikasi
