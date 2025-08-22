@@ -149,11 +149,11 @@
                   <div class="overflow-hidden ">
                     <!-- Trigger -->
                     <div @click="toggleOpen(index)" class="h-[45px] md:h-[60px] flex items-end md:items-center cursor-pointer border-b-2 border-[#121212]">
-                      <p class="text-[20px] md:text-[35px] lg:text-[40px] text-[#727070] font-semibold mr-10 tracking-tighter"
+                      <p class="text-[18px] md:text-[35px] lg:text-[40px] text-[#727070] font-semibold mr-10 tracking-tighter leading-5"
                         x-text="String(index + 1).padStart(2, '0')"></p>
-                      <p class="text-[20px] md:text-[35px] lg:text-[40px] text-[#121212] font-semibold tracking-tighter mr-auto"
+                      <p class="text-[18px] md:text-[35px] lg:text-[40px] text-[#121212] font-semibold tracking-tighter mr-auto leading-5"
                         x-text="item.title"></p>
-                      <p class="text-[20px] lg:text-[30px] text-[#121212] font-semibold"
+                      <p class="text-[18px] lg:text-[30px] text-[#121212] font-semibold leading-5"
                         x-text="item.open ? '×' : '+'"></p>
                     </div>
                   </div>
@@ -164,7 +164,7 @@
                     :class="item.open && 'is-open'"
                     :style="item.open && { height: $el.scrollHeight + 'px' }"
                     @transitionend="if (!item.open) $el.style.height = null">
-                    <p class="py-3 text-[12px] md:text-[20px] text-[#727070] font-semibold tracking-tight leading-6"
+                    <p class="py-3 text-[12px] md:text-[20px] text-[#727070] font-semibold tracking-tight md:leading-6 leading-4"
                       x-text="item.desc"></p>
                   </div>
                 </div>
@@ -184,50 +184,25 @@
 
               <!-- Slides -->
               <div class="hs-carousel-body absolute top-0 bottom-0 start-0 flex flex-nowrap transition-transform duration-700 opacity-100">
-                {{-- @forelse($audioposts as $index => $post)
-                  <div class="hs-carousel-slide w-screen h-screen flex flex-col items-center justify-center bg-black relative">
-                    <div class="relative w-full h-full">
-                      <iframe
-                        id="player-{{ $index }}"
-                        class="w-full h-full object-cover"
-                        src="{{ $post->link }}?rel=0&modestbranding=1&iv_load_policy=3&controls=0&enablejsapi=1"
-                        title="{{ $post->nama_projek }}"
-                        frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen
-                      ></iframe>
-                    </div>
-                  </div>
-                
-                  @empty
-                  <div class="hs-carousel-slide w-screen h-screen flex items-center justify-center bg-black text-white text-2xl">
-                    Belum ada project yang tersedia.
-                  </div>
-                @endforelse --}}
-
                 @forelse($audioposts as $index => $post)
                   <div class="hs-carousel-slide w-screen h-screen flex flex-col items-center justify-center bg-black relative">
-                    <div class="relative w-full h-full">
-
-                      <!-- Overlay judul -->
-                      {{-- <div 
-                        id="overlay-title-{{ $index }}" 
-                        class=" absolute bottom-[110px] px-4 py-2 rounded-lg text-lg transition-opacity duration-300 z-50 w-screen flex justify-center"
-                      >
-                        <p class="font-anton anton-outline tracking-wider text-2xl">{{ $post->nama_projek }}</p>
-                      </div> --}}
+                    <div class="relative w-full h-full z-0">
                       <div 
                         id="overlay-title-{{ $index }}" 
                         class="absolute bottom-[110px] px-4 py-2 rounded-lg text-lg transition-opacity duration-300 z-50 w-screen flex justify-center opacity-0"
                       >
-                        <p class="font-anton text-6xl project-title tracking-wider text-white uppercase">
+                        {{-- <p class="font-anton text-6xl project-title tracking-wider text-white uppercase">
+                          {{ $post->nama_projek }}
+                        </p> --}}
+                        <p class="font-anton text-3xl sm:text-4xl md:text-6xl project-title tracking-wider text-white uppercase">
                           {{ $post->nama_projek }}
                         </p>
+
                       </div>
 
                       <iframe
                         id="player-{{ $index }}"
-                        class="w-full h-full object-cover"
+                        class="w-full h-full object-cover z-0"
                         src="{{ $post->link }}?rel=0&modestbranding=1&iv_load_policy=3&controls=0&enablejsapi=1"
                         title="{{ $post->nama_projek }}"
                         frameborder="0"
@@ -266,15 +241,10 @@
                 @endforelse
               </div>
 
-              <!-- overlay jduul -->
-              <div>
-                <!-- mengambil judul dari database dengan nama kolom "nama_projek" -->
-              </div>
-
               <!-- Navigasi -->
               <button
                 type="button"
-                class="hs-carousel-prev hs-carousel-disabled:opacity-50 absolute inset-y-0 start-0 inline-flex justify-center items-center w-11.5 h-full text-white hover:bg-gray-800/10"
+                class="hs-carousel-prev hs-carousel-disabled:opacity-50 absolute z-100 inset-y-0 start-0 inline-flex justify-center items-center w-16 h-full text-white hover:bg-gray-800/10"
               >
                 <svg class="size-5" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="m15 18-6-6 6-6"></path>
@@ -283,16 +253,17 @@
 
               <button
                 type="button"
-                class="hs-carousel-next hs-carousel-disabled:opacity-50 absolute inset-y-0 end-0 inline-flex justify-center items-center w-11.5 h-full text-white hover:bg-gray-800/10"
+                class="hs-carousel-next hs-carousel-disabled:opacity-50  absolute z-[9999] inset-y-0 end-0 inline-flex justify-center items-center w-20 h-full text-white hover:bg-gray-800/10"
               >
                 <svg class="size-5" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="m9 18 6-6-6-6"></path>
                 </svg>
-              </button>
+              </button> 
 
             </div>
           </div>
         </div>
+
         <div 
           x-data="{
             active: null,
@@ -485,9 +456,9 @@
         </div>
 
       </section>
-    </div>
-<x-footer/>
+    <x-footer/>
 
+    </div>
 
   </body>
 </html>

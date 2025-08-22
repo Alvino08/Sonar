@@ -58,7 +58,7 @@
                         name="number" 
                         value="{{ $user->number ?? '' }}"
                         placeholder="Masukkan nomor telepon"
-                        class="mt-1 block w-full rounded-md border border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                        class="mt-1 block w-full rounded-md border font-workSans text-gray-500 border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
                     >
                 </div>
 
@@ -71,7 +71,7 @@
                         name="company" 
                         value="{{ $user->company ?? '' }}"
                         placeholder="Masukkan nama perusahaan"
-                        class="mt-1 block w-full rounded-md border border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                        class="mt-1 block w-full rounded-md border font-workSans text-gray-500 border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
                     >
                 </div>
 
@@ -84,7 +84,7 @@
                         name="region" 
                         value="{{ $user->region ?? '' }}"
                         placeholder="Masukkan asal"
-                        class="mt-1 block w-full rounded-md border border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                        class="mt-1 block w-full rounded-md border font-workSans text-gray-500 border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
                     >
                 </div>
 

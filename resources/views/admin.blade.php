@@ -320,26 +320,6 @@
     <section x-show="section === 'audiopost'" x-transition>
       <section class="bg-white rounded shadow p-6 mb-6">
         <h2 class="text-lg font-bold mb-4 text-gray-800">Audiopost Project</h2>
-
-        {{-- <form method="POST" action="{{ route('audiopost.store') }}" class="space-y-4">
-          @csrf
-          <div>
-            <label class="block text-gray-700">Nama Project</label>
-            <input type="text" name="nama_projek" class="w-full border rounded px-3 py-2" required>
-          </div>
-
-          <div>
-            <label class="block text-gray-700">Link</label>
-            <input type="url" name="link" class="w-full border rounded px-3 py-2" required>
-          </div>
-
-          <div>
-            <label class="block text-gray-700">Link Thumbnail</label>
-            <input type="url" name="thumbnail" class="w-full border rounded px-3 py-2">
-          </div>
-
-          <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Simpan Project</button>
-        </form> --}}
         <form method="POST" action="{{ route('audiopost.store') }}" enctype="multipart/form-data" class="space-y-4">
           @csrf
           <div>
@@ -363,7 +343,7 @@
 
       </section>
 
-      <section class="bg-white rounded shadow p-6">
+      {{-- <section class="bg-white rounded shadow p-6">
         <ul class="space-y-2">
           @foreach(\App\Models\Audiopost::all() as $a)
           <li class="flex justify-between items-center p-3 bg-gray-100 rounded">
@@ -373,7 +353,7 @@
               @endif
               <div>
                 <strong>{{ $a->nama_projek }}</strong><br>
-                <a href="{{ $a->link }}" class="text-blue-600 underline" target="_blank">{{ $a->link }}</a>
+                <a href="{{ $a->link }}" class="text-blue-600 underline hidden md:flex" target="_blank">{{ $a->link }}</a>
               </div>
             </div>
             <form method="POST" action="{{ route('audiopost.destroy', $a->id) }}">
@@ -386,7 +366,42 @@
           @endforeach
         </ul>
 
+      </section> --}}
+      <section class="bg-white rounded shadow p-6">
+        <ul class="space-y-2">
+          @foreach(\App\Models\Audiopost::all() as $a)
+          <li class="flex flex-col md:flex-row md:justify-between md:items-center p-3 bg-gray-100 rounded gap-4">
+            <!-- Kiri: Thumbnail + Nama -->
+            <div class="flex items-center space-x-4">
+              @if($a->thumbnail)
+                <img src="{{ asset('storage/' . $a->thumbnail) }}" 
+                    alt="Thumbnail" 
+                    class="w-16 h-16 object-cover rounded">
+              @endif
+              <div class="overflow-hidden">
+                <strong class="block">{{ $a->nama_projek }}</strong>
+                <a href="{{ $a->link }}" 
+                  class="text-blue-600 underline break-all hidden md:block" 
+                  target="_blank">
+                  {{ $a->link }}
+                </a>
+              </div>
+            </div>
+
+            <!-- Kanan: Tombol hapus -->
+            <form method="POST" action="{{ route('audiopost.destroy', $a->id) }}">
+              @csrf
+              @method('DELETE')
+              <button class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 w-full md:w-auto"
+                onclick="return confirm('Yakin ingin menghapus project ini?')">
+                Hapus
+              </button>
+            </form>
+          </li>
+          @endforeach
+        </ul>
       </section>
+
     </section>
 
   </main>
