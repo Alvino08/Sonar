@@ -297,7 +297,7 @@
 
           </div> --}}
 
-          <div class="w-full h-auto mx-auto">
+          {{-- <div class="w-full h-auto mx-auto">
             <div id="logo-sonar" class="w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] md:w-[500px] md:h-[500px] mx-auto flex flex-col items-center justify-center invert">
               
               <!-- Baris pertama: S O N -->
@@ -322,7 +322,36 @@
                   <img src="/Audioposts/SONAR ILLUS - R.png" alt="" class="letter-r w-full h-full object-contain">
                 </div>
               </div>
-            </div>
+            </div> --}}
+
+            <div class="w-full h-auto mx-auto">
+              <div id="logo-sonar" class="w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] md:w-[500px] md:h-[500px] mx-auto flex flex-col items-center justify-center invert">
+                  
+                  <!-- Baris pertama: S O N -->
+                  <div class="flex mb-[-40px] sm:mb-[-50px] md:mb-[-70px]">
+                      <div class="w-[100px] h-[230px] sm:w-[130px] sm:h-[300px] md:w-[164px] md:h-[380px] mr-[-40px] sm:mr-[-55px] md:mr-[-75px]">
+                          <img src="{{ asset('Audioposts/SONAR ILLUS - S.png') }}" alt="S" class="letter-s w-full h-full object-contain">
+                      </div>
+                      <div class="w-[80px] h-[110px] sm:w-[100px] sm:h-[140px] md:w-[120px] md:h-[180px] ml-[20px] sm:ml-[30px] md:ml-[40px] mr-[-40px] sm:mr-[-50px] md:mr-[-67px] mt-[90px] sm:mt-[130px] md:mt-[170px]">
+                          <img src="{{ asset('Audioposts/SONAR ILLUS - O.png') }}" alt="O" class="letter-o w-full h-full object-contain">
+                      </div>
+                      <div class="w-[120px] h-[180px] sm:w-[150px] sm:h-[230px] md:w-[186px] md:h-[280px] mt-[50px] mb-[-10px] md:mt-[120px]">
+                          <img src="{{ asset('Audioposts/SONAR ILLUS - N.png') }}" alt="N" class="letter-n w-full h-full object-contain">
+                      </div>
+                  </div>
+
+                  <!-- Baris kedua: A R -->
+                  <div class="flex mt-[-40px] sm:mt-[-50px] md:mt-[-70px]">
+                      <div class="w-[100px] h-[150px] sm:w-[130px] sm:h-[200px] md:w-[158px] md:h-[242px]">
+                          <img src="{{ asset('Audioposts/SONAR ILLUS - A.png') }}" alt="A" class="letter-a w-full h-full object-contain">
+                      </div>
+                      <div class="w-[120px] h-[190px] sm:w-[150px] sm:h-[230px] md:w-[182px] md:h-[300px] ml-[-25px] sm:ml-[-35px] md:ml-[-45px] mt-[10px] sm:mt-[15px] md:mt-[20px]">
+                          <img src="{{ asset('Audioposts/SONAR ILLUS - R.png') }}" alt="R" class="letter-r w-full h-full object-contain">
+                      </div>
+                  </div>
+              </div>
+          </div>
+
 
             <!-- Deskripsi -->
             <div class="container flex items-center justify-center text-center max-w-[90%] sm:max-w-[700px] md:max-w-[1000px] mx-auto mt-6 sm:mt-8 md:mt-10 px-10" style="opacity:0;">
