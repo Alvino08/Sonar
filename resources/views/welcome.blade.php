@@ -207,9 +207,9 @@
         <div class="w-full h-full grid grid-cols-1 grid-rows-4 lg:grid-cols-4 lg:grid-rows-1 gap-1 rounded-xl p-2 card1">
 
           <!-- Card 1: CREATIVE (split into CREA & TIVE) -->
-          <div class="group card relative overflow-hidden shadow-lg over:scale-105 shadow-black-800 box-shadow-css">
+          <div class="group card relative overflow-hidden shadow-lg over:scale-105 shadow-black-800 box-shadow-css bg-noise">
             <div class="line absolute top-0 left-0 h-[2px] bg-white w-full" style="width: 0%; visibility: hidden;"></div>
-            <img src="/images/photo1.jpg" alt="Card 1" class="w-full h-full object-cover card-image" />
+            {{-- <img src="/images/photo1.jpg" alt="Card 1" class="w-full h-full object-cover card-image" /> --}}
             <div class="absolute inset-0 pointer-events-none z-10">
               <div class="absolute right-0 top-0 h-full w-10 bg-gradient-to-l  group-hover:from-transparent group-hover:to-transparent transition-all duration-300"></div>
             </div>
@@ -220,9 +220,9 @@
           </div>
 
           <!-- Card 2: UI/UX -->
-          <a class="group card relative overflow-hidden shadow-lg over:scale-105" href="{{ route('label') }}">
+          <a class="group card relative overflow-hidden shadow-lg over:scale-105 bg-noise" href="{{ route('label') }}">
             <div class="line absolute top-0 left-0 h-[2px] bg-white w-full" style="width: 0%; visibility: hidden;"></div>
-            <img src="/images/photo2.jpg" alt="Card 1" class="w-full h-full object-cover card-image " />
+            {{-- <img src="/images/photo2.jpg" alt="Card 1" class="w-full h-full object-cover card-image " /> --}}
             <div class="absolute inset-0 pointer-events-none z-10">
               <div class="absolute right-0 top-0 h-full w-10 bg-gradient-to-l  group-hover:from-transparent group-hover:to-transparent transition-all duration-1000"></div>
             </div>
@@ -233,9 +233,9 @@
           </a>
 
           <!-- Card 3: AUDIOPOST -->
-          <a class="group card relative overflow-hidden shadow-lg over:scale-105" href="{{ route('audiopost') }}">
+          <a class="group card relative overflow-hidden shadow-lg over:scale-105 bg-noise" href="{{ route('audiopost') }}">
             <div class="line absolute top-0 left-0 h-[2px] bg-white w-full" style="width: 0%; visibility: hidden;"></div>
-            <img src="/images/photo3.jpg" alt="Card 1" class="w-full h-full object-cover card-image" />
+            {{-- <img src="/images/photo3.jpg" alt="Card 1" class="w-full h-full object-cover card-image" /> --}}
             <div class="absolute inset-0 pointer-events-none z-10">
               <div class="absolute right-0 top-0 h-full w-10 bg-gradient-to-l  group-hover:from-transparent group-hover:to-transparent transition-all duration-1000"></div>
             </div>
@@ -246,9 +246,9 @@
           </a>
 
           <!-- Card 4: UI/UX -->
-          <div class="group card relative overflow-hidden shadow-lg over:scale-105 ">
+          <div class="group card relative overflow-hidden shadow-lg over:scale-105 bg-noise">
             <div class="line absolute top-0 left-0 h-[2px] bg-white w-full" style="width: 0%; visibility: hidden;"></div>
-            <img src="/images/photo4.jpg" alt="Card 1" class="w-full h-full object-cover card-image" />
+            {{-- <img src="/images/photo4.jpg" alt="Card 1" class="w-full h-full object-cover card-image" /> --}}
             <div class="absolute inset-0 pointer-events-none z-10">
               <div class="absolute right-0 top-0 h-full w-10 bg-gradient-to-l  group-hover:from-transparent group-hover:to-transparent transition-all duration-300"></div>
             </div>
@@ -428,7 +428,7 @@
               </div>
 
               <div 
-                class="text-justify tracking-[0.02em] w-[40%] sm:w-[200px] h-full text-[12px] sm:text-[16px] lg:text-[18px] xl:text-[20px] absolute duration-400 transition-all z-0 px-2 sm:px-3 py-2 sm:py-3"
+                class="text-start tracking-[0.02em] w-[40%] sm:w-[200px] h-full text-[12px] sm:text-[16px] lg:text-[18px] xl:text-[20px] absolute duration-400 transition-all z-0 px-2 sm:px-3 py-2 sm:py-3"
                 :class="{
                   'opacity-100 xl:right-[17%] md:right-[0%%] right-[0%]': open, 
                   'opacity-0 right-[70%]': !open
@@ -457,7 +457,7 @@
                 <p class="font-anton text-white text-[40px] sm:text-[55px] lg:text-[70px] mb-[-6px] fade-item">Adam</p>
               </div>
               <div 
-                class="text-justify tracking-[0.05em] w-[40%] sm:w-[200px] h-full text-[12px] sm:text-[16px] lg:text-[18px] xl:text-[20px] absolute duration-400 transition-all z-0 px-2 sm:px-3 py-2 sm:py-3"
+                class="text-end tracking-[0.05em] w-[40%] sm:w-[200px] h-full text-[12px] sm:text-[16px] lg:text-[18px] xl:text-[20px] absolute duration-400 transition-all z-0 px-2 sm:px-3 py-2 sm:py-3"
                 :class="{
                   'opacity-100 xl:left-[17%] md:left-[0%%] left-[0%]': open, 
                   'opacity-0 left-[70%]': !open

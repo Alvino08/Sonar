@@ -1,0 +1,1 @@
+document.addEventListener("DOMContentLoaded",function(){const n=document.getElementById("menuToggle"),e=document.getElementById("sidebarMenu"),t=document.getElementById("closeMenu");n&&e&&t&&(n.addEventListener("click",()=>{e.classList.remove("-translate-x-full")}),t.addEventListener("click",()=>{e.classList.add("-translate-x-full")}))});

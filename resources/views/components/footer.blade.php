@@ -62,7 +62,7 @@
         <span class="w-full flex flex-col items-center gap-4 md:flex-row md:justify-between">
     <!-- Kiri -->
     <span class="block text-sm text-gray-500 dark:text-gray-400 text-center md:text-left">
-        © 2023 <a href="https://flowbite.com/" class="hover:underline">Flowbite™</a>. All Rights Reserved.
+        © 2025 <a href="https://flowbite.com/" class="hover:underline">Sonar Inc™</a>. All Rights Reserved.
     </span>
 
     <!-- Kanan -->

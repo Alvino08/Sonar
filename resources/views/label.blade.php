@@ -36,7 +36,7 @@
         }
         
         .stock-ticker {
-        font-size: clamp(24px, 8vw, 96px); /* min 24px, naik sesuai layar, max 96px */
+        font-size: clamp(24px, 8vw, 48px); /* min 24px, naik sesuai layar, max 96px */
         padding-block: 8px;
         overflow: hidden;
         user-select: none;
@@ -169,8 +169,8 @@
         {{-- <div id="scroll-area" style="height: 400vh;"></div> --}}
 
 
-        <div class="min-h-screen w-full bg-noise overflow-hidden">
-            <div class="stock-ticker bg-noise2 font-anton tracking-[0.75em]">
+        <div class="min-h-screen w-full bg-noise overflow-hidden lg:pt-10 lg:px-10">
+            {{-- <div class="stock-ticker font-worksans mt-10">
                 <ul>
                     <li>
                         <span class="company">RELEASES</span>
@@ -272,6 +272,12 @@
                         <span class="company">•</span>
                     </li>
                 </ul>
+            </div> --}}
+
+            <div class=" w-screen px-10 flex justify-center lg:justify-start">
+                <div class="font-anton lg:text-[128px] text-6xl  mt-25 text-white mb-10 animate-submit overflow-hidden">
+                    <p>RELEASES</p>
+                </div>
             </div>
 
             
@@ -287,8 +293,8 @@
                                 <div class="w-[500px] h-[300px] text-[20px] absolute duration-400 opacity-0 
                                             group-hover:opacity-100 transition-all z-0 right-[100%] group-hover:right-[-167%] 
                                             flex flex-col justify-end">
-                                    <p class="font-anton text-8xl m-0">RAGA</p>
-                                    <p class="font-worksans text-6xl mt-[-8px]">Suara Kelana</p>
+                                    <p class="font-anton text-[70px] mb-[-30px]">RAGA</p>
+                                    <p class="font-worksans text-[40px]">Suara Kelana</p>
                                 </div>
                             </div>
                         </div>
@@ -303,8 +309,8 @@
                                 <div class="w-[300px] h-[300px] text-[20px] absolute duration-400 opacity-0 
                                             group-hover:opacity-100 transition-all z-0 left-[100%] group-hover:left-[-100%] 
                                             flex flex-col justify-end text-end">
-                                    <p class=" font-anton text-8xl m-0">TO FLY</p>
-                                    <p class=" font-worksans text-6xl mt-[-8px]">RZL</p>
+                                    <p class=" font-anton text-[70px] mb-[-30px] ">TO FLY</p>
+                                    <p class=" font-worksans text-[40px] ">RZL</p>
                                 </div>
                             </div>
                         </div>
@@ -319,8 +325,8 @@
                                 <div class="w-[300px] h-[300px] text-[20px] absolute duration-400 opacity-0 
                                             group-hover:opacity-100 transition-all z-0 right-[100%] group-hover:right-[-100%] 
                                             flex flex-col justify-end">
-                                    <p class="font-anton text-8xl m-0">TAIYO</p>
-                                    <p class="font-workSans text-6xl mt-[-8px]">LANKEI</p>
+                                    <p class="font-anton text-[70px] mb-[-30px] ">TAIYO</p>
+                                    <p class="font-workSans text-[40px] ">LANKEI</p>
                                 </div>
                             </div>
                         </div>
@@ -337,8 +343,8 @@
                                 <div class="w-[500px] h-[300px] text-[20px] absolute duration-400 opacity-0 
                                             group-hover:opacity-100 transition-all z-0 right-[100%] group-hover:right-[-167%] 
                                             flex flex-col justify-end">
-                                    <p class="font-anton text-8xl m-0">RUANG ILUSI</p>
-                                    <p class="font-worksans text-6xl mt-[-8px]">Suara Kelana</p>
+                                    <p class="font-anton text-[70px] mb-[-30px] ">RUANG ILUSI</p>
+                                    <p class="font-worksans text-[40px] ">Suara Kelana</p>
                                 </div>
                             </div>
                         </div>
@@ -353,8 +359,8 @@
                                 <div class="w-[500px] h-[300px] text-[20px] absolute duration-400 opacity-0 
                                             group-hover:opacity-100 transition-all z-0 left-[100%] group-hover:left-[-167%] 
                                             flex flex-col justify-end text-end">
-                                    <p class="font-anton text-8xl m-0">FANA</p>
-                                    <p class="font-workSans text-6xl mt-[-8px]">Ibam Adam</p>
+                                    <p class="font-anton text-[70px] mb-[-30px] ">FANA</p>
+                                    <p class="font-workSans text-[40px] ">Ibam Adam</p>
                                 </div>
                             </div>
                         </div>
@@ -369,8 +375,8 @@
                                 <div class="w-[300px] h-[300px] text-[20px] absolute duration-400 opacity-0 
                                             group-hover:opacity-100 transition-all z-0 right-[100%] group-hover:right-[-100%] 
                                             flex flex-col justify-end">
-                                    <p class="font-anton text-8xl m-0">KEMBALI</p>
-                                    <p class="font-workSans text-6xl mt-[-8px]">LANKEI</p>
+                                    <p class="font-anton text-[70px] mb-[-30px] ">KEMBALI</p>
+                                    <p class="font-workSans text-[40px] ">LANKEI</p>
                                 </div>
                             </div>
                         </div>
@@ -456,39 +462,120 @@
 
         <!-- section desktop -->
         <section class="hidden xl:block">
-            <div class="h-screen w-full bg-[#3a3a3a] py-5 px-20 overflow-hidden">
-                <div class="w-full font-anton text-[#f8f8f8] text-[128px] tracking-tight">
+            <div class="h-screen w-full bg-[#3a3a3a] py-5 px-20 overflow-hidden z-20" >
+                <div class="w-full font-anton text-[#f8f8f8] text-[128px] tracking-tight z-20">
                     <p>ARTIST</p>
                 </div>
 
                 <div class="w-full flex flex-col text-[40pt] font-worksans font-bold mt-10 text-[#f8f8f8]">
-                    <div class="w-[500px] hover:text-[75pt] hover:w-[800px] duration-500 mb-5 flex group relative">
+                    {{-- <div class="w-[500px] hover:text-[75pt] hover:w-[800px] duration-500 mb-5 flex group relative">
                         <a class="hover:h-[150px]" href="https://open.spotify.com/intl-id/artist/0djfXKhDl6BI58Whv32kea" target="_blank" rel="noopener noreferrer">SUARA KELANA</a>
 
                         <!-- Foto muncul di tengah layar -->
                         <img src="/Kelana/Spotify Avatar OPT 1.png" 
                             alt="To Fly album cover"
-                            class="opacity-0 group-hover:opacity-100 absolute left-200 w-[300px] h-[300px] object-cover duration-500 group-hover:top-8 transition-all z-0 top-10 pointer-events-none group-hover:pointer-events-auto">
+                            class="opacity-0 group-hover:opacity-100 absolute w-screen h-screen object-cover duration-500 group-hover:top-8 transition-all z-0 top-10 pointer-events-none group-hover:pointer-events-auto">
+                    </div> --}}
+
+                    <div class="w-[500px] hover:text-[75pt] hover:w-[800px] duration-500 mb-5 flex group relative z-10">
+                        <a class="hover:h-[150px] relative z-20" 
+                            href="https://open.spotify.com/intl-id/artist/0djfXKhDl6BI58Whv32kea" 
+                            target="_blank" 
+                            rel="noopener noreferrer">
+                            SUARA KELANA
+                        </a>
+
+                        <!-- Foto background -->
+                        <img src="/Kelana/Spotify Avatar OPT 1.png" 
+                            alt="To Fly album cover"
+                            class="opacity-0 group-hover:opacity-100 fixed inset-0 w-screen h-screen object-cover duration-500 transition-all z-0 pointer-events-none">
+
+                        <!-- Info box -->
+                        <div class="opacity-0 group-hover:opacity-100 absolute left-300 top-8 min-w-[500px] min-h-[200px] 
+                                    flex flex-col items-center justify-center text-center
+                                    duration-500 transition-all z-20 pointer-events-none group-hover:pointer-events-auto ">
+                            
+                            <p class="text-[25pt]">Jakarta, Indonesia</p>
+                            <p class="text-[15pt]">Electronic Pop Ambient</p>
+                        </div>
                     </div>
 
-                    <div class="w-[500px] hover:text-[75pt] hover:w-[800px] hover:h-[150px] duration-500 mb-5 group relative">
-                        <a href="https://open.spotify.com/intl-id/artist/0EoJdO68QocXlLBO8B50Av" target="_blank" rel="noopener noreferrer">IBAM ADAM</a>
+
+                    {{-- <div class="w-[500px] hover:text-[75pt] hover:w-[800px] hover:h-[150px] duration-500 mb-5 group relative z-20">
+                        <a href="https://open.spotify.com/intl-id/artist/0EoJdO68QocXlLBO8B50Av" target="_blank" rel="noopener noreferrer" class="z-20">IBAM ADAM</a>
                         <img src="/Kelana/P1040444.jpg" 
                             alt="To Fly album cover"
                             class="opacity-0 group-hover:opacity-100 absolute left-160 w-[300px] h-[300px] object-cover duration-500 transition-all group-hover:top-8 z-0 top-10 pointer-events-none group-hover:pointer-events-auto">
                     </div>
-                    <div class="w-[300px] hover:text-[75pt] hover:w-[600px] hover:h-[150px] duration-500 mb-5 group relative">
-                        <a href="https://open.spotify.com/intl-id/artist/4IAohotRVmqywseyr3HBYK" target="_blank" rel="noopener noreferrer">LANKEI</a>
+                    <div class="w-[300px] hover:text-[75pt] hover:w-[600px] hover:h-[150px] duration-500 mb-5 group relative z-20">
+                        <a href="https://open.spotify.com/intl-id/artist/4IAohotRVmqywseyr3HBYK" target="_blank" rel="noopener noreferrer" class="z-20">LANKEI</a>
                         <img src="/Kelana/P1040503.jpg" 
                             alt="To Fly album cover"
                             class="opacity-0 group-hover:opacity-100 absolute left-100 w-[300px] h-[300px] object-cover duration-500 transition-all group-hover:top-8 z-0 top-10 pointer-events-none group-hover:pointer-events-auto">
                     </div>
-                    <div class="w-[300px] hover:text-[75pt] hover:w-[600px] hover:h-[150px] duration-500 mb-5 group relative">
+                    <div class="w-[300px] hover:text-[75pt] hover:w-[600px] hover:h-[150px] duration-500 mb-5 group relative z-20">
                         <a href="https://open.spotify.com/intl-id/artist/1ObjWAMyImOytrPADQgtni" target="_blank" rel="noopener noreferrer">RZL</a>
                         <img src="/Kelana/P1040532.jpg" 
                             alt="To Fly album cover"
                             class="opacity-0 group-hover:opacity-100 absolute left-50 w-[300px] h-[300px] object-cover duration-500 transition-all group-hover:top-8 z-0 top-10 pointer-events-none group-hover:pointer-events-auto">
+                    </div> --}}
+
+                    <div class="w-[500px] hover:text-[75pt] hover:w-[800px] duration-500 mb-5 flex group relative">
+                    <a class="hover:h-[150px] relative z-20" 
+                        href="https://open.spotify.com/intl-id/artist/0EoJdO68QocXlLBO8B50Av" 
+                        target="_blank" 
+                        rel="noopener noreferrer">
+                        IBAM ADAM
+                    </a>
+                    <img src="/Kelana/P1040444.jpg" 
+                        alt="Cover"
+                        class="opacity-0 group-hover:opacity-100 fixed inset-0 w-screen h-screen object-cover duration-500 transition-all z-0 pointer-events-none">
+                    <div class="opacity-0 group-hover:opacity-100 absolute left-300 top-8 min-w-[500px] min-h-[200px] 
+                                flex flex-col items-center justify-center text-center 
+                                duration-500 transition-all z-20 pointer-events-none group-hover:pointer-events-auto">
+                        <p class="text-[25pt]">Bandung, Indonesia</p>
+                        <p class="text-[15pt]">Indie Folk</p>
                     </div>
+                    </div>
+
+                    <!-- LANKEI -->
+                    <div class="w-[500px] hover:text-[75pt] hover:w-[800px] duration-500 mb-5 flex group relative">
+                    <a class="hover:h-[150px] relative z-20" 
+                        href="https://open.spotify.com/intl-id/artist/4IAohotRVmqywseyr3HBYK" 
+                        target="_blank" 
+                        rel="noopener noreferrer">
+                        LANKEI
+                    </a>
+                    <img src="/Kelana/P1040503.jpg" 
+                        alt="Cover"
+                        class="opacity-0 group-hover:opacity-100 fixed inset-0 w-screen h-screen object-cover duration-500 transition-all z-0 pointer-events-none">
+                    <div class="opacity-0 group-hover:opacity-100 absolute left-300 top-8 min-w-[500px] min-h-[200px] 
+                                flex flex-col items-center justify-center text-center 
+                                duration-500 transition-all z-20 pointer-events-none group-hover:pointer-events-auto">
+                        <p class="text-[25pt]">Surabaya, Indonesia</p>
+                        <p class="text-[15pt]">Alternative Rock</p>
+                    </div>
+                    </div>
+
+                    <!-- RZL -->
+                    <div class="w-[500px] hover:text-[75pt] hover:w-[800px] duration-500 mb-5 flex group relative">
+                    <a class="hover:h-[150px] relative z-20" 
+                        href="https://open.spotify.com/intl-id/artist/1ObjWAMyImOytrPADQgtni" 
+                        target="_blank" 
+                        rel="noopener noreferrer">
+                        RZL
+                    </a>
+                    <img src="/Kelana/P1040532.jpg" 
+                        alt="Cover"
+                        class="opacity-0 group-hover:opacity-100 fixed inset-0 w-screen h-screen object-cover duration-500 transition-all z-0 pointer-events-none">
+                    <div class="opacity-0 group-hover:opacity-100 absolute left-300 top-8 min-w-[500px] min-h-[200px] 
+                                flex flex-col items-center justify-center text-center 
+                                duration-500 transition-all z-20 pointer-events-none group-hover:pointer-events-auto">
+                        <p class="text-[25pt]">Malang, Indonesia</p>
+                        <p class="text-[15pt]">Hip Hop</p>
+                    </div>
+                    </div>
+
                 </div>
 
             </div>

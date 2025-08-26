@@ -207,6 +207,7 @@
                         title="{{ $post->nama_projek }}"
                         frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        tabindex="-1"
                         allowfullscreen
                       ></iframe>
                     </div>
@@ -603,19 +604,7 @@ function onYouTubeIframeAPIReady() {
         'onReady': (event) => {
           console.log(`Player ${index} ready`);
         },
-        // 'onStateChange': (event) => {
-        //   console.log(`Player ${index} state changed to: `, event.data);
 
-        //   if (!hasUserStarted && event.data === YT.PlayerState.PLAYING) {
-        //     console.log("User started video playback for the first time");
-        //     hasUserStarted = true;
-        //   }
-
-        //   // Jika video berakhir
-        //   if (event.data === YT.PlayerState.ENDED) {
-        //     goToNextSlide(index);
-        //   }
-        // }
         'onStateChange': (event) => {
           console.log(`Player ${index} state changed to: `, event.data);
 
